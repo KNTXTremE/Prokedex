@@ -12,12 +12,49 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    protected String[] pokemonName = {"Bulbasaur","Ivysaur",
+            "Venusaur","Charmander",
+            "Charmeleon", "Charizard",
+            "Squirtle","Wartortle",
+            "Blastoise"};
+
+    protected String[] pokemonNameJap = {"フシギダネ\nFushigidane","フシギソウ\nFushigisou",
+            "フシギバナ\nFushigibana","ヒトカゲ\nHitokage",
+            "リザード\nLizardo", "リザードン\nLizardon",
+            "ゼニガメ\nZenigame","カメール\nKameil",
+            "カメックス\nKamex"};
+
+    protected int[] resId = { R.drawable.p001, R.drawable.p002,
+            R.drawable.p003, R.drawable.p004,
+            R.drawable.p005, R.drawable.p006,
+            R.drawable.p007, R.drawable.p008,
+            R.drawable.p009 };
+
+    protected String[] element1 = {"Grass", "Grass",
+            "Grass", "Fire",
+            "Fire", "Fire",
+            "Water", "Water",
+            "Water"};
+
+    protected String[] element2 = {"Poison", "Poison",
+            "Poison", "",
+            "", "Flying",
+            "", "",
+            ""};
+
+    protected ArrayList<Pokemon> allPokemon = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme_NoActionBar);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -27,7 +64,7 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Coming Soon", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
@@ -40,6 +77,18 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        show_list();
+    }
+
+    private void show_list() {
+        for(int i = 0; i < resId.length; i++){
+            Pokemon pkm = new Pokemon(pokemonName[i], pokemonNameJap[i], resId[i], element1[i], element2[i]);
+            allPokemon.add(pkm);
+        }
+        ListAdapter adapter = new PokemonListAdapter(getApplicationContext(), allPokemon);
+        ListView data_view = (ListView)this.findViewById(R.id.pokemon_list);
+        data_view.setAdapter(adapter);
     }
 
     @Override
