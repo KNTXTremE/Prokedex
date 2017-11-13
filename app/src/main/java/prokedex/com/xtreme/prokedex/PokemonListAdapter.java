@@ -1,4 +1,4 @@
-package com.xtreme.prokedex;
+package prokedex.com.xtreme.prokedex;
 
 import android.content.Context;
 import android.view.LayoutInflater;
