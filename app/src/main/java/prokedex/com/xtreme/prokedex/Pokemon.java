@@ -1,4 +1,4 @@
-package com.xtreme.prokedex;
+package prokedex.com.xtreme.prokedex;
 
 /**
  * Created by KanTLovE on 11/13/2017.
@@ -58,4 +58,5 @@ public class Pokemon {
     public void setElement2(String element2) {
         this.element2 = element2;
     }
+
 }
