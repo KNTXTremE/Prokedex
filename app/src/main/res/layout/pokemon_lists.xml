@@ -16,7 +16,7 @@
         android:scaleType="matrix" />
 
     <LinearLayout
-        android:layout_width="187dp"
+        android:layout_width="166dp"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
@@ -40,15 +40,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:layout_marginTop="5dp"
             android:layout_weight="1"
             android:fontFamily="sans-serif-condensed"
             android:gravity="center_vertical"
             android:text="NameJap"
             android:textColor="#000000"
-            android:textSize="18sp" />
+            android:textSize="17sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -60,9 +60,9 @@
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginBottom="2.5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:layout_marginTop="5dp"
             android:layout_weight="1"
             android:fontFamily="sans-serif-condensed"
@@ -75,10 +75,10 @@
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginBottom="2.5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="2.5dp"
             android:layout_weight="1"
             android:fontFamily="sans-serif-condensed"
             android:gravity="center_vertical"
@@ -89,6 +89,10 @@
         <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="2.5dp"
             android:layout_weight="1"
             android:fontFamily="sans-serif-condensed"
             android:text="Mark as caught" />
