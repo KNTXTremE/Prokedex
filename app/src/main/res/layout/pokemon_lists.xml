@@ -118,7 +118,9 @@
             android:layout_marginTop="2.5dp"
             android:layout_weight="1"
             android:fontFamily="sans-serif-condensed"
-            android:text="Mark as caught" />
+            android:text="Caught"
+            android:textColor="#000000"
+            android:textSize="16sp"/>
 
     </LinearLayout>
 
