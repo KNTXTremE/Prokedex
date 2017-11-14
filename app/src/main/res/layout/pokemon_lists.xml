@@ -29,9 +29,11 @@
             android:layout_marginRight="20dp"
             android:layout_marginTop="5dp"
             android:layout_weight="1"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_vertical"
             android:text="Name"
             android:textColor="#000000"
-            android:textSize="20sp" />
+            android:textSize="22sp" />
 
         <TextView
             android:id="@+id/textView2"
@@ -42,9 +44,11 @@
             android:layout_marginRight="20dp"
             android:layout_marginTop="5dp"
             android:layout_weight="1"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_vertical"
             android:text="NameJap"
             android:textColor="#000000"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -61,9 +65,11 @@
             android:layout_marginRight="20dp"
             android:layout_marginTop="5dp"
             android:layout_weight="1"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_vertical"
             android:text="Type1"
             android:textColor="#000000"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/textView4"
@@ -74,9 +80,19 @@
             android:layout_marginRight="20dp"
             android:layout_marginTop="5dp"
             android:layout_weight="1"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_vertical"
             android:text="Type2"
             android:textColor="#000000"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
+
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Mark as caught" />
+
     </LinearLayout>
 
 </LinearLayout>
