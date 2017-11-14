@@ -3,6 +3,8 @@ package prokedex.com.xtreme.prokedex;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -77,11 +79,22 @@ public class MainActivity extends AppCompatActivity
         show_list();
     }
 
-    private void show_list() {
+    private ArrayList<Pokemon> getData(){
+        ArrayList<Pokemon> allPokemon = new ArrayList<>();
         for(int i = 0; i < resId.length; i++){
             Pokemon pkm = new Pokemon(pokemonName[i], pokemonNameJap[i], resId[i], element1[i], element2[i]);
             allPokemon.add(pkm);
         }
+        return allPokemon;
+    }
+
+    private void show_list() {
+        RecyclerView recyclerPokemonView = (RecyclerView) this.findViewById((R.id.pokemon_list_recycle));
+        recyclerPokemonView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+
+        PokemonListAdapter adapter = new PokemonListAdapter(this, getData());
+
+        recyclerPokemonView.setAdapter(adapter);
     }
 
     @Override
