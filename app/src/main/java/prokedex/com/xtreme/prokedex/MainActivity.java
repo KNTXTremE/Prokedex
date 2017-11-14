@@ -12,8 +12,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ListAdapter;
-import android.widget.ListView;
 
 import java.util.ArrayList;
 
@@ -50,8 +48,6 @@ public class MainActivity extends AppCompatActivity
             "", "",
             ""};
 
-    protected ArrayList<Pokemon> allPokemon = new ArrayList<>();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme_NoActionBar);
@@ -86,9 +82,6 @@ public class MainActivity extends AppCompatActivity
             Pokemon pkm = new Pokemon(pokemonName[i], pokemonNameJap[i], resId[i], element1[i], element2[i]);
             allPokemon.add(pkm);
         }
-        ListAdapter adapter = new PokemonListAdapter(getApplicationContext(), allPokemon);
-        ListView data_view = (ListView)this.findViewById(R.id.pokemon_list);
-        data_view.setAdapter(adapter);
     }
 
     @Override
