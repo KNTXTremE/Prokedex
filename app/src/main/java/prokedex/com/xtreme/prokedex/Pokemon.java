@@ -10,6 +10,7 @@ public class Pokemon {
     protected int resId;
     protected String element1;
     protected String element2;
+    protected boolean isCaught;
 
     public Pokemon(String name, String nameJap, int resId, String element1, String element2){
         this.name = name;
@@ -17,6 +18,7 @@ public class Pokemon {
         this.resId = resId;
         this.element1 = element1;
         this.element2 = element2;
+        this.isCaught = false;
     }
 
     public String getName() {
@@ -57,6 +59,14 @@ public class Pokemon {
 
     public void setElement2(String element2) {
         this.element2 = element2;
+    }
+
+    public boolean isCaught() {
+        return isCaught;
+    }
+
+    public void setCaught(boolean caught) {
+        this.isCaught = caught;
     }
 
 }
