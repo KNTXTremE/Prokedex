@@ -26,7 +26,7 @@ public class AllItems {
             "ゼニガメ\nZenigame","カメール\nKameil",
             "カメックス\nKamex", "キャタピー \nCaterpie",
             "トランセル\nTrancell", "バタフリー\nButterfree",
-            "ビードル\nBeedle", "ビードル\nBeedle",
+            "ビードル\nBeedle", "コクーン\nCocoon",
             "スピアー\nSpear", "ポッポ\nPoppo",
             "ピジョン\nPigeon", "ピジョット\nPigeot",
             "コラッタ\nKoratta ", "ラッタ\nRatta"};
