@@ -33,7 +33,8 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder viewHolder, int position) {
+    public void onBindViewHolder(final MyViewHolder viewHolder, final int position) {
+        viewHolder.pokemonId.setText("#" + String.format("%03d", position+1));
         viewHolder.name.setText(pokemons.get(position).getName());
         viewHolder.nameJap.setText(pokemons.get(position).getNameJap());
         viewHolder.element1.setText(pokemons.get(position).getElement1());
@@ -66,6 +67,7 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
+        protected TextView pokemonId;
         protected TextView name;
         protected TextView nameJap;
         protected TextView element1;
@@ -75,6 +77,7 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
 
         private MyViewHolder(View v) {
             super(v);
+            this.pokemonId = v.findViewById(R.id.id);
             this.name = (TextView) v.findViewById(R.id.textView1);
             this.nameJap = (TextView) v.findViewById(R.id.textView2);
             this.element1 = (TextView) v.findViewById(R.id.textView3);
