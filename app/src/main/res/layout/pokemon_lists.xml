@@ -6,122 +6,144 @@
     android:gravity="center_vertical"
     android:orientation="horizontal">
 
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_margin="10dp"
-        android:background="@drawable/ic_launcher"
-        android:cropToPadding="false"
-        android:scaleType="matrix" />
-
-    <LinearLayout
-        android:layout_width="166dp"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        card_view:cardBackgroundColor="#e9e9e9"
+        card_view:cardCornerRadius="7dp"
+        card_view:cardElevation="3dp"
+        card_view:cardUseCompatPadding="true" >
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0"
+            android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/id"
-                android:layout_width="93dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="0dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="2.5dp"
-                android:layout_marginTop="5dp"
-                android:layout_weight="1"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center_vertical"
-                android:text="#XXX"
-                android:textColor="#3c3c3c"
-                android:textSize="18sp"
-                android:textStyle="italic" />
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="5dp"
+                android:layout_weight="0"
+                android:background="@drawable/ic_launcher"
+                android:cropToPadding="false"
+                android:scaleType="matrix" />
 
-            <TextView
-                android:id="@+id/textView1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="2.5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="5dp"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center_vertical"
-                android:text="Name"
-                android:textColor="#000000"
-                android:textSize="20sp" />
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="0dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="2.5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center_vertical"
+                        android:text="#XXX"
+                        android:textColor="#3c3c3c"
+                        android:textSize="18sp"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:id="@+id/textView1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="2.5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center_vertical"
+                        android:text="Name"
+                        android:textColor="#000000"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center_vertical"
+                    android:text="NameJap"
+                    android:textColor="#000000"
+                    android:textSize="17sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2.5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center_vertical"
+                    android:text="Type1"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2.5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="2.5dp"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center_vertical"
+                    android:text="Type2"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+                <CheckBox
+                    android:id="@+id/is_caught"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="2.5dp"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="Caught"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_weight="1"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center_vertical"
-            android:text="NameJap"
-            android:textColor="#000000"
-            android:textSize="17sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="2.5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_weight="1"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center_vertical"
-            android:text="Type1"
-            android:textColor="#000000"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="2.5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="2.5dp"
-            android:layout_weight="1"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center_vertical"
-            android:text="Type2"
-            android:textColor="#000000"
-            android:textSize="18sp" />
-
-        <CheckBox
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="2.5dp"
-            android:layout_weight="1"
-            android:fontFamily="sans-serif-condensed"
-            android:text="Caught"
-            android:textColor="#000000"
-            android:textSize="16sp"/>
-
-    </LinearLayout>
+    </android.support.v7.widget.CardView>
 
 </LinearLayout>
