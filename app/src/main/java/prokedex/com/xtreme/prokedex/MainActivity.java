@@ -148,4 +148,9 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    public void onFragmentInteraction(String title) {
+        // NOTE:  Code to replace the toolbar title based current visible fragment
+        getSupportActionBar().setTitle(title);
+    }
 }
