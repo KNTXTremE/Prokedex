@@ -3,6 +3,8 @@ package prokedex.com.xtreme.prokedex;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -18,7 +20,8 @@ import android.view.MenuItem;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements PokedexFragment.OnFragmentInteractionListener,
+        NavigationView.OnNavigationItemSelectedListener {
 
     RecyclerView recyclerPokemonView;
     ArrayList<Pokemon> allPokemon;
@@ -51,6 +54,14 @@ public class MainActivity extends AppCompatActivity
 
         AllItems.addElements();
         show_list();
+
+        //NOTE:  Checks first item in the navigation drawer initially
+        navigationView.setCheckedItem(R.id.nav_pokedex);
+
+        //NOTE:  Open fragment1 initially.
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.mainFrame, new PokedexFragment());
+        ft.commit();
     }
 
     private ArrayList<Pokemon> getData(){
@@ -110,19 +121,27 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        Fragment fragment = null;
 
         if (id == R.id.nav_pokedex) {
-            // Handle the camera action
+            fragment = new PokedexFragment();
         } else if (id == R.id.nav_movedex) {
-
+            //fragment = new MovedexFragment();
         } else if (id == R.id.nav_itemdex) {
-
+            //fragment = new ItemdexFragment();
         } else if (id == R.id.nav_natures) {
 
         } else if (id == R.id.nav_settings) {
 
         } else if (id == R.id.nav_about) {
 
+        }
+
+        //NOTE: Fragment changing code
+        if (fragment != null) {
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.mainFrame, fragment);
+            ft.commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
