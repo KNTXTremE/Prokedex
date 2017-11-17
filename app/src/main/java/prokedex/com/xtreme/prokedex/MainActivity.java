@@ -14,41 +14,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    protected String[] pokemonName = {"Bulbasaur","Ivysaur",
-            "Venusaur","Charmander",
-            "Charmeleon", "Charizard",
-            "Squirtle","Wartortle",
-            "Blastoise"};
-
-    protected String[] pokemonNameJap = {"フシギダネ\nFushigidane","フシギソウ\nFushigisou",
-            "フシギバナ\nFushigibana","ヒトカゲ\nHitokage",
-            "リザード\nLizardo", "リザードン\nLizardon",
-            "ゼニガメ\nZenigame","カメール\nKameil",
-            "カメックス\nKamex"};
-
-    protected int[] resId = { R.drawable.p001, R.drawable.p002,
-            R.drawable.p003, R.drawable.p004,
-            R.drawable.p005, R.drawable.p006,
-            R.drawable.p007, R.drawable.p008,
-            R.drawable.p009 };
-
-    protected String[] element1 = {"Grass", "Grass",
-            "Grass", "Fire",
-            "Fire", "Fire",
-            "Water", "Water",
-            "Water"};
-
-    protected String[] element2 = {"Poison", "Poison",
-            "Poison", "",
-            "", "Flying",
-            "", "",
-            ""};
+    RecyclerView recyclerPokemonView;
+    ArrayList<Pokemon> allPokemon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,20 +48,20 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        AllItems.addElements();
         show_list();
     }
 
     private ArrayList<Pokemon> getData(){
         ArrayList<Pokemon> allPokemon = new ArrayList<>();
-        for(int i = 0; i < resId.length; i++){
-            Pokemon pkm = new Pokemon(pokemonName[i], pokemonNameJap[i], resId[i], element1[i], element2[i]);
+        for(int i = 0; i < AllItems.getResIds().length; i++){
+            Pokemon pkm = new Pokemon(AllItems.getPokemonName(i), AllItems.getPokemonNameJap(i), AllItems.getResId(i),AllItems.getElement1(i), AllItems.getElement2(i));
             allPokemon.add(pkm);
         }
         return allPokemon;
     }
 
     private void show_list() {
-        RecyclerView recyclerPokemonView = (RecyclerView) this.findViewById((R.id.pokemon_list_recycle));
         recyclerPokemonView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
         PokemonListAdapter adapter = new PokemonListAdapter(this, getData());
