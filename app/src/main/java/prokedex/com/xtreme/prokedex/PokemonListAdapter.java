@@ -39,7 +39,24 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
         viewHolder.element1.setText(pokemons.get(position).getElement1());
         viewHolder.element2.setText(pokemons.get(position).getElement2());
         viewHolder.sprite.setBackgroundResource(pokemons.get(position).getResId());
+        viewHolder.isCaught.setChecked(pokemons.get(position).isCaught());
 
+        viewHolder.isCaught.setTag(position);
+        viewHolder.isCaught.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Integer pos = (Integer) viewHolder.isCaught.getTag();
+
+                if (pokemons.get(pos).isCaught()) {
+                    pokemons.get(pos).setCaught(false);
+                    Toast.makeText(context, "\"" + pokemons.get(pos).getName() + "\" mark as uncaught!", Toast.LENGTH_SHORT).show();
+                } else {
+                    pokemons.get(pos).setCaught(true);
+                    Toast.makeText(context, "\"" + pokemons.get(pos).getName() + "\" mark as caught!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     public int getItemCount(){
@@ -54,6 +71,7 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
         protected TextView element1;
         protected TextView element2;
         protected ImageView sprite;
+        protected CheckBox isCaught;
 
         private MyViewHolder(View v) {
             super(v);
@@ -62,6 +80,7 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
             this.element1 = (TextView) v.findViewById(R.id.textView3);
             this.element2 = (TextView) v.findViewById(R.id.textView4);
             this.sprite = (ImageView) v.findViewById(R.id.imageView1);
+            this.isCaught = (CheckBox) v.findViewById(R.id.is_caught);
         }
     }
 }
