@@ -22,11 +22,13 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
 
     private final LayoutInflater inflater;
     private ArrayList<Pokemon> pokemons;
+    private Context context;
 
 
     public PokemonListAdapter(Context context, ArrayList<Pokemon> pokemons){
         inflater = LayoutInflater.from(context);
         this.pokemons = pokemons;
+        this.context = context;
     }
 
     @Override
