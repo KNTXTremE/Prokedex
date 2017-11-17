@@ -60,7 +60,7 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
     }
 
     public int getItemCount(){
-        return 9;
+        return pokemons.size();
     }
 
 
