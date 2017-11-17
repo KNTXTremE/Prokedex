@@ -8,11 +8,11 @@ public class Pokemon {
     protected String name;
     protected String nameJap;
     protected int resId;
-    protected String element1;
-    protected String element2;
+    protected int element1;
+    protected int element2;
     protected boolean isCaught;
 
-    public Pokemon(String name, String nameJap, int resId, String element1, String element2){
+    public Pokemon(String name, String nameJap, int resId, int element1, int element2){
         this.name = name;
         this.nameJap = nameJap;
         this.resId = resId;
@@ -45,19 +45,19 @@ public class Pokemon {
         this.resId = resId;
     }
 
-    public String getElement1() {
+    public int getElement1() {
         return element1;
     }
 
-    public void setElement1(String element1) {
+    public void setElement1(int element1) {
         this.element1 = element1;
     }
 
-    public String getElement2() {
+    public int getElement2() {
         return element2;
     }
 
-    public void setElement2(String element2) {
+    public void setElement2(int element2) {
         this.element2 = element2;
     }
 
