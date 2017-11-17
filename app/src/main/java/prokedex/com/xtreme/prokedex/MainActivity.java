@@ -21,6 +21,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
         implements PokedexFragment.OnFragmentInteractionListener,
+        MovedexFragment.OnFragmentInteractionListener,
         NavigationView.OnNavigationItemSelectedListener {
 
     RecyclerView recyclerPokemonView;
@@ -126,7 +127,7 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_pokedex) {
             fragment = new PokedexFragment();
         } else if (id == R.id.nav_movedex) {
-            //fragment = new MovedexFragment();
+            fragment = new MovedexFragment();
         } else if (id == R.id.nav_itemdex) {
             //fragment = new ItemdexFragment();
         } else if (id == R.id.nav_natures) {
