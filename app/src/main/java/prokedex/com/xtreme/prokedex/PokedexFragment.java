@@ -4,9 +4,14 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.ArrayList;
 
 
 /**
@@ -28,6 +33,9 @@ public class PokedexFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+//    RecyclerView recyclerPokemonView;
+//    ArrayList<Pokemon> allPokemon;
 
     public PokedexFragment() {
         // Required empty public constructor
@@ -58,6 +66,9 @@ public class PokedexFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+//        AllItems.addElements();
+//        show_list();
     }
 
     @Override
@@ -90,6 +101,26 @@ public class PokedexFragment extends Fragment {
         super.onDetach();
         mListener = null;
     }
+
+//    private ArrayList<Pokemon> getData(){
+//        ArrayList<Pokemon> allPokemon = new ArrayList<>();
+//        for(int i = 0; i < AllItems.getResIds().length; i++){
+//            Pokemon pkm = new Pokemon(AllItems.getPokemonName(i), AllItems.getPokemonNameJap(i), AllItems.getResId(i),AllItems.getElement1(i), AllItems.getElement2(i));
+//            allPokemon.add(pkm);
+//        }
+//        return allPokemon;
+//    }
+
+//    private void show_list() {
+//        recyclerPokemonView = (RecyclerView) MainActivity.findViewById((R.id.pokemon_list_recycle));
+//        recyclerPokemonView.setHasFixedSize(true);
+//        recyclerPokemonView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+//        recyclerPokemonView.setItemAnimator(new DefaultItemAnimator());
+//        allPokemon = getData();
+//        PokemonListAdapter adapter = new PokemonListAdapter(this, allPokemon);
+//
+//        recyclerPokemonView.setAdapter(adapter);
+//    }
 
     /**
      * This interface must be implemented by activities that contain this
