@@ -1,6 +1,9 @@
 package prokedex.com.xtreme.prokedex;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -26,11 +29,14 @@ public class MainActivity extends AppCompatActivity
 
     RecyclerView recyclerPokemonView;
     ArrayList<Pokemon> allPokemon;
+//    static final String PREF_USER_NAME= "username";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme_NoActionBar);
         super.onCreate(savedInstanceState);
+//        getData();
+
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -154,4 +160,20 @@ public class MainActivity extends AppCompatActivity
         // NOTE:  Code to replace the toolbar title based current visible fragment
         getSupportActionBar().setTitle(title);
     }
+
+//    static SharedPreferences getSharedPreferences(Context ctx) {
+//        return PreferenceManager.getDefaultSharedPreferences(ctx);
+//    }
+//
+//    public static void setData(Context ctx, String userName)
+//    {
+//        SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
+//        editor.putBoolean(PREF_USER_NAME, userName);
+//        editor.commit();
+//    }
+//
+//    public static boolean getData(Context ctx)
+//    {
+//        return getSharedPreferences(ctx).getString(PREF_USER_NAME, "");
+//    }
 }
