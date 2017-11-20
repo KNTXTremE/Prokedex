@@ -1,6 +1,7 @@
 package prokedex.com.xtreme.prokedex;
 
 import android.content.Context;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -56,10 +57,10 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
 
                 if (pokemons.get(pos).isCaught()) {
                     pokemons.get(pos).setCaught(false);
-                    Toast.makeText(context, "\"" + pokemons.get(pos).getName() + "\" mark as uncaught!", Toast.LENGTH_SHORT).show();
+                    Snackbar.make(v, "\"" + pokemons.get(pos).getName() + "\" mark as uncaught!", Snackbar.LENGTH_LONG).show();
                 } else {
                     pokemons.get(pos).setCaught(true);
-                    Toast.makeText(context, "\"" + pokemons.get(pos).getName() + "\" mark as caught!", Toast.LENGTH_SHORT).show();
+                    Snackbar.make(v, "\"" + pokemons.get(pos).getName() + "\" mark as caught!", Snackbar.LENGTH_LONG).show();
                 }
             }
         });
