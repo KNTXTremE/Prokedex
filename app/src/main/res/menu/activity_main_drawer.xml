@@ -31,7 +31,7 @@
             <item
                 android:id="@+id/nav_about"
                 android:checkable="false"
-                android:icon="@android:drawable/ic_menu_info_details"
+                android:icon="@drawable/ic_info_black_24dp"
                 android:title="About" />
         </menu>
     </item>
