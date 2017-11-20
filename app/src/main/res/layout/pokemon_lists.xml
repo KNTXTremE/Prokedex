@@ -10,9 +10,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        card_view:cardBackgroundColor="#e9e9e9"
-        card_view:cardCornerRadius="7dp"
-        card_view:cardElevation="3dp"
+        card_view:cardBackgroundColor="#f5f5f5"
+        card_view:cardCornerRadius="5dp"
+        card_view:cardElevation="2dp"
         card_view:cardUseCompatPadding="true" >
 
         <LinearLayout
@@ -22,8 +22,8 @@
 
             <ImageView
                 android:id="@+id/imageView1"
-                android:layout_width="90dp"
-                android:layout_height="90dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_margin="5dp"
                 android:layout_weight="0"
                 android:background="@drawable/ic_launcher"
