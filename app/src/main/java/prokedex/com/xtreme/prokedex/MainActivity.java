@@ -23,19 +23,15 @@ import android.view.MenuItem;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
-        implements PokedexFragment.OnFragmentInteractionListener,
-        MovedexFragment.OnFragmentInteractionListener,
-        NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     RecyclerView recyclerPokemonView;
     ArrayList<Pokemon> allPokemon;
-//    static final String PREF_USER_NAME= "username";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme_NoActionBar);
         super.onCreate(savedInstanceState);
-//        getData();
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -61,14 +57,6 @@ public class MainActivity extends AppCompatActivity
 
         AllItems.addElements();
         show_list();
-
-        //NOTE:  Checks first item in the navigation drawer initially
-        navigationView.setCheckedItem(R.id.nav_pokedex);
-
-        //NOTE:  Open fragment1 initially.
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.mainFrame, new PokedexFragment());
-        ft.commit();
     }
 
     private ArrayList<Pokemon> getData(){
@@ -131,11 +119,11 @@ public class MainActivity extends AppCompatActivity
         Fragment fragment = null;
 
         if (id == R.id.nav_pokedex) {
-            fragment = new PokedexFragment();
+
         } else if (id == R.id.nav_movedex) {
-            fragment = new MovedexFragment();
+
         } else if (id == R.id.nav_itemdex) {
-            //fragment = new ItemdexFragment();
+
         } else if (id == R.id.nav_natures) {
 
         } else if (id == R.id.nav_settings) {
@@ -144,36 +132,8 @@ public class MainActivity extends AppCompatActivity
 
         }
 
-        //NOTE: Fragment changing code
-        if (fragment != null) {
-            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.mainFrame, fragment);
-            ft.commit();
-        }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
-    public void onFragmentInteraction(String title) {
-        // NOTE:  Code to replace the toolbar title based current visible fragment
-        getSupportActionBar().setTitle(title);
-    }
-
-//    static SharedPreferences getSharedPreferences(Context ctx) {
-//        return PreferenceManager.getDefaultSharedPreferences(ctx);
-//    }
-//
-//    public static void setData(Context ctx, String userName)
-//    {
-//        SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
-//        editor.putBoolean(PREF_USER_NAME, userName);
-//        editor.commit();
-//    }
-//
-//    public static boolean getData(Context ctx)
-//    {
-//        return getSharedPreferences(ctx).getString(PREF_USER_NAME, "");
-//    }
 }
