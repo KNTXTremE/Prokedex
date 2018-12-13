@@ -71,6 +71,7 @@ public class MainActivity extends AppCompatActivity
     private void show_list() {
         recyclerPokemonView = (RecyclerView) this.findViewById((R.id.pokemon_list_recycle));
         recyclerPokemonView.setHasFixedSize(true);
+        recyclerPokemonView.setNestedScrollingEnabled(false);
         recyclerPokemonView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         recyclerPokemonView.setItemAnimator(new DefaultItemAnimator());
         allPokemon = getData();
