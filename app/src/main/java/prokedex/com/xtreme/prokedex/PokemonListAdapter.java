@@ -1,8 +1,10 @@
 package prokedex.com.xtreme.prokedex;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,17 +27,20 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
     private ArrayList<Pokemon> pokemons;
     private Context context;
 
+    private static final String TAG = "RecyclerViewAdapter";
 
     public PokemonListAdapter(Context context, ArrayList<Pokemon> pokemons){
         inflater = LayoutInflater.from(context);
         this.pokemons = pokemons;
         this.context = context;
+
     }
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View itemView = inflater.inflate(R.layout.pokemon_lists, viewGroup, false);
-        return new MyViewHolder(itemView);
+        MyViewHolder viewHolder = new MyViewHolder(itemView);
+        return viewHolder;
     }
 
     @Override
@@ -62,6 +67,18 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
                     pokemons.get(pos).setCaught(true);
                     Snackbar.make(v, "\"" + pokemons.get(pos).getName() + "\" mark as caught!", Snackbar.LENGTH_LONG).show();
                 }
+            }
+        });
+
+        viewHolder.name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "onClick: clicked on: " + pokemons.get(position));
+
+                Intent intent = new Intent(context, PokeDescActivity.class);
+                intent.putExtra("pokemon_name", pokemons.get(position).name);
+                intent.putExtra("imageId", pokemons.get(position).resId);
+                context.startActivity(intent);
             }
         });
     }
@@ -91,5 +108,7 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
             this.sprite = (ImageView) v.findViewById(R.id.imageView1);
             this.isCaught = (CheckBox) v.findViewById(R.id.is_caught);
         }
+
+
     }
 }
