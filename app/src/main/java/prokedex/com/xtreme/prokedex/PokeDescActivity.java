@@ -21,21 +21,21 @@ public class PokeDescActivity extends AppCompatActivity {
 
     private void getIncomingIntent(){
         Log.d(TAG, "getIncomingIntent: check for incoming intents");
-        if(getIntent().hasExtra("pokemon_name") && getIntent().hasExtra("image")){
+        if(getIntent().hasExtra("pokemon_name") && getIntent().hasExtra("imageId")){
             Log.d(TAG, "getIncomingIntent: found intents!");
             String pokemon_name = getIntent().getStringExtra("pokemon_name");
-            String imageId = getIntent().getStringExtra("imageId");
+            int imageId = getIntent().getIntExtra("imageId", 0);
             setItems(pokemon_name, imageId);
 
         }
     }
 
-    private void setItems(String pokemonName, String imageId){
+    private void setItems(String pokemonName, int imageId){
         Log.d(TAG, "setItems: settings items to the widgets");
         TextView name = findViewById(R.id.pokemon_name_desc);
         name.setText(pokemonName);
 
         ImageView image = findViewById(R.id.image_desc);
-        image.setBackgroundResource(Integer.parseInt(imageId));
+        image.setBackgroundResource(imageId);
     }
 }
