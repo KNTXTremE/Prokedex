@@ -8,10 +8,12 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -21,12 +23,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.FrameLayout;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerPokemonView;
     ArrayList<Pokemon> allPokemon;
+    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,19 +131,37 @@ public class MainActivity extends AppCompatActivity {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         Fragment fragment = null;
+//        Class fragmentClass = null;
 
-        if (id == R.id.nav_pokedex) {
+        if (id == R.id.bottom_nav_pokedex) {
+            Log.d(TAG, "selectFragment: Initialize Pokedex fragment");
+            fragment = new PokedexFragment();
+//            fragmentClass = PokedexFragment.class;
+        } else if (id == R.id.bottom_nav_movedex) {
+            Log.d(TAG, "selectFragment: Initialize Movedex fragment");
+            fragment = new MovedexFragment();
+//            fragmentClass = MovedexFragment.class;
+        } else if (id == R.id.bottom_nav_itemdex) {
+//            fragmentClass = PokedexFragment.class;
+        } else if (id == R.id.bottom_nav_natures) {
+//            fragmentClass = PokedexFragment.class;
+        } else if (id == R.id.bottom_nav_more) {
 
-        } else if (id == R.id.nav_movedex) {
+        }
 
-        } else if (id == R.id.nav_itemdex) {
-
-        } else if (id == R.id.nav_natures) {
-
-        } else if (id == R.id.nav_settings) {
-
-        } else if (id == R.id.nav_about) {
-
+//        try {
+//            Log.d(TAG, "selectFragment: Initialize fragment");
+//            fragment = (Fragment) fragmentClass.newInstance();
+//        } catch (Exception e){
+//            e.printStackTrace();
+//        }
+        if(fragment != null){
+//            FrameLayout fl = (FrameLayout) findViewById(R.id.mainFrame);
+//            fl.removeAllViews();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.pokedex_fragment_init, fragment).commit();
+//            item.setChecked(true);
+            setTitle(item.getTitle());
         }
 
 //        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
