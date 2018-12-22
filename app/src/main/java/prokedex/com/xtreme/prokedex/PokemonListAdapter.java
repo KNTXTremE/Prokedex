@@ -3,6 +3,7 @@ package prokedex.com.xtreme.prokedex;
 import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -70,7 +71,7 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
             }
         });
 
-        viewHolder.name.setOnClickListener(new View.OnClickListener() {
+        viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "onClick: clicked on: " + pokemons.get(position));
@@ -90,6 +91,7 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
+        protected CardView cardView;
         protected TextView pokemonId;
         protected TextView name;
         protected TextView nameJap;
@@ -100,6 +102,7 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
 
         private MyViewHolder(View v) {
             super(v);
+            this.cardView = v.findViewById(R.id.cardview);
             this.pokemonId = v.findViewById(R.id.id);
             this.name = (TextView) v.findViewById(R.id.textView1);
             this.nameJap = (TextView) v.findViewById(R.id.textView2);
