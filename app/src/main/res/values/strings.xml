@@ -8,4 +8,9 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="bottom_natures">Natures</string>
+    <string name="bottom_itemdex">ItemDex</string>
+    <string name="bottom_movedex">MoveDex</string>
+    <string name="bottom_pokedex">Pokedex</string>
+    <string name="bottom_more">More</string>
 </resources>
