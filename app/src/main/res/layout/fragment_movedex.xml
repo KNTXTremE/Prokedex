@@ -3,9 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="prokedex.com.xtreme.prokedex.MovedexFragment"
-    android:id="@+id/movedex_fragment">
+    android:background="#FFF"
+    android:clickable="true">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

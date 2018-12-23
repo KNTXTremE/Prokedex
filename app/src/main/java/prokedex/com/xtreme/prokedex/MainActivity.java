@@ -136,31 +136,27 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.bottom_nav_pokedex) {
             Log.d(TAG, "selectFragment: Initialize Pokedex fragment");
             fragment = new PokedexFragment();
-//            fragmentClass = PokedexFragment.class;
         } else if (id == R.id.bottom_nav_movedex) {
             Log.d(TAG, "selectFragment: Initialize Movedex fragment");
             fragment = new MovedexFragment();
-//            fragmentClass = MovedexFragment.class;
         } else if (id == R.id.bottom_nav_itemdex) {
-//            fragmentClass = PokedexFragment.class;
+            Log.d(TAG, "selectFragment: Initialize Itemdex fragment");
+            fragment = new ItemdexFragment();
         } else if (id == R.id.bottom_nav_natures) {
-//            fragmentClass = PokedexFragment.class;
+            Log.d(TAG, "selectFragment: Initialize Natures fragment");
+            fragment = new NaturesFragment();
         } else if (id == R.id.bottom_nav_more) {
+            Log.d(TAG, "selectFragment: Initialize More fragment");
+            fragment = new MoreFragment();
 
         }
 
-//        try {
-//            Log.d(TAG, "selectFragment: Initialize fragment");
-//            fragment = (Fragment) fragmentClass.newInstance();
-//        } catch (Exception e){
-//            e.printStackTrace();
-//        }
         if(fragment != null){
-//            FrameLayout fl = (FrameLayout) findViewById(R.id.mainFrame);
-//            fl.removeAllViews();
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.pokedex_fragment_init, fragment).commit();
-//            item.setChecked(true);
+            FragmentManager manager = getSupportFragmentManager();
+            FragmentTransaction transaction = manager.beginTransaction();
+            transaction.replace(R.id.pokedex_fragment_init, fragment);
+            transaction.commit();
+            item.setChecked(true);
             setTitle(item.getTitle());
         }
 
