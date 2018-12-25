@@ -85,7 +85,7 @@ public class AllItems {
         return resIds[i];
     }
 
-    public static SparseArray<String> getElements() {
+    public static SparseArray<Integer> getElements() {
         return elements;
     }
 
