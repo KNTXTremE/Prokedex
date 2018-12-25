@@ -2,17 +2,23 @@ package prokedex.com.xtreme.prokedex;
 
 import android.util.SparseArray;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by KanTLovE on 11/17/2017.
  */
 
 public class AllItems {
-    private static String[] pokemonNames = {"Bulbasaur","Ivysaur",
-            "Venusaur","Charmander",
+
+    //###POKEDEX
+
+    private static String[] pokemonNames = {"Bulbasaur", "Ivysaur",
+            "Venusaur", "Charmander",
             "Charmeleon", "Charizard",
-            "Squirtle","Wartortle",
+            "Squirtle", "Wartortle",
             "Blastoise", "Caterpie",
             "Metapod", "Butterfree",
             "Weedle", "Kakuna",
@@ -20,10 +26,10 @@ public class AllItems {
             "Pidgeotto", "Pidgeot",
             "Rattata", "Raticate"};
 
-    private static String[] pokemonNameJaps = {"フシギダネ\nFushigidane","フシギソウ\nFushigisou",
-            "フシギバナ\nFushigibana","ヒトカゲ\nHitokage",
+    private static String[] pokemonNameJaps = {"フシギダネ\nFushigidane", "フシギソウ\nFushigisou",
+            "フシギバナ\nFushigibana", "ヒトカゲ\nHitokage",
             "リザード\nLizardo", "リザードン\nLizardon",
-            "ゼニガメ\nZenigame","カメール\nKameil",
+            "ゼニガメ\nZenigame", "カメール\nKameil",
             "カメックス\nKamex", "キャタピー \nCaterpie",
             "トランセル\nTrancell", "バタフリー\nButterfree",
             "ビードル\nBeedle", "コクーン\nCocoon",
@@ -31,7 +37,7 @@ public class AllItems {
             "ピジョン\nPigeon", "ピジョット\nPigeot",
             "コラッタ\nKoratta ", "ラッタ\nRatta"};
 
-    private static int[] resIds = { R.drawable.p001, R.drawable.p002,
+    private static int[] resIds = {R.drawable.p001, R.drawable.p002,
             R.drawable.p003, R.drawable.p004,
             R.drawable.p005, R.drawable.p006,
             R.drawable.p007, R.drawable.p008,
@@ -40,7 +46,7 @@ public class AllItems {
             R.drawable.p013, R.drawable.p014,
             R.drawable.p015, R.drawable.p016,
             R.drawable.p017, R.drawable.p018,
-            R.drawable.p019, R.drawable.p020 };
+            R.drawable.p019, R.drawable.p020};
 
     protected static SparseArray<Integer> elements = new SparseArray<>();
 
