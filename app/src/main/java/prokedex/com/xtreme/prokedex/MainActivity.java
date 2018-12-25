@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
 //        navigationView.setNavigationItemSelectedListener(this);
 
         AllItems.addElements();
+        AllItems.addMoves();
     }
 
 
