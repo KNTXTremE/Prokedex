@@ -4,11 +4,12 @@
     android:layout_height="match_parent"
     tools:context="prokedex.com.xtreme.prokedex.MovedexFragment"
     android:background="#FFF"
-    android:clickable="true">
+    android:clickable="true"
+    android:focusable="true">
 
-    <TextView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/move_list_recycle"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="MOVEDEX FRAGMENT" />
+        android:layout_height="match_parent" />
 
 </FrameLayout>
