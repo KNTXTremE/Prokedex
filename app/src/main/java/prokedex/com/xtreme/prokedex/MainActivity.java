@@ -29,8 +29,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    RecyclerView recyclerPokemonView;
-    ArrayList<Pokemon> allPokemon;
+
     private static final String TAG = "MainActivity";
 
     @Override
@@ -41,6 +40,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        Fragment fragment = new PokedexFragment();
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.add(R.id.pokedex_fragment_init, fragment);
+        transaction.commit();
 
         BottomNavigationView bottomNavView = findViewById(R.id.bottom_navigation);
         bottomNavView.setSelectedItemId(R.id.bottom_nav_pokedex);
@@ -71,29 +75,9 @@ public class MainActivity extends AppCompatActivity {
 //        navigationView.setNavigationItemSelectedListener(this);
 
         AllItems.addElements();
-        show_list();
     }
 
-    private ArrayList<Pokemon> getData(){
-        ArrayList<Pokemon> allPokemon = new ArrayList<>();
-        for(int i = 0; i < AllItems.getResIds().length; i++){
-            Pokemon pkm = new Pokemon(AllItems.getPokemonName(i), AllItems.getPokemonNameJap(i), AllItems.getResId(i),AllItems.getElement1(i), AllItems.getElement2(i));
-            allPokemon.add(pkm);
-        }
-        return allPokemon;
-    }
 
-    private void show_list() {
-        recyclerPokemonView = (RecyclerView) this.findViewById((R.id.pokemon_list_recycle));
-        recyclerPokemonView.setHasFixedSize(true);
-        recyclerPokemonView.setNestedScrollingEnabled(false);
-        recyclerPokemonView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        recyclerPokemonView.setItemAnimator(new DefaultItemAnimator());
-        allPokemon = getData();
-        PokemonListAdapter adapter = new PokemonListAdapter(this, allPokemon);
-
-        recyclerPokemonView.setAdapter(adapter);
-    }
 
 //    @Override
 //    public void onBackPressed() {
