@@ -33,32 +33,16 @@ public class Pokemon {
         return nameJap;
     }
 
-    public void setNameJap(String nameJap) {
-        this.nameJap = nameJap;
-    }
-
     public int getResId() {
         return resId;
-    }
-
-    public void setResId(int resId) {
-        this.resId = resId;
     }
 
     public int getElement1() {
         return element1;
     }
 
-    public void setElement1(int element1) {
-        this.element1 = element1;
-    }
-
     public int getElement2() {
         return element2;
-    }
-
-    public void setElement2(int element2) {
-        this.element2 = element2;
     }
 
     public boolean isCaught() {
