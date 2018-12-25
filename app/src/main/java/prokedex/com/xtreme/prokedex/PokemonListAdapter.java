@@ -49,8 +49,8 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
         viewHolder.pokemonId.setText("#" + String.format("%03d", position+1));
         viewHolder.name.setText(pokemons.get(position).getName());
         viewHolder.nameJap.setText(pokemons.get(position).getNameJap());
-        viewHolder.element1.setText(AllItems.getElements().get(pokemons.get(position).getElement1()));
-        viewHolder.element2.setText(AllItems.getElements().get(pokemons.get(position).getElement2()));
+        viewHolder.element1.setBackgroundResource(AllItems.getElements().get(pokemons.get(position).getElement1()));
+        viewHolder.element2.setBackgroundResource(AllItems.getElements().get(pokemons.get(position).getElement2()));
         viewHolder.sprite.setBackgroundResource(pokemons.get(position).getResId());
         viewHolder.isCaught.setChecked(pokemons.get(position).isCaught());
 
@@ -95,21 +95,21 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
         protected TextView pokemonId;
         protected TextView name;
         protected TextView nameJap;
-        protected TextView element1;
-        protected TextView element2;
+        protected ImageView element1;
+        protected ImageView element2;
         protected ImageView sprite;
         protected CheckBox isCaught;
 
         private MyViewHolder(View v) {
             super(v);
-            this.cardView = v.findViewById(R.id.cardview);
-            this.pokemonId = v.findViewById(R.id.id);
-            this.name = (TextView) v.findViewById(R.id.textView1);
-            this.nameJap = (TextView) v.findViewById(R.id.textView2);
-            this.element1 = (TextView) v.findViewById(R.id.textView3);
-            this.element2 = (TextView) v.findViewById(R.id.textView4);
-            this.sprite = (ImageView) v.findViewById(R.id.imageView1);
-            this.isCaught = (CheckBox) v.findViewById(R.id.is_caught);
+            this.cardView = v.findViewById(R.id.cardview_pokedex);
+            this.pokemonId = v.findViewById(R.id.pokedex_id);
+            this.name = v.findViewById(R.id.pokedex_name);
+            this.nameJap = v.findViewById(R.id.pokedex_name_jap);
+            this.element1 = v.findViewById(R.id.pokedex_element1);
+            this.element2 = v.findViewById(R.id.pokedex_element2);
+            this.sprite = v.findViewById(R.id.pokedex_sprite);
+            this.isCaught = v.findViewById(R.id.pokedex_is_caught);
         }
 
 

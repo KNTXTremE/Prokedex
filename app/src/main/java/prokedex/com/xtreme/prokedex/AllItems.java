@@ -42,7 +42,7 @@ public class AllItems {
             R.drawable.p017, R.drawable.p018,
             R.drawable.p019, R.drawable.p020 };
 
-    protected static SparseArray<String> elements = new SparseArray<>();
+    protected static SparseArray<Integer> elements = new SparseArray<>();
 
     private static int[] element1s = {5, 5, 5, 2, 2, 2, 3, 3, 3, 12,
             12, 12, 12, 12, 12, 1, 1, 1, 1, 1};
@@ -50,26 +50,26 @@ public class AllItems {
     private static int[] element2s = {8, 8, 8, 0, 0, 10, 0, 0, 0, 0,
             0, 10, 8, 8, 8, 10, 10, 10, 0, 0};
 
-    public static SparseArray<String> addElements(){
-        elements.append(0, "");
-        elements.append(1, "Normal");
-        elements.append(2, "Fire");
-        elements.append(3, "Water");
-        elements.append(4, "Eletric");
-        elements.append(5, "Grass");
-        elements.append(6, "Ice");
-        elements.append(7, "Fighting");
-        elements.append(8, "Poison");
-        elements.append(9, "Ground");
-        elements.append(10, "Flying");
-        elements.append(11, "Psychic");
-        elements.append(12, "Bug");
-        elements.append(13, "Rock");
-        elements.append(14, "Ghost");
-        elements.append(15, "Dragon");
-        elements.append(16, "Dark");
-        elements.append(17, "Steel");
-        elements.append(18, "Fairy");
+    public static SparseArray<Integer> addElements() {
+        elements.append(0, R.drawable.type_none);
+        elements.append(1, R.drawable.type_normal);
+        elements.append(2, R.drawable.type_fire);
+        elements.append(3, R.drawable.type_water);
+        elements.append(4, R.drawable.type_electric);
+        elements.append(5, R.drawable.type_grass);
+        elements.append(6, R.drawable.type_ice);
+        elements.append(7, R.drawable.type_fighting);
+        elements.append(8, R.drawable.type_poison);
+        elements.append(9, R.drawable.type_ground);
+        elements.append(10, R.drawable.type_flying);
+        elements.append(11, R.drawable.type_psychic);
+        elements.append(12, R.drawable.type_bug);
+        elements.append(13, R.drawable.type_rock);
+        elements.append(14, R.drawable.type_ghost);
+        elements.append(15, R.drawable.type_dragon);
+        elements.append(16, R.drawable.type_dark);
+        elements.append(17, R.drawable.type_steel);
+        elements.append(18, R.drawable.type_fairy);
         return elements;
     }
 

@@ -98,35 +98,19 @@
                 android:layout_weight="0"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="2.5dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_weight="1"
-                    android:fontFamily="sans-serif-condensed"
-                    android:gravity="center_vertical"
-                    android:text="Type1"
-                    android:textColor="#000000"
-                    android:textSize="14sp" />
+                <ImageView
+                    android:id="@+id/pokedex_element1"
+                    android:layout_width="173px"
+                    android:layout_height="58px"
+                    android:background="@drawable/type_unknown"
+                    android:layout_weight="1"/>
 
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="2.5dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginTop="2.5dp"
-                    android:layout_weight="1"
-                    android:fontFamily="sans-serif-condensed"
-                    android:gravity="center_vertical"
-                    android:text="Type2"
-                    android:textColor="#000000"
-                    android:textSize="14sp" />
+                <ImageView
+                    android:id="@+id/pokedex_element2"
+                    android:layout_width="173px"
+                    android:layout_height="58px"
+                    android:background="@drawable/type_unknown"
+                    android:layout_weight="1" />
 
                 <CheckBox
                     android:id="@+id/is_caught"
