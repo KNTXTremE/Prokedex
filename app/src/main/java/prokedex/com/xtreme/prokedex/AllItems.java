@@ -73,6 +73,20 @@ public class AllItems {
         return elements;
     }
 
+    //###MOVEDEX
+
+    private static String[] moveCategory = {"Physical", "Special", "Status"};
+
+    private static Map<Integer, String[]> moves = new HashMap<>(); //{No.:{"Name","Type in number","category in number","Power","Accuracy"}}
+
+    public static void addMoves() {
+        moves.put(1, new String[]{"1,0000,000 Volt Thunderbolt", "4", "1", "195", "-"});
+        moves.put(2, new String[]{"Absorb", "5", "1", "20", "100"});
+        moves.put(3, new String[]{"Accelerock", "13", "0", "40", "100"});
+        moves.put(4, new String[]{"Acid", "8", "1", "40", "100"});
+        moves.put(5, new String[]{"Acid Armor", "8", "2", "-", "-"});
+    }
+
     public static String getPokemonName(int i) {
         return pokemonNames[i];
     }
@@ -115,5 +129,13 @@ public class AllItems {
 
     public int[] getElement2s() {
         return element2s;
+    }
+
+    public static String[] getMoveCategory() {
+        return moveCategory;
+    }
+
+    public static Map<Integer, String[]> getMoves() {
+        return moves;
     }
 }
