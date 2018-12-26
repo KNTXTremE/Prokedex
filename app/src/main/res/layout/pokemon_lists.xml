@@ -29,7 +29,6 @@
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_margin="15dp"
-                android:layout_weight="0"
                 android:background="@drawable/ic_launcher"
                 android:cropToPadding="false"
                 android:scaleType="matrix" />
@@ -41,20 +40,19 @@
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0"
-                    android:orientation="horizontal">
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:orientation="horizontal"
+                    android:layout_weight="1">
 
                     <TextView
                         android:id="@+id/pokedex_id"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_marginBottom="0dp"
+                        android:layout_marginBottom="5dp"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="2.5dp"
                         android:layout_marginTop="5dp"
-                        android:layout_weight="1"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center_vertical"
                         android:text="#XXX"
@@ -70,8 +68,6 @@
                         android:layout_marginLeft="2.5dp"
                         android:layout_marginRight="5dp"
                         android:layout_marginTop="5dp"
-                        android:layout_weight="1"
-                        android:fontFamily="sans-serif-condensed"
                         android:gravity="center_vertical"
                         android:text="Name"
                         android:textColor="#000000"
@@ -81,53 +77,54 @@
                 <TextView
                     android:id="@+id/pokedex_name_jap"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="0dp"
                     android:layout_marginBottom="5dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:layout_marginTop="5dp"
-                    android:layout_weight="1"
-                    android:fontFamily="sans-serif-condensed"
                     android:gravity="center_vertical"
                     android:text="NameJap"
                     android:textColor="#000000"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:layout_weight="1"/>
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:weightSum="3"
                 android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/pokedex_element1"
-                    android:layout_width="173px"
-                    android:layout_height="58px"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
                     android:background="@drawable/type_unknown"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:layout_margin="5dp"/>
 
                 <ImageView
                     android:id="@+id/pokedex_element2"
-                    android:layout_width="173px"
-                    android:layout_height="58px"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
                     android:background="@drawable/type_unknown"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_margin="5dp"/>
 
                 <CheckBox
                     android:id="@+id/pokedex_is_caught"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
                     android:layout_marginBottom="5dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:layout_marginTop="2.5dp"
                     android:layout_weight="1"
-                    android:fontFamily="sans-serif-condensed"
+
                     android:text="Caught"
                     android:textColor="#000000"
                     android:textSize="14sp" />
+                <!--android:fontFamily="sans-serif-condensed"-->
 
             </LinearLayout>
         </LinearLayout>
