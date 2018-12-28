@@ -16,6 +16,7 @@ public class PokedexFragment extends Fragment {
 
     RecyclerView recyclerPokemonView;
     ArrayList<Pokemon> allPokemon;
+    PokemonListAdapter adapter;
 
     @Nullable
     @Override
@@ -27,7 +28,7 @@ public class PokedexFragment extends Fragment {
         recyclerPokemonView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         recyclerPokemonView.setItemAnimator(new DefaultItemAnimator());
         allPokemon = getData();
-        PokemonListAdapter adapter = new PokemonListAdapter(getContext(), allPokemon);
+        adapter = new PokemonListAdapter(getContext(), allPokemon);
 
         recyclerPokemonView.setAdapter(adapter);
         return view;
