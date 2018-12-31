@@ -27,7 +27,7 @@ public class MovedexFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_movedex, null);
         recyclerMoveView = view.findViewById((R.id.move_list_recycle));
         recyclerMoveView.setHasFixedSize(true);
-        recyclerMoveView.setNestedScrollingEnabled(false);
+        recyclerMoveView.setNestedScrollingEnabled(true);
         recyclerMoveView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         recyclerMoveView.setItemAnimator(new DefaultItemAnimator());
         allMove = getData();

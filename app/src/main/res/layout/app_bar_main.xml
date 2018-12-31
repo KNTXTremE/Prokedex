@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:fitsSystemWindows="true"-->
+        <!--tools:context="prokedex.com.xtreme.prokedex.MainActivity">-->
+
+<android.support.design.widget.CoordinatorLayout android:id="@+id/main_coordinator"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="prokedex.com.xtreme.prokedex.MainActivity">
-
-    <android.support.design.widget.CoordinatorLayout
-        android:id="@+id/main_coordinator"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
-        android:layout_above="@+id/bottom_navigation">
+    android:layout_above="@+id/bottom_navigation"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
     <android.support.design.widget.AppBarLayout
@@ -30,7 +31,8 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:layout_scrollFlags="scroll|enterAlways|snap"/>
 
     </android.support.design.widget.AppBarLayout>
 
@@ -50,7 +52,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
         <!--android:layout_margin="@dimen/fab_margin"-->
         <!--app:srcCompat="@drawable/ic_search_white_24dp" />-->
 
-</android.support.design.widget.CoordinatorLayout>
+<!--</android.support.design.widget.CoordinatorLayout>-->
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bottom_navigation"
@@ -61,7 +63,8 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
         app:itemIconTint="@color/white"
         app:itemTextColor="@color/white"
         android:layout_alignParentBottom="true"
-        app:menu="@menu/bottom_nav_menu" />
+        app:menu="@menu/bottom_nav_menu"
+        app:layout_scrollFlags="scroll|enterAlways|snap" />
 
     <!--<include-->
         <!--layout="@layout/bottom_nav_view"-->
@@ -69,7 +72,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
         <!--android:layout_height="wrap_content"-->
         <!--android:layout_alignParentBottom="true" />-->
 
-</RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>
 
 
 
