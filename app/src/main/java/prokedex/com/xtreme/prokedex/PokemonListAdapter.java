@@ -61,7 +61,7 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
 
     @Override
     public void onBindViewHolder(final MyViewHolder viewHolder, final int position) {
-        viewHolder.pokemonId.setText("#" + String.format("%03d", position+1));
+        viewHolder.pokemonId.setText(pokemons.get(position).getId());
         viewHolder.name.setText(pokemons.get(position).getName());
         viewHolder.nameJap.setText(pokemons.get(position).getNameJap());
         viewHolder.element1.setText(AllItems.getElements().get(pokemons.get(position).getElement1()));
@@ -107,7 +107,8 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
                 Log.d(TAG, "onClick: clicked on: " + pokemons.get(position));
 
                 Intent intent = new Intent(context, PokeDescActivity.class);
-                intent.putExtra("pokemon_id", Integer.toString(position));
+                intent.putExtra("pokemon_id", pokemons.get(position).getId().subSequence(1,4));
+                Log.d(TAG, "onClick: " + pokemons.get(position).getId().subSequence(1,4));
                 intent.putExtra("pokemon_isCaught", pokemons.get(position).isCaught());
                 context.startActivity(intent);
             }

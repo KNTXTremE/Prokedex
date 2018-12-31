@@ -45,7 +45,7 @@ public class PokedexFragment extends Fragment {
     private ArrayList<Pokemon> getData(){
         ArrayList<Pokemon> allPokemon = new ArrayList<>();
         for(int i = 0; i < AllItems.getResIds().length; i++){
-            Pokemon pkm = new Pokemon(AllItems.getPokemonName(i), AllItems.getPokemonNameJap(i), AllItems.getResId(i),AllItems.getElement1(i), AllItems.getElement2(i));
+            Pokemon pkm = new Pokemon(AllItems.getPokemonId(i), AllItems.getPokemonName(i), AllItems.getPokemonNameJap(i), AllItems.getResId(i),AllItems.getElement1(i), AllItems.getElement2(i));
             allPokemon.add(pkm);
         }
         return allPokemon;

@@ -5,6 +5,7 @@ package prokedex.com.xtreme.prokedex;
  */
 
 public class Pokemon {
+    protected String id;
     protected String name;
     protected String nameJap;
     protected int resId;
@@ -12,13 +13,18 @@ public class Pokemon {
     protected int element2;
     protected boolean isCaught;
 
-    public Pokemon(String name, String nameJap, int resId, int element1, int element2){
+    public Pokemon(String id, String name, String nameJap, int resId, int element1, int element2){
+        this.id = id;
         this.name = name;
         this.nameJap = nameJap;
         this.resId = resId;
         this.element1 = element1;
         this.element2 = element2;
         this.isCaught = false;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getName() {

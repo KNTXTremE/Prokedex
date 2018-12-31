@@ -85,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
 
         AllItems.addElements();
         AllItems.addMoves();
+        AllItems.addPokemonIds();
     }
 
 

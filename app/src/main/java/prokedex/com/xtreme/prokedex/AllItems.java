@@ -15,6 +15,8 @@ public class AllItems {
 
     //###POKEDEX
 
+    private static ArrayList<String> pokemonIds = new ArrayList<>();
+
     private static String[] pokemonNames = {"Bulbasaur", "Ivysaur",
             "Venusaur", "Charmander",
             "Charmeleon", "Charizard",
@@ -55,6 +57,13 @@ public class AllItems {
 
     private static int[] element2s = {8, 8, 8, 0, 0, 10, 0, 0, 0, 0,
             0, 10, 8, 8, 8, 10, 10, 10, 0, 0};
+
+    public static ArrayList<String> addPokemonIds(){
+        for (int i = 0; i < pokemonNames.length; i++){
+            pokemonIds.add("#"+ String.format("%03d", i+1));
+        }
+        return pokemonIds;
+    }
 
     public static SparseArray<String> addElements() {
         elements.append(0, "");
@@ -105,6 +114,10 @@ public class AllItems {
         moves.put(11, new String[]{"Aeroblast", "10", "1", "100", "95"});
     }
 
+    public static ArrayList<String> getPokemonIds() {
+        return pokemonIds;
+    }
+
     public static String getPokemonName(int i) {
         return pokemonNames[i];
     }
@@ -131,6 +144,10 @@ public class AllItems {
 
     public static int getElement2(int i) {
         return element2s[i];
+    }
+
+    public static String getPokemonId(int i) {
+        return pokemonIds.get(i);
     }
 
     public String[] getPokemonNames() {
