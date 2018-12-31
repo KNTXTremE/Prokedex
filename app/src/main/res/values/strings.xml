@@ -6,11 +6,30 @@
 
     <string name="action_settings">Settings</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="bottom_natures">Natures</string>
     <string name="bottom_itemdex">ItemDex</string>
     <string name="bottom_movedex">MoveDex</string>
     <string name="bottom_pokedex">Pokedex</string>
     <string name="bottom_more">More</string>
+
+    <string name="pokedesc_caught">Caught?</string>
+    <string name="pokedesc_id">#XXX</string>
+    <string name="pokedesc_name">Name</string>
+    <string name="pokedesc_namejap">NameJap</string>
+    <string name="pokedesc_element1">Element1</string>
+    <string name="pokedesc_element2">Element2</string>
+    <string name="pokedesc_sprite">Sprite</string>
+
+    <string name="pokedex_id">#XXX</string>
+    <string name="pokedex_name">Name</string>
+    <string name="pokedex_namejap">NameJap</string>
+    <string name="pokedex_element1">Element1</string>
+    <string name="pokedex_element2">Element2</string>
+    <string name="pokedex_isCaught">Caught</string>
+
+    <string name="movedex_name">Name</string>
+    <string name="movedex_power">Power</string>
+    <string name="movedex_accuracy">Accuracy</string>
+    <string name="movedex_category">Category</string>
+    <string name="movedex_type">Type</string>
 </resources>
