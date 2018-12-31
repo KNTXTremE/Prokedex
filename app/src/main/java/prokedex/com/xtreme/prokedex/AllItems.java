@@ -87,6 +87,8 @@ public class AllItems {
 
     private static String[] moveCategory = {"Physical", "Special", "Status"};
 
+    private static String[] moveCategoryColor = {"#c82619", "#505970", "#8b878b"};
+
     private static Map<Integer, String[]> moves = new HashMap<>(); //{No.:{"Name","Type in number","category in number","Power","Accuracy"}}
 
     public static void addMoves() {
@@ -153,6 +155,10 @@ public class AllItems {
 
     public static String[] getMoveCategory() {
         return moveCategory;
+    }
+
+    public static String getMoveCategoryColor(int i) {
+        return moveCategoryColor[i];
     }
 
     public static Map<Integer, String[]> getMoves() {

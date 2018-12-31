@@ -70,21 +70,22 @@
                 android:layout_weight="1"
                 android:weightSum="2">
 
-                <ImageView
+                <TextView
                     android:id="@+id/move_type"
-                    android:layout_width="173px"
-                    android:layout_height="58px"
-                    android:layout_margin="5dp"
-                    android:gravity="center_vertical"
-                    android:background="@drawable/type_unknown"/>
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/movedex_type"
+                    android:textSize="16sp"
+                    android:layout_weight="1"/>
 
                 <TextView
                     android:id="@+id/move_category"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_margin="5dp"
-                    android:gravity="center_vertical"
-                    android:text="Category"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/movedex_category"
                     android:textSize="16sp" />
 
             </LinearLayout>

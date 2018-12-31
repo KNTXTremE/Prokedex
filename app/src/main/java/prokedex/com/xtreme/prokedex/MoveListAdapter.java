@@ -43,6 +43,7 @@ public class MoveListAdapter extends RecyclerView.Adapter<MoveListAdapter.MyView
         viewHolder.moveType.setText(AllItems.getElements().get(moves.get(position).getType()));
         viewHolder.moveType.setBackgroundColor(Color.parseColor(AllItems.getElementsColor(moves.get(position).getType())));
         viewHolder.moveCategory.setText(AllItems.getMoveCategory()[moves.get(position).getCategory()]);
+        viewHolder.moveCategory.setBackgroundColor(Color.parseColor(AllItems.getMoveCategoryColor(moves.get(position).getCategory())));
         viewHolder.movePower.setText(moves.get(position).getPower());
         viewHolder.moveAccuracy.setText(moves.get(position).getAccuracy());
 
