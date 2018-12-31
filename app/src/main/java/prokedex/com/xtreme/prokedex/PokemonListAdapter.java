@@ -31,6 +31,7 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
 
     private final LayoutInflater inflater;
     private ArrayList<Pokemon> pokemons;
+    private ArrayList<Pokemon> pokemonsTemp = null;
     private Context context;
     private Palette.Swatch vibrantSwatch;
     private Palette.Swatch lightVibrantSwatch;
@@ -46,6 +47,8 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
         inflater = LayoutInflater.from(context);
         this.pokemons = pokemons;
         this.context = context;
+        Log.d(TAG, "PokemonListAdapter: " + this.pokemons.size());
+        this.pokemonsTemp = (ArrayList<Pokemon>) pokemons.clone();
 
     }
 
@@ -113,6 +116,25 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
 
     public int getItemCount(){
         return pokemons.size();
+    }
+
+    public void filter(String text) {
+
+        if(!text.isEmpty()) {
+            pokemons.clear();
+//            Log.d(TAG, "filter: " + pokemonsTemp.size());
+            for (Pokemon p : pokemonsTemp) {
+                if (p.getName().toLowerCase().contains(text.toLowerCase())
+                        || p.getNameJap().toLowerCase().contains((text.toLowerCase()))
+                        || AllItems.getElements().get(p.getElement1()).toLowerCase().contains(text.toLowerCase())
+                        || AllItems.getElements().get(p.getElement2()).toLowerCase().contains(text.toLowerCase())) {
+                    pokemons.add(p);
+                }
+            }
+        } else{
+            pokemons = (ArrayList<Pokemon>) pokemonsTemp.clone();
+        }
+        notifyDataSetChanged();
     }
 
 

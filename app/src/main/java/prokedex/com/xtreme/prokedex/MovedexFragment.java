@@ -1,13 +1,18 @@
 package prokedex.com.xtreme.prokedex;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -20,6 +25,7 @@ public class MovedexFragment extends Fragment {
     private static final String TAG = "MovedexFragment";
     RecyclerView recyclerMoveView;
     ArrayList<Move> allMove;
+    MoveListAdapter adapter;
     
     @Nullable
     @Override
@@ -31,9 +37,11 @@ public class MovedexFragment extends Fragment {
         recyclerMoveView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         recyclerMoveView.setItemAnimator(new DefaultItemAnimator());
         allMove = getData();
-        MoveListAdapter adapter = new MoveListAdapter(getContext(), allMove);
+
+        adapter = new MoveListAdapter(getContext(), allMove);
 
         recyclerMoveView.setAdapter(adapter);
+        setHasOptionsMenu(true);
         return view;
     }
 
@@ -44,5 +52,33 @@ public class MovedexFragment extends Fragment {
             allMove.add(move);
         }
         return allMove;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.toolbar_menu, menu);
+        MenuItem mSearch = menu.findItem(R.id.action_search);
+
+        SearchView mSearchView = (SearchView) mSearch.getActionView();
+        mSearchView.setQueryHint("Search");
+
+        mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                adapter.filter(newText);
+                Log.d(TAG, "onQueryTextChange: Searching in MoveDex");
+                return false;
+            }
+        });
+        View searchPlate = mSearchView.findViewById(android.support.v7.appcompat.R.id.search_plate);
+        searchPlate.setBackgroundColor(Color.TRANSPARENT);
+
+        super.onCreateOptionsMenu(menu, inflater);
     }
 }

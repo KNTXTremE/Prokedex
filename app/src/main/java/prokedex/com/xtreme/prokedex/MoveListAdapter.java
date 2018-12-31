@@ -22,11 +22,13 @@ public class MoveListAdapter extends RecyclerView.Adapter<MoveListAdapter.MyView
     private Context context;
 
     private static final String TAG = "RecyclerViewAdapter";
+    private ArrayList<Move> movesTemp;
 
     public MoveListAdapter(Context context, ArrayList<Move> moves){
         inflater = LayoutInflater.from(context);
         this.moves = moves;
         this.context = context;
+        this.movesTemp = (ArrayList<Move>) moves.clone();
 
     }
 
@@ -62,6 +64,24 @@ public class MoveListAdapter extends RecyclerView.Adapter<MoveListAdapter.MyView
 
     public int getItemCount(){
         return moves.size();
+    }
+
+    public void filter(String text) {
+        if(!text.isEmpty()) {
+            moves.clear();
+            for (Move m : movesTemp) {
+                if (m.getName().toLowerCase().contains(text.toLowerCase())
+                        || AllItems.getElements().get(m.getType()).toLowerCase().contains(text.toLowerCase())
+                        || AllItems.getMoveCategory()[m.getCategory()].toLowerCase().contains(text.toLowerCase())
+                        || m.getPower().toLowerCase().contains(text.toLowerCase())
+                        || m.getAccuracy().toLowerCase().contains(text.toLowerCase())) {
+                    moves.add(m);
+                }
+            }
+        } else{
+            moves = (ArrayList<Move>) movesTemp.clone();
+        }
+        notifyDataSetChanged();
     }
 
 
