@@ -95,6 +95,12 @@ public class AllItems {
         moves.put(3, new String[]{"Accelerock", "13", "0", "40", "100"});
         moves.put(4, new String[]{"Acid", "8", "1", "40", "100"});
         moves.put(5, new String[]{"Acid Armor", "8", "2", "-", "-"});
+        moves.put(6, new String[]{"Acid Downpour", "8", "2", "-", "-"}); //Type wrong, need to change
+        moves.put(7, new String[]{"Acid Spray", "8", "1", "40", "100"});
+        moves.put(8, new String[]{"Acrobatics", "10", "0", "55", "100"});
+        moves.put(9, new String[]{"Acupressure", "1", "2", "-", "-"});
+        moves.put(10, new String[]{"Aerial Ace", "10", "0", "60", "∞"});
+        moves.put(11, new String[]{"Aeroblast", "10", "1", "100", "95"});
     }
 
     public static String getPokemonName(int i) {
