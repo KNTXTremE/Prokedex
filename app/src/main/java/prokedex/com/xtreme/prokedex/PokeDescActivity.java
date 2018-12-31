@@ -75,6 +75,7 @@ public class PokeDescActivity extends AppCompatActivity {
         setSupportActionBar(pokedescToolBar);
         pokedescToolBar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
         setTitle(AllItems.getPokemonName(pokemonId));
+        pokedescToolBar.setTitleTextColor(Color.WHITE);
 
         CardView pokedescCard = findViewById(R.id.cardview_pokedesc);
         Bitmap bitmap = ((BitmapDrawable) pokedescImage.getBackground()).getBitmap();
