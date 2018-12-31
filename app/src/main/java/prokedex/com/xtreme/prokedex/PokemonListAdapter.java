@@ -79,8 +79,8 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
                 Log.d(TAG, "onClick: clicked on: " + pokemons.get(position));
 
                 Intent intent = new Intent(context, PokeDescActivity.class);
-                intent.putExtra("pokemon_name", pokemons.get(position).name);
-                intent.putExtra("imageId", pokemons.get(position).resId);
+                intent.putExtra("pokemon_id", Integer.toString(position));
+                intent.putExtra("pokemon_isCaught", pokemons.get(position).isCaught());
                 context.startActivity(intent);
             }
         });
