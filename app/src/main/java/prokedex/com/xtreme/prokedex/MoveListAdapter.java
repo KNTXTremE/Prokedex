@@ -2,6 +2,7 @@ package prokedex.com.xtreme.prokedex;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -39,7 +40,8 @@ public class MoveListAdapter extends RecyclerView.Adapter<MoveListAdapter.MyView
     @Override
     public void onBindViewHolder(final MoveListAdapter.MyViewHolder viewHolder, final int position) {
         viewHolder.moveName.setText(moves.get(position).getName());
-        viewHolder.moveType.setBackgroundResource(AllItems.getElements().get(moves.get(position).getType()));
+        viewHolder.moveType.setText(AllItems.getElements().get(moves.get(position).getType()));
+        viewHolder.moveType.setBackgroundColor(Color.parseColor(AllItems.getElementsColor(moves.get(position).getType())));
         viewHolder.moveCategory.setText(AllItems.getMoveCategory()[moves.get(position).getCategory()]);
         viewHolder.movePower.setText(moves.get(position).getPower());
         viewHolder.moveAccuracy.setText(moves.get(position).getAccuracy());
@@ -66,7 +68,7 @@ public class MoveListAdapter extends RecyclerView.Adapter<MoveListAdapter.MyView
 
         protected CardView moveCardView;
         protected TextView moveName;
-        protected ImageView moveType;
+        protected TextView moveType;
         protected TextView moveCategory;
         protected TextView movePower;
         protected TextView moveAccuracy;

@@ -49,8 +49,10 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
         viewHolder.pokemonId.setText("#" + String.format("%03d", position+1));
         viewHolder.name.setText(pokemons.get(position).getName());
         viewHolder.nameJap.setText(pokemons.get(position).getNameJap());
-        viewHolder.element1.setBackgroundResource(AllItems.getElements().get(pokemons.get(position).getElement1()));
-        viewHolder.element2.setBackgroundResource(AllItems.getElements().get(pokemons.get(position).getElement2()));
+        viewHolder.element1.setText(AllItems.getElements().get(pokemons.get(position).getElement1()));
+        viewHolder.element1.setBackgroundColor(Color.parseColor(AllItems.getElementsColor(pokemons.get(position).getElement1())));
+        viewHolder.element2.setText(AllItems.getElements().get(pokemons.get(position).getElement2()));
+        viewHolder.element2.setBackgroundColor(Color.parseColor(AllItems.getElementsColor(pokemons.get(position).getElement2())));
         viewHolder.sprite.setBackgroundResource(pokemons.get(position).getResId());
         viewHolder.isCaught.setChecked(pokemons.get(position).isCaught());
 
@@ -95,8 +97,8 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
         protected TextView pokemonId;
         protected TextView name;
         protected TextView nameJap;
-        protected ImageView element1;
-        protected ImageView element2;
+        protected TextView element1;
+        protected TextView element2;
         protected ImageView sprite;
         protected CheckBox isCaught;
 
