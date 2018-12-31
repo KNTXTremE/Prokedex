@@ -1,9 +1,18 @@
 package prokedex.com.xtreme.prokedex;
 
+import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.AppBarLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.graphics.Palette;
+import android.support.v7.widget.CardView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -61,10 +70,34 @@ public class PokeDescActivity extends AppCompatActivity {
             pokedescIsCaught.setText("NCaught");
         }
 
+        AppBarLayout pokedescAppBar = findViewById(R.id.pokedesc_app_bar);
         Toolbar pokedescToolBar = findViewById(R.id.pokedesc_toolbar);
         setSupportActionBar(pokedescToolBar);
         pokedescToolBar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
         setTitle(AllItems.getPokemonName(pokemonId));
+
+        CardView pokedescCard = findViewById(R.id.cardview_pokedesc);
+        Bitmap bitmap = ((BitmapDrawable) pokedescImage.getBackground()).getBitmap();
+        Palette palette = Palette.from(bitmap).maximumColorCount(24).generate();
+        Palette.Swatch vibrantSwatch = palette.getVibrantSwatch();
+        Palette.Swatch lightVibrantSwatch = palette.getLightVibrantSwatch();
+        Palette.Swatch darkVibrantSwatch = palette.getDarkVibrantSwatch();
+        Palette.Swatch mutedSwatch = palette.getMutedSwatch();
+        Palette.Swatch lightMutedSwatch = palette.getLightMutedSwatch();
+        Palette.Swatch darkMutedSwatch = palette.getDarkMutedSwatch();
+        Palette.Swatch currentSwatch = null;
+        Palette.Swatch currentDarkenSwatch = null;
+
+        currentSwatch = lightMutedSwatch; //Change Swatch here!
+        currentDarkenSwatch = mutedSwatch;
+        if(currentSwatch != null)
+            pokedescCard.setCardBackgroundColor(currentSwatch.getRgb());
+        if(currentDarkenSwatch != null) {
+            Log.d(TAG, "setItems: " + currentDarkenSwatch.getRgb());
+            pokedescAppBar.setBackgroundColor(currentDarkenSwatch.getRgb());
+            pokedescToolBar.setBackgroundColor(currentDarkenSwatch.getRgb());
+        }
+
         pokedescToolBar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

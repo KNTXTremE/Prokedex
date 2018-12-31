@@ -2,7 +2,12 @@ package prokedex.com.xtreme.prokedex;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.support.design.widget.Snackbar;
+import android.support.v7.graphics.Palette;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -27,6 +32,13 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
     private final LayoutInflater inflater;
     private ArrayList<Pokemon> pokemons;
     private Context context;
+    private Palette.Swatch vibrantSwatch;
+    private Palette.Swatch lightVibrantSwatch;
+    private Palette.Swatch darkVibrantSwatch;
+    private Palette.Swatch mutedSwatch;
+    private Palette.Swatch lightMutedSwatch;
+    private Palette.Swatch darkMutedSwatch;
+    private Palette.Swatch currentSwatch = null;
 
     private static final String TAG = "RecyclerViewAdapter";
 
@@ -72,6 +84,19 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
                 }
             }
         });
+
+        Bitmap bitmap = ((BitmapDrawable) viewHolder.sprite.getBackground()).getBitmap();
+        Palette palette = Palette.from(bitmap).maximumColorCount(24).generate();
+        vibrantSwatch = palette.getVibrantSwatch();
+        lightVibrantSwatch = palette.getLightVibrantSwatch();
+        darkVibrantSwatch = palette.getDarkVibrantSwatch();
+        mutedSwatch = palette.getMutedSwatch();
+        lightMutedSwatch = palette.getLightMutedSwatch();
+        darkMutedSwatch = palette.getDarkMutedSwatch();
+
+        currentSwatch = lightMutedSwatch; //Change Swatch here!
+        if(currentSwatch != null)
+            viewHolder.cardView.setCardBackgroundColor(currentSwatch.getRgb());
 
         viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
