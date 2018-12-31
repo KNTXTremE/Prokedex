@@ -1,30 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/pokedesc_app_bar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/image_desc"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_margin="5dp"
-            android:layout_weight="0"
-            android:background="@drawable/ic_launcher"
-            android:cropToPadding="false"
-            android:scaleType="matrix" />
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/pokedesc_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"/>
 
-        <TextView
-            android:id="@+id/pokemon_name_desc"
+        <android.support.v7.widget.CardView
+            android:id="@+id/cardview_pokedesc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
-    </LinearLayout>
-</android.support.constraint.ConstraintLayout>
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            card_view:cardBackgroundColor="#eeeeee"
+            card_view:cardCornerRadius="20dp"
+            card_view:cardElevation="3dp"
+            card_view:cardUseCompatPadding="true"
+            android:focusable="true"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/pokedesc_background"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/ic_pokemon_bg"
+                        android:cropToPadding="false"
+                        android:scaleType="matrix" />
+
+                    <ImageView
+                        android:id="@+id/pokedesc_sprite"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_margin="15dp"
+                        android:background="@drawable/ic_launcher"
+                        android:cropToPadding="false"
+                        android:scaleType="matrix"
+                        android:contentDescription="@string/pokedesc_sprite" />
+
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:orientation="horizontal"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/pokedesc_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginEnd="2.5dp"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="center_vertical"
+                            android:text="@string/pokedesc_id"
+                            android:textColor="#3c3c3c"
+                            android:textSize="18sp"
+                            android:textStyle="italic" />
+
+                        <TextView
+                            android:id="@+id/pokedesc_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginStart="2.5dp"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginTop="5dp"
+                            android:gravity="center_vertical"
+                            android:text="@string/pokedesc_name"
+                            android:textColor="#000000"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/pokedesc_name_jap"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/pokedesc_namejap"
+                        android:textColor="#000000"
+                        android:textSize="14sp"
+                        android:layout_weight="1"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/pokedesc_element1"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:textColor="@color/black"
+                        android:text="@string/pokedesc_element1"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/pokedesc_element2"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:textColor="@color/black"
+                        android:text="@string/pokedesc_element2"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/pokedesc_is_caught"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="2.5dp"
+                        android:layout_weight="1"
+
+                        android:text="@string/pokedesc_caught"
+                        android:textColor="#000000"
+                        android:textSize="14sp"
+                        android:gravity="center"/>
+                    <!--android:fontFamily="sans-serif-condensed"-->
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </android.support.design.widget.AppBarLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>
