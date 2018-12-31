@@ -13,14 +13,14 @@
         android:clickable="true"
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
-        card_view:cardBackgroundColor="#f5f5f5"
-        card_view:cardCornerRadius="5dp"
-        card_view:cardElevation="2dp"
+        card_view:cardBackgroundColor="#eeeeee"
+        card_view:cardCornerRadius="20dp"
+        card_view:cardElevation="3dp"
         card_view:cardUseCompatPadding="true">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="70dp"
             android:orientation="vertical"
             android:weightSum="2">
 
@@ -38,7 +38,7 @@
                     android:layout_margin="5dp"
                     android:layout_weight="4"
                     android:gravity="center_vertical"
-                    android:text="Name"
+                    android:text="@string/movedex_name"
                     android:textSize="16sp" />
 
                 <TextView
@@ -48,7 +48,7 @@
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
-                    android:text="Power"
+                    android:text="@string/movedex_power"
                     android:textSize="16sp" />
 
                 <TextView
@@ -58,7 +58,7 @@
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
-                    android:text="Accuracy"
+                    android:text="@string/movedex_accuracy"
                     android:textSize="16sp" />
 
             </LinearLayout>
@@ -67,8 +67,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:orientation="horizontal"
-                android:layout_weight="1"
-                android:weightSum="2">
+                android:layout_weight="1">
 
                 <TextView
                     android:id="@+id/move_type"
