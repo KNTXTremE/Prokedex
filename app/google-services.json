@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "480828981394",
+    "firebase_url": "https://prokedex-3f898.firebaseio.com",
+    "project_id": "prokedex-3f898",
+    "storage_bucket": "prokedex-3f898.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:480828981394:android:a27700b88ffc6536",
+        "android_client_info": {
+          "package_name": "prokedex.com.xtreme.prokedex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "480828981394-d0vio3l8iob9quapoo1ui3v2b67833mm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAt2L5TmSrj6cKZGEIpfQahpmr7AavKYDY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
