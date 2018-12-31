@@ -37,5 +37,15 @@ public class PokeDescActivity extends AppCompatActivity {
 
         ImageView image = findViewById(R.id.image_desc);
         image.setBackgroundResource(imageId);
+        Toolbar pokedescToolBar = findViewById(R.id.pokedesc_toolbar);
+        setSupportActionBar(pokedescToolBar);
+        pokedescToolBar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
+        setTitle(AllItems.getPokemonName(pokemonId));
+        pokedescToolBar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 }
