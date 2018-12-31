@@ -32,7 +32,8 @@ public class PokeDescActivity extends AppCompatActivity {
         Log.d(TAG, "getIncomingIntent: check for incoming intents");
         if(getIntent().hasExtra("pokemon_id") && getIntent().hasExtra("pokemon_isCaught")){
             Log.d(TAG, "getIncomingIntent: found intents!");
-            Integer pokemon_id = Integer.parseInt(getIntent().getStringExtra("pokemon_id"));
+            Integer pokemon_id = Integer.parseInt(getIntent().getStringExtra("pokemon_id"))-1;
+            Log.d(TAG, "getIncomingIntent: " + getIntent().getStringExtra("pokemon_id"));
             boolean pokemon_isCaught = getIntent().getBooleanExtra("pokemon_isCaught", false);
             setItems(pokemon_id, pokemon_isCaught);
 
