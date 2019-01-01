@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="prokedex.com.xtreme.prokedex.MovedexFragment"
+    tools:context="prokedex.com.xtreme.prokedex.fragments.MovedexFragment"
     android:background="#FFF"
     android:clickable="true"
     android:focusable="true">
