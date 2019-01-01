@@ -53,12 +53,6 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNavView = findViewById(R.id.bottom_navigation);
         bottomNavView.setSelectedItemId(R.id.bottom_nav_pokedex);
-        CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) bottomNavView.getLayoutParams();
-        layoutParams.setBehavior(new BottomNavigationViewBehavior());
-//
-//        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
-//            bottomNavView.setNestedScrollingEnabled(true);
-//        }
         bottomNavView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {

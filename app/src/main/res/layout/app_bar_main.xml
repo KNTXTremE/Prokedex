@@ -65,7 +65,8 @@
         app:itemTextColor="@color/white"
         android:layout_alignParentBottom="true"
         app:menu="@menu/bottom_nav_menu"
-        app:layout_scrollFlags="scroll|enterAlways|snap" />
+        app:layout_scrollFlags="scroll|enterAlways|snap"
+        app:layout_behavior="prokedex.com.xtreme.prokedex.BottomNavigationBehavior"/>
 
     <!--<include-->
         <!--layout="@layout/bottom_nav_view"-->
