@@ -34,11 +34,14 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitleTextColor(Color.BLACK);
-        Fragment fragment = new PokedexFragment();
         FragmentManager manager = getSupportFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.pokedex_fragment_init, fragment);
-        transaction.commit();
+        Fragment prevFragment = manager.findFragmentById(R.id.pokedex_fragment_init);
+        if(prevFragment == null){
+            Fragment fragment = new PokedexFragment();
+            FragmentTransaction transaction = manager.beginTransaction();
+            transaction.add(R.id.pokedex_fragment_init, fragment);
+            transaction.commit();
+        }
 
         BottomNavigationView bottomNavView = findViewById(R.id.bottom_navigation);
         bottomNavView.setSelectedItemId(R.id.bottom_nav_pokedex);
