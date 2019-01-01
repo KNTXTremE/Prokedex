@@ -1,4 +1,4 @@
-package prokedex.com.xtreme.prokedex;
+package prokedex.com.xtreme.prokedex.resources;
 
 /**
  * Created by KanTLovE on 11/13/2017.

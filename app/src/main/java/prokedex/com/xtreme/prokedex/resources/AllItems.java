@@ -1,4 +1,4 @@
-package prokedex.com.xtreme.prokedex;
+package prokedex.com.xtreme.prokedex.resources;
 
 import android.util.SparseArray;
 
@@ -6,6 +6,8 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
+import prokedex.com.xtreme.prokedex.R;
 
 /**
  * Created by KanTLovE on 11/17/2017.

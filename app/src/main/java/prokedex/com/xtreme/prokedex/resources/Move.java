@@ -1,4 +1,4 @@
-package prokedex.com.xtreme.prokedex;
+package prokedex.com.xtreme.prokedex.resources;
 
 public class Move {
     private String name;

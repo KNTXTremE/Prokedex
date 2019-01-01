@@ -1,4 +1,4 @@
-package prokedex.com.xtreme.prokedex;
+package prokedex.com.xtreme.prokedex.fragments;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -18,37 +18,44 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
-public class PokedexFragment extends Fragment {
+import prokedex.com.xtreme.prokedex.resources.AllItems;
+import prokedex.com.xtreme.prokedex.resources.Move;
+import prokedex.com.xtreme.prokedex.customAdapters.MoveListAdapter;
+import prokedex.com.xtreme.prokedex.R;
 
-    RecyclerView recyclerPokemonView;
-    ArrayList<Pokemon> allPokemon;
-    PokemonListAdapter adapter;
-    private final String TAG = "PokedexFragment";
 
+public class MovedexFragment extends Fragment {
+
+    private static final String TAG = "MovedexFragment";
+    RecyclerView recyclerMoveView;
+    ArrayList<Move> allMove;
+    MoveListAdapter adapter;
+    
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_pokedex, null);
-        recyclerPokemonView = view.findViewById((R.id.pokemon_list_recycle));
-        recyclerPokemonView.setHasFixedSize(true);
-        recyclerPokemonView.setNestedScrollingEnabled(true);
-        recyclerPokemonView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-        recyclerPokemonView.setItemAnimator(new DefaultItemAnimator());
-        allPokemon = getData();
-        adapter = new PokemonListAdapter(getContext(), allPokemon);
+        View view = inflater.inflate(R.layout.fragment_movedex, null);
+        recyclerMoveView = view.findViewById((R.id.move_list_recycle));
+        recyclerMoveView.setHasFixedSize(true);
+        recyclerMoveView.setNestedScrollingEnabled(true);
+        recyclerMoveView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        recyclerMoveView.setItemAnimator(new DefaultItemAnimator());
+        allMove = getData();
 
-        recyclerPokemonView.setAdapter(adapter);
+        adapter = new MoveListAdapter(getContext(), allMove);
+
+        recyclerMoveView.setAdapter(adapter);
         setHasOptionsMenu(true);
         return view;
     }
 
-    private ArrayList<Pokemon> getData(){
-        ArrayList<Pokemon> allPokemon = new ArrayList<>();
-        for(int i = 0; i < AllItems.getResIds().length; i++){
-            Pokemon pkm = new Pokemon(AllItems.getPokemonId(i), AllItems.getPokemonName(i), AllItems.getPokemonNameJap(i), AllItems.getResId(i),AllItems.getElement1(i), AllItems.getElement2(i));
-            allPokemon.add(pkm);
+    private ArrayList<Move> getData() {
+        ArrayList<Move> allMove = new ArrayList<>();
+        for(int i = 1; i <= AllItems.getMoves().size(); i++){
+            Move move = new Move(AllItems.getMoves().get(i)[0], Integer.parseInt(AllItems.getMoves().get(i)[1]), Integer.parseInt(AllItems.getMoves().get(i)[2]), AllItems.getMoves().get(i)[3], AllItems.getMoves().get(i)[4]);
+            allMove.add(move);
         }
-        return allPokemon;
+        return allMove;
     }
 
     @Override
@@ -69,11 +76,10 @@ public class PokedexFragment extends Fragment {
             public boolean onQueryTextChange(String newText) {
 
                 adapter.filter(newText);
-                Log.d(TAG, "onQueryTextChange: Searching in Pokedex");
+                Log.d(TAG, "onQueryTextChange: Searching in MoveDex");
                 return false;
             }
         });
-
         View searchPlate = mSearchView.findViewById(android.support.v7.appcompat.R.id.search_plate);
         searchPlate.setBackgroundColor(Color.TRANSPARENT);
 
