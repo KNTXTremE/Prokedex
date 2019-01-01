@@ -5,13 +5,13 @@ package prokedex.com.xtreme.prokedex.resources;
  */
 
 public class Pokemon {
-    protected String id;
-    protected String name;
-    protected String nameJap;
-    protected int resId;
-    protected int element1;
-    protected int element2;
-    protected boolean isCaught;
+    private String id;
+    private String name;
+    private String nameJap;
+    private int resId;
+    private int element1;
+    private int element2;
+    private boolean isCaught;
 
     public Pokemon(String id, String name, String nameJap, int resId, int element1, int element2){
         this.id = id;

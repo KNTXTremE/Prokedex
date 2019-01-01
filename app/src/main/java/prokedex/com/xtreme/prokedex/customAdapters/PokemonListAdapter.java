@@ -32,15 +32,8 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
 
     private final LayoutInflater inflater;
     private ArrayList<Pokemon> pokemons;
-    private ArrayList<Pokemon> pokemonsTemp = null;
+    private ArrayList<Pokemon> pokemonsTemp;
     private Context context;
-    private Palette.Swatch vibrantSwatch;
-    private Palette.Swatch lightVibrantSwatch;
-    private Palette.Swatch darkVibrantSwatch;
-    private Palette.Swatch mutedSwatch;
-    private Palette.Swatch lightMutedSwatch;
-    private Palette.Swatch darkMutedSwatch;
-    private Palette.Swatch currentSwatch = null;
 
     private static final String TAG = "RecyclerViewAdapter";
 
@@ -56,8 +49,7 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View itemView = inflater.inflate(R.layout.pokemon_lists, viewGroup, false);
-        MyViewHolder viewHolder = new MyViewHolder(itemView);
-        return viewHolder;
+        return new MyViewHolder(itemView);
     }
 
     @Override
@@ -91,14 +83,14 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
 
         Bitmap bitmap = ((BitmapDrawable) viewHolder.sprite.getBackground()).getBitmap();
         Palette palette = Palette.from(bitmap).maximumColorCount(24).generate();
-        vibrantSwatch = palette.getVibrantSwatch();
-        lightVibrantSwatch = palette.getLightVibrantSwatch();
-        darkVibrantSwatch = palette.getDarkVibrantSwatch();
-        mutedSwatch = palette.getMutedSwatch();
-        lightMutedSwatch = palette.getLightMutedSwatch();
-        darkMutedSwatch = palette.getDarkMutedSwatch();
+        Palette.Swatch vibrantSwatch = palette.getVibrantSwatch();
+        Palette.Swatch lightVibrantSwatch = palette.getLightVibrantSwatch();
+        Palette.Swatch darkVibrantSwatch = palette.getDarkVibrantSwatch();
+        Palette.Swatch mutedSwatch = palette.getMutedSwatch();
+        Palette.Swatch lightMutedSwatch = palette.getLightMutedSwatch();
+        Palette.Swatch darkMutedSwatch = palette.getDarkMutedSwatch();
 
-        currentSwatch = lightMutedSwatch; //Change Swatch here!
+        Palette.Swatch currentSwatch = lightMutedSwatch;
         if(currentSwatch != null)
             viewHolder.cardView.setCardBackgroundColor(currentSwatch.getRgb());
 
@@ -140,16 +132,16 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
     }
 
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
+    static class MyViewHolder extends RecyclerView.ViewHolder {
 
-        protected CardView cardView;
-        protected TextView pokemonId;
-        protected TextView name;
-        protected TextView nameJap;
-        protected TextView element1;
-        protected TextView element2;
-        protected ImageView sprite;
-        protected CheckBox isCaught;
+        private CardView cardView;
+        private TextView pokemonId;
+        private TextView name;
+        private TextView nameJap;
+        private TextView element1;
+        private TextView element2;
+        private ImageView sprite;
+        private CheckBox isCaught;
 
         private MyViewHolder(View v) {
             super(v);

@@ -2,6 +2,7 @@ package prokedex.com.xtreme.prokedex;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         bottomNavView.setSelectedItemId(R.id.bottom_nav_pokedex);
         bottomNavView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public boolean onNavigationItemSelected(MenuItem item) {
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 selectFragment(item);
                 return true;
             }
@@ -108,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
 //        return super.onOptionsItemSelected(item);
 //    }
 
-    public boolean selectFragment(MenuItem item) {
+    public void selectFragment(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         Fragment fragment = null;
@@ -143,6 +144,5 @@ public class MainActivity extends AppCompatActivity {
 
 //        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 //        drawer.closeDrawer(GravityCompat.START);
-        return true;
     }
 }

@@ -34,8 +34,7 @@ public class MoveListAdapter extends RecyclerView.Adapter<MoveListAdapter.MyView
     @Override
     public MoveListAdapter.MyViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View itemView = inflater.inflate(R.layout.move_lists, viewGroup, false);
-        MoveListAdapter.MyViewHolder viewHolder = new MoveListAdapter.MyViewHolder(itemView);
-        return viewHolder;
+        return new MyViewHolder(itemView);
     }
 
     @Override
@@ -84,14 +83,14 @@ public class MoveListAdapter extends RecyclerView.Adapter<MoveListAdapter.MyView
     }
 
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
+    static class MyViewHolder extends RecyclerView.ViewHolder {
 
-        protected CardView moveCardView;
-        protected TextView moveName;
-        protected TextView moveType;
-        protected TextView moveCategory;
-        protected TextView movePower;
-        protected TextView moveAccuracy;
+        private CardView moveCardView;
+        private TextView moveName;
+        private TextView moveType;
+        private TextView moveCategory;
+        private TextView movePower;
+        private TextView moveAccuracy;
 
         private MyViewHolder(View v) {
             super(v);

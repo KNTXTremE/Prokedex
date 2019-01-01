@@ -95,8 +95,8 @@ public class PokeDescActivity extends AppCompatActivity {
         Palette.Swatch mutedSwatch = palette.getMutedSwatch();
         Palette.Swatch lightMutedSwatch = palette.getLightMutedSwatch();
         Palette.Swatch darkMutedSwatch = palette.getDarkMutedSwatch();
-        Palette.Swatch currentSwatch = null;
-        Palette.Swatch currentDarkenSwatch = null;
+        Palette.Swatch currentSwatch;
+        Palette.Swatch currentDarkenSwatch;
 
         currentSwatch = lightMutedSwatch; //Change Swatch here!
         currentDarkenSwatch = mutedSwatch;

@@ -2,7 +2,6 @@ package prokedex.com.xtreme.prokedex.resources;
 
 import android.util.SparseArray;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -52,7 +51,7 @@ public class AllItems {
             R.drawable.p017, R.drawable.p018,
             R.drawable.p019, R.drawable.p020};
 
-    protected static SparseArray<String> elements = new SparseArray<>();
+    private static SparseArray<String> elements = new SparseArray<>();
 
     private static int[] element1s = {5, 5, 5, 2, 2, 2, 3, 3, 3, 12,
             12, 12, 12, 12, 12, 1, 1, 1, 1, 1};
@@ -60,14 +59,13 @@ public class AllItems {
     private static int[] element2s = {8, 8, 8, 0, 0, 10, 0, 0, 0, 0,
             0, 10, 8, 8, 8, 10, 10, 10, 0, 0};
 
-    public static ArrayList<String> addPokemonIds(){
+    public static void addPokemonIds(){
         for (int i = 0; i < pokemonNames.length; i++){
             pokemonIds.add("#"+ String.format("%03d", i+1));
         }
-        return pokemonIds;
     }
 
-    public static SparseArray<String> addElements() {
+    public static void addElements() {
         elements.append(0, "");
         elements.append(1, "Normal");
         elements.append(2, "Fire");
@@ -87,7 +85,6 @@ public class AllItems {
         elements.append(16, "Dark");
         elements.append(17, "Steel");
         elements.append(18, "Fairy");
-        return elements;
     }
 
     private static String[] elementsColor = {"#00000000", "#a6a677", "#ef7f33", "#688ff0", "#f8cf33", "#77c651",
