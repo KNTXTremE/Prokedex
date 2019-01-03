@@ -114,18 +114,6 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
         if(currentSwatch != null)
             viewHolder.cardView.setCardBackgroundColor(currentSwatch.getRgb());
 
-        viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d(TAG, "onClick: clicked on: " + pokemons.get(position));
-
-                Intent intent = new Intent(context, PokeDescActivity.class);
-                intent.putExtra("pokemon_id", pokemons.get(position).getId().subSequence(1,4));
-                Log.d(TAG, "onClick: " + pokemons.get(position).getId().subSequence(1,4));
-                intent.putExtra("pokemon_isCaught", pokemons.get(position).isCaught());
-                context.startActivity(intent);
-            }
-        });
     }
 
     public int getItemCount(){
