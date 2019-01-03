@@ -4,8 +4,7 @@
     android:layout_height="match_parent"
     tools:context="prokedex.com.xtreme.prokedex.fragments.MovedexFragment"
     android:background="#FFF"
-    android:clickable="true"
-    android:focusable="true">
+    android:clickable="true">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/move_list_recycle"
