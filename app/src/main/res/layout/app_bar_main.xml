@@ -37,7 +37,9 @@
 
     </android.support.design.widget.AppBarLayout>
 
-        <include layout="@layout/fragment_pokedex"/>
+    <include
+        android:id="@+id/pokedex_fragment_init"
+        layout="@layout/fragment_pokedex" />
 
         <!--<FrameLayout-->
             <!--android:id="@+id/fragment_content"-->
