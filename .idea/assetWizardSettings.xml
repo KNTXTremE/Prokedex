@@ -19,9 +19,23 @@
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
-                                      <entry key="imageAsset" value="D:\Android Modifying\Application\Icon\Prokedex\Dream_Leftovers_Sprite.png" />
-                                      <entry key="outputName" value="ic_itemdex_bottomnav" />
+                                      <entry key="imageAsset" value="D:\Android Modifying\Application\Icon\Prokedex\40583-200w.png" />
+                                      <entry key="outputName" value="ic_pokemon_bg" />
                                       <entry key="theme" value="HOLO_DARK" />
+                                    </map>
+                                  </option>
+                                </PersistentState>
+                              </value>
+                            </entry>
+                            <entry key="launcherLegacy">
+                              <value>
+                                <PersistentState>
+                                  <option name="values">
+                                    <map>
+                                      <entry key="assetType" value="IMAGE" />
+                                      <entry key="iconShape" value="NONE" />
+                                      <entry key="imageAsset" value="D:\Android Modifying\Application\Icon\Prokedex\40583-200w.png" />
+                                      <entry key="outputName" value="ic_pokemon_bg" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -31,7 +45,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputIconType" value="ACTIONBAR" />
+                            <entry key="outputIconType" value="LAUNCHER_LEGACY" />
                           </map>
                         </option>
                       </PersistentState>
