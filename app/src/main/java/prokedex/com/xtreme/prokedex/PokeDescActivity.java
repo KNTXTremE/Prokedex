@@ -82,7 +82,7 @@ public class PokeDescActivity extends AppCompatActivity {
         AppBarLayout pokedescAppBar = findViewById(R.id.pokedesc_app_bar);
         Toolbar pokedescToolBar = findViewById(R.id.pokedesc_toolbar);
         setSupportActionBar(pokedescToolBar);
-        pokedescToolBar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
+        pokedescToolBar.setNavigationIcon(R.drawable.ic_arrow_back_white_24dp);
         setTitle(AllItems.getPokemonName(pokemonId));
         pokedescToolBar.setTitleTextColor(Color.WHITE);
 
