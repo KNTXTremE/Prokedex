@@ -103,17 +103,9 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
 
         Bitmap bitmap = ((BitmapDrawable) viewHolder.sprite.getBackground()).getBitmap();
         Palette palette = Palette.from(bitmap).maximumColorCount(24).generate();
-        Palette.Swatch vibrantSwatch = palette.getVibrantSwatch();
-        Palette.Swatch lightVibrantSwatch = palette.getLightVibrantSwatch();
-        Palette.Swatch darkVibrantSwatch = palette.getDarkVibrantSwatch();
-        Palette.Swatch mutedSwatch = palette.getMutedSwatch();
         Palette.Swatch lightMutedSwatch = palette.getLightMutedSwatch();
-        Palette.Swatch darkMutedSwatch = palette.getDarkMutedSwatch();
-
-        Palette.Swatch currentSwatch = lightMutedSwatch;
-        if(currentSwatch != null)
-            viewHolder.cardView.setCardBackgroundColor(currentSwatch.getRgb());
-
+        if(lightMutedSwatch != null)
+            viewHolder.cardView.setCardBackgroundColor(lightMutedSwatch.getRgb());
     }
 
     public int getItemCount(){
@@ -124,7 +116,6 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
 
         if(!text.isEmpty()) {
             pokemons.clear();
-//            Log.d(TAG, "filter: " + pokemonsTemp.size());
             for (Pokemon p : pokemonsTemp) {
                 if (p.getName().toLowerCase().contains(text.toLowerCase())
                         || p.getNameJap().toLowerCase().contains((text.toLowerCase()))
@@ -159,7 +150,6 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
             this.element1 = v.findViewById(R.id.pokedex_element1);
             this.element2 = v.findViewById(R.id.pokedex_element2);
             this.sprite = v.findViewById(R.id.pokedex_sprite);
-            this.isCaught = v.findViewById(R.id.pokedex_is_caught);
             this.backgroundIsCaught = v.findViewById(R.id.pokedex_background_is_caught);
         }
     }
