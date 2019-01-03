@@ -49,7 +49,39 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View itemView = inflater.inflate(R.layout.pokemon_lists, viewGroup, false);
-        return new MyViewHolder(itemView);
+        final MyViewHolder viewHolder = new MyViewHolder(itemView);
+
+        viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int position = viewHolder.getAdapterPosition();
+                Log.d(TAG, "onClick: clicked on: " + pokemons.get(position));
+                Intent intent = new Intent(context, PokeDescActivity.class);
+                intent.putExtra("pokemon_id", pokemons.get(position).getId().subSequence(1,4));
+                intent.putExtra("pokemon_isCaught", pokemons.get(position).isCaught());
+                context.startActivity(intent);
+            }
+        });
+
+        viewHolder.backgroundIsCaught.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int pos = (int) viewHolder.backgroundIsCaught.getTag();
+                if(pos != RecyclerView.NO_POSITION){
+                    if (pokemons.get(pos).isCaught()) {
+                        pokemons.get(pos).setCaught(false);
+                        viewHolder.backgroundIsCaught.setBackgroundResource(R.drawable.ic_pokemon_bg);
+                        Snackbar.make(view, "\"" + pokemons.get(pos).getName() + "\" mark as uncaught!", Snackbar.LENGTH_LONG).show();
+                    } else {
+                        pokemons.get(pos).setCaught(true);
+                        viewHolder.backgroundIsCaught.setBackgroundResource(R.drawable.ic_pokemon_bg_caught);
+                        Snackbar.make(view, "\"" + pokemons.get(pos).getName() + "\" mark as caught!", Snackbar.LENGTH_LONG).show();
+                    }
+                }
+            }
+        });
+
+        return viewHolder;
     }
 
     @Override
@@ -62,24 +94,12 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
         viewHolder.element2.setText(AllItems.getElements().get(pokemons.get(position).getElement2()));
         viewHolder.element2.setBackgroundColor(Color.parseColor(AllItems.getElementsColor(pokemons.get(position).getElement2())));
         viewHolder.sprite.setBackgroundResource(pokemons.get(position).getResId());
-        viewHolder.isCaught.setChecked(pokemons.get(position).isCaught());
-
-        viewHolder.isCaught.setTag(position);
-        viewHolder.isCaught.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Integer pos = (Integer) viewHolder.isCaught.getTag();
-
-                if (pokemons.get(pos).isCaught()) {
-                    pokemons.get(pos).setCaught(false);
-                    Snackbar.make(v, "\"" + pokemons.get(pos).getName() + "\" mark as uncaught!", Snackbar.LENGTH_LONG).show();
-                } else {
-                    pokemons.get(pos).setCaught(true);
-                    Snackbar.make(v, "\"" + pokemons.get(pos).getName() + "\" mark as caught!", Snackbar.LENGTH_LONG).show();
-                }
-            }
-        });
+        if(pokemons.get(position).isCaught()){
+            viewHolder.backgroundIsCaught.setBackgroundResource(R.drawable.ic_pokemon_bg_caught);
+        }else {
+            viewHolder.backgroundIsCaught.setBackgroundResource(R.drawable.ic_pokemon_bg);
+        }
+        viewHolder.backgroundIsCaught.setTag(position);
 
         Bitmap bitmap = ((BitmapDrawable) viewHolder.sprite.getBackground()).getBitmap();
         Palette palette = Palette.from(bitmap).maximumColorCount(24).generate();
@@ -131,7 +151,6 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
         notifyDataSetChanged();
     }
 
-
     static class MyViewHolder extends RecyclerView.ViewHolder {
 
         private CardView cardView;
@@ -141,7 +160,7 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
         private TextView element1;
         private TextView element2;
         private ImageView sprite;
-        private CheckBox isCaught;
+        private ImageView backgroundIsCaught;
 
         private MyViewHolder(View v) {
             super(v);
@@ -153,8 +172,7 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
             this.element2 = v.findViewById(R.id.pokedex_element2);
             this.sprite = v.findViewById(R.id.pokedex_sprite);
             this.isCaught = v.findViewById(R.id.pokedex_is_caught);
+            this.backgroundIsCaught = v.findViewById(R.id.pokedex_background_is_caught);
         }
-
-
     }
 }
