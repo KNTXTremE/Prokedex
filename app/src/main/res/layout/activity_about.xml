@@ -5,20 +5,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FFF">
-
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/pokedesc_app_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/about_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"/>
-
-    </android.support.design.widget.AppBarLayout>
 
     <TextView
         android:id="@+id/textView5"
@@ -31,7 +23,6 @@
         android:text="Made by KanTLovE.\nThis application is not support by Nintendo."
         android:textAlignment="center"
         android:textSize="18sp"
-        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -11,7 +11,6 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
-        android:background="#FFF"
         android:clickable="true"
         android:columnCount="2"
         android:paddingBottom="?attr/actionBarSize"
@@ -27,7 +26,6 @@
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_margin="10dp"
-            app:cardBackgroundColor="#eeeeee"
             app:cardCornerRadius="20dp"
             app:cardElevation="3dp"
             android:foreground="?android:attr/selectableItemBackground">
@@ -63,7 +61,6 @@
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_margin="10dp"
-            app:cardBackgroundColor="#eeeeee"
             app:cardCornerRadius="20dp"
             app:cardElevation="3dp"
             android:foreground="?android:attr/selectableItemBackground">
@@ -99,7 +96,6 @@
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_margin="10dp"
-            app:cardBackgroundColor="#eeeeee"
             app:cardCornerRadius="20dp"
             app:cardElevation="3dp"
             android:foreground="?android:attr/selectableItemBackground">
@@ -135,7 +131,6 @@
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_margin="10dp"
-            app:cardBackgroundColor="#eeeeee"
             app:cardCornerRadius="20dp"
             app:cardElevation="3dp"
             android:foreground="?android:attr/selectableItemBackground">
@@ -171,7 +166,6 @@
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_margin="10dp"
-            app:cardBackgroundColor="#eeeeee"
             app:cardCornerRadius="20dp"
             app:cardElevation="3dp"
             android:foreground="?android:attr/selectableItemBackground"
@@ -208,7 +202,6 @@
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_margin="10dp"
-            app:cardBackgroundColor="#eeeeee"
             app:cardCornerRadius="20dp"
             app:cardElevation="3dp"
             android:id="@+id/more_about"
