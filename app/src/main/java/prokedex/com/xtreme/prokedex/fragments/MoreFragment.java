@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 
 import prokedex.com.xtreme.prokedex.AboutActivity;
 import prokedex.com.xtreme.prokedex.R;
+import prokedex.com.xtreme.prokedex.SettingsActivity;
 
 public class MoreFragment extends Fragment {
     private static final String TAG = "MoreFragment";
@@ -20,11 +21,23 @@ public class MoreFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_more, null);
+
+
+        CardView settings = view.findViewById(R.id.more_settings);
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "onClick: Going to Settings Pref Activity");
+                Intent intent = new Intent(getActivity(), SettingsActivity.class);
+                startActivity(intent);
+            }
+        });
+
         CardView about = view.findViewById(R.id.more_about);
         about.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "onClick: Going to About activity");
+                Log.d(TAG, "onClick: Going to About Activity");
                 Intent intent = new Intent(getActivity(), AboutActivity.class);
                 startActivity(intent);
             }

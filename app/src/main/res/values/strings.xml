@@ -32,4 +32,6 @@
     <string name="movedex_accuracy">Accuracy</string>
     <string name="movedex_category">Category</string>
     <string name="movedex_type">Type</string>
+    <string name="dark_mode_summary">Toggle dark mode</string>
+    <string name="dark_mode_title">Dark Mode</string>
 </resources>
