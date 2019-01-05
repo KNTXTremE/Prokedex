@@ -1,5 +1,6 @@
 package prokedex.com.xtreme.prokedex.fragments;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.Preference;
@@ -11,7 +12,9 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatDelegate;
 import android.util.Log;
 
+import prokedex.com.xtreme.prokedex.MainActivity;
 import prokedex.com.xtreme.prokedex.R;
+import prokedex.com.xtreme.prokedex.SettingsActivity;
 
 public class SettingsFragment extends PreferenceFragment {
 
@@ -39,7 +42,14 @@ public class SettingsFragment extends PreferenceFragment {
                         preference.setSummary("Dark mode disabled.");
                     }
                 }
-                Snackbar.make(getView(), "Press back button to apply change.", Snackbar.LENGTH_LONG).show();
+                
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+                    Intent intent = new Intent(getContext(), MainActivity.class);
+                    startActivity(intent);
+                    getActivity().finish();
+                } else {
+                    Snackbar.make(getView(), "Press back button to apply change.", Snackbar.LENGTH_LONG).show();
+                }
 
                 return true;
             }
