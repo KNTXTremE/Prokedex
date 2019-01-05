@@ -41,7 +41,8 @@
                     android:layout_height="60dp"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
-                    android:background="@drawable/ic_more_iv_calculator" />
+                    android:background="@drawable/ic_more_iv_calculator"
+                    android:id="@+id/more_iv_calculator_image"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -76,7 +77,8 @@
                     android:layout_height="60dp"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
-                    android:background="@drawable/ic_build_black_24dp" />
+                    android:background="@drawable/ic_build_black_24dp"
+                    android:id="@+id/more_team_builder_image" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -111,7 +113,8 @@
                     android:layout_height="60dp"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
-                    android:background="@drawable/ic_more_ability_dex" />
+                    android:background="@drawable/ic_more_ability_dex"
+                    android:id="@+id/more_ability_dex_image"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -146,7 +149,8 @@
                     android:layout_height="60dp"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
-                    android:background="@drawable/ic_more_type_dex" />
+                    android:background="@drawable/ic_more_type_dex"
+                    android:id="@+id/more_type_dex_image"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -182,7 +186,8 @@
                     android:layout_height="60dp"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
-                    android:background="@drawable/ic_settings_black_24dp" />
+                    android:background="@drawable/ic_settings_black_24dp"
+                    android:id="@+id/more_settings_image"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -218,7 +223,8 @@
                     android:layout_height="60dp"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
-                    android:background="@drawable/ic_info_outline_black_24dp" />
+                    android:background="@drawable/ic_info_outline_black_24dp"
+                    android:id="@+id/more_about_image"/>
 
                 <TextView
                     android:layout_width="match_parent"

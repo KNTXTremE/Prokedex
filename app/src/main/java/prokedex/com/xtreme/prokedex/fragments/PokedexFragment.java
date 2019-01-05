@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -60,6 +61,12 @@ public class PokedexFragment extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.toolbar_menu, menu);
         MenuItem mSearch = menu.findItem(R.id.action_search);
+
+        if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES){
+            mSearch.setIcon(R.drawable.ic_search_white_24dp);
+        } else {
+            mSearch.setIcon(R.drawable.ic_search_black_24dp);
+        }
 
         SearchView mSearchView = (SearchView) mSearch.getActionView();
         mSearchView.setQueryHint("Search");

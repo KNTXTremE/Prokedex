@@ -19,10 +19,10 @@ public class AboutActivity extends AppCompatActivity {
         setContentView(R.layout.activity_about);
         Toolbar toolbar = findViewById(R.id.about_toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
         setTitle("About Prokedex");
 
         if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES){
+            toolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_24dp);
             Window window = this.getWindow();
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
@@ -31,6 +31,7 @@ public class AboutActivity extends AppCompatActivity {
             }
         } else {
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+            toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
         }
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {

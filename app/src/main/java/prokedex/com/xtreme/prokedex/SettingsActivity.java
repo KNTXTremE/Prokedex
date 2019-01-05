@@ -20,10 +20,10 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         setContentView(R.layout.activity_settings);
         Toolbar toolbar = findViewById(R.id.settings_toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
         setTitle("Settings");
 
         if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES){
+            toolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_24dp);
             Window window = this.getWindow();
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
@@ -32,6 +32,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             }
         } else {
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+            toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
         }
 
         getFragmentManager().beginTransaction().replace(R.id.fragment_settings_main, new SettingsFragment()).commit();
