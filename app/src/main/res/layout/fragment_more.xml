@@ -28,7 +28,8 @@
             android:layout_margin="10dp"
             app:cardCornerRadius="20dp"
             app:cardElevation="3dp"
-            android:foreground="?android:attr/selectableItemBackground">
+            android:foreground="?android:attr/selectableItemBackground"
+            android:id="@+id/more_iv_calculator">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -64,7 +65,8 @@
             android:layout_margin="10dp"
             app:cardCornerRadius="20dp"
             app:cardElevation="3dp"
-            android:foreground="?android:attr/selectableItemBackground">
+            android:foreground="?android:attr/selectableItemBackground"
+            android:id="@+id/more_team_builder">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -100,7 +102,8 @@
             android:layout_margin="10dp"
             app:cardCornerRadius="20dp"
             app:cardElevation="3dp"
-            android:foreground="?android:attr/selectableItemBackground">
+            android:foreground="?android:attr/selectableItemBackground"
+            android:id="@+id/more_ability_dex">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -136,7 +139,8 @@
             android:layout_margin="10dp"
             app:cardCornerRadius="20dp"
             app:cardElevation="3dp"
-            android:foreground="?android:attr/selectableItemBackground">
+            android:foreground="?android:attr/selectableItemBackground"
+            android:id="@+id/more_type_dex">
 
             <LinearLayout
                 android:layout_width="match_parent"

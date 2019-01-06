@@ -12,9 +12,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import prokedex.com.xtreme.prokedex.AbilityDexActivity;
 import prokedex.com.xtreme.prokedex.AboutActivity;
+import prokedex.com.xtreme.prokedex.IVCalculatorActivity;
 import prokedex.com.xtreme.prokedex.R;
 import prokedex.com.xtreme.prokedex.SettingsActivity;
+import prokedex.com.xtreme.prokedex.TeamBuilderActivity;
+import prokedex.com.xtreme.prokedex.TypeDexActivity;
 
 public class MoreFragment extends Fragment {
     private static final String TAG = "MoreFragment";
@@ -46,11 +50,51 @@ public class MoreFragment extends Fragment {
             aboutImg.setBackgroundResource(R.drawable.ic_info_outline_black_24dp);
         }
 
+        CardView iVCalculator = view.findViewById(R.id.more_iv_calculator);
+        iVCalculator.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "onClick: Going to IVCalculatorActivity");
+                Intent intent = new Intent(getActivity(), IVCalculatorActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        CardView teamBuilder = view.findViewById(R.id.more_team_builder);
+        teamBuilder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "onClick: Going to TeamBuilderActivity");
+                Intent intent = new Intent(getActivity(), TeamBuilderActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        CardView abilityDex = view.findViewById(R.id.more_ability_dex);
+        abilityDex.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "onClick: Going to AbilityDexActivity");
+                Intent intent = new Intent(getActivity(), AbilityDexActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        CardView typeDex = view.findViewById(R.id.more_type_dex);
+        typeDex.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "onClick: Going to TypeDexActivity");
+                Intent intent = new Intent(getActivity(), TypeDexActivity.class);
+                startActivity(intent);
+            }
+        });
+
         CardView settings = view.findViewById(R.id.more_settings);
         settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "onClick: Going to Settings Pref Activity");
+                Log.d(TAG, "onClick: Going to SettingsActivity");
                 Intent intent = new Intent(getActivity(), SettingsActivity.class);
                 startActivity(intent);
             }
@@ -60,7 +104,7 @@ public class MoreFragment extends Fragment {
         about.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "onClick: Going to About Activity");
+                Log.d(TAG, "onClick: Going to AboutActivity");
                 Intent intent = new Intent(getActivity(), AboutActivity.class);
                 startActivity(intent);
             }

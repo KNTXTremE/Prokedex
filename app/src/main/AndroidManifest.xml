@@ -23,7 +23,11 @@
         <activity android:name=".AboutActivity" />
         <activity
             android:name=".SettingsActivity"
-            android:label="@string/title_activity_settings"/>
+            android:label="@string/title_activity_settings" />
+        <activity android:name=".IVCalculatorActivity" />
+        <activity android:name=".TeamBuilderActivity" />
+        <activity android:name=".AbilityDexActivity" />
+        <activity android:name=".TypeDexActivity"></activity>
     </application>
 
 </manifest>
