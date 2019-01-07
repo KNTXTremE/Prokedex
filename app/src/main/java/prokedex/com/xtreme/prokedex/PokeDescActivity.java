@@ -25,7 +25,6 @@ public class PokeDescActivity extends AppCompatActivity {
 
     private static final String TAG = "PokeDescActivity";
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +33,6 @@ public class PokeDescActivity extends AppCompatActivity {
         getIncomingIntent();
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void getIncomingIntent(){
         Log.d(TAG, "getIncomingIntent: check for incoming intents");
         if(getIntent().hasExtra("pokemon_id") && getIntent().hasExtra("pokemon_isCaught")){
@@ -47,7 +45,6 @@ public class PokeDescActivity extends AppCompatActivity {
         }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void setItems(Integer pokemonId, boolean pokemon_isCaught){
         Log.d(TAG, "setItems: settings items to the widgets");
         String pokemonIdReal = "#" + String.format("%03d", pokemonId+1);
@@ -118,6 +115,8 @@ public class PokeDescActivity extends AppCompatActivity {
         Window window = this.getWindow();
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.setStatusBarColor(currentDarkenSwatch.getRgb());
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            window.setStatusBarColor(currentDarkenSwatch.getRgb());
+        }
     }
 }
