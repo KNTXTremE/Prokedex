@@ -1,8 +1,10 @@
 package prokedex.com.xtreme.prokedex;
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.BottomNavigationView;
@@ -31,10 +33,16 @@ public class MainActivity extends AppCompatActivity {
 
 
     private static final String TAG = "MainActivity";
+    public static SharedPreferences prefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
+        prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        int darkModeEnabled = prefs.getInt("dark_mode_enabled", AppCompatDelegate.MODE_NIGHT_NO);
+        Log.d(TAG, "onCreate: " + darkModeEnabled);
+        AppCompatDelegate.setDefaultNightMode(darkModeEnabled);
 
         if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES){
             setTheme(R.style.DarkTheme);
@@ -42,8 +50,6 @@ public class MainActivity extends AppCompatActivity {
             setTheme(R.style.AppTheme);
         }
 
-
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
 

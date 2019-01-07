@@ -1,6 +1,7 @@
 package prokedex.com.xtreme.prokedex.fragments;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.Preference;
@@ -16,6 +17,8 @@ import android.util.Log;
 import prokedex.com.xtreme.prokedex.MainActivity;
 import prokedex.com.xtreme.prokedex.R;
 import prokedex.com.xtreme.prokedex.SettingsActivity;
+
+import static prokedex.com.xtreme.prokedex.MainActivity.prefs;
 
 public class SettingsFragment extends PreferenceFragment {
 
@@ -55,5 +58,13 @@ public class SettingsFragment extends PreferenceFragment {
                 return true;
             }
         });
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt("dark_mode_enabled", AppCompatDelegate.getDefaultNightMode());
+        editor.commit();
     }
 }
