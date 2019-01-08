@@ -13,6 +13,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -106,6 +108,8 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
         Palette.Swatch lightMutedSwatch = palette.getLightMutedSwatch();
         if(lightMutedSwatch != null)
             viewHolder.cardView.setCardBackgroundColor(lightMutedSwatch.getRgb());
+
+        setAnimation(viewHolder.itemView, position);
     }
 
     public int getItemCount(){
@@ -128,6 +132,12 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
             pokemons = (ArrayList<Pokemon>) pokemonsTemp.clone();
         }
         notifyDataSetChanged();
+    }
+
+    private void setAnimation(View viewToAnimate, int position)
+    {
+        Animation animation = AnimationUtils.loadAnimation(context, android.R.anim.fade_in);
+        viewToAnimate.startAnimation(animation);
     }
 
     static class MyViewHolder extends RecyclerView.ViewHolder {
