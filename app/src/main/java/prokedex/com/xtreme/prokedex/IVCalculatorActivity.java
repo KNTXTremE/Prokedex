@@ -50,4 +50,26 @@ public class IVCalculatorActivity extends AppCompatActivity {
         });
 
     }
+
+    public int[] calculateHP(int base, int level, int hp, int iv, int ev){
+        if(hp == -1 && iv != -1 && ev != -1){
+            hp = ((2*base + iv + ev/4 + 100) * level) / 100 + 10;       //CASE CALCULATE FOR HP
+        } else if(iv == -1 && hp != -1 && ev != -1){
+            iv = ((hp - 10) * 100) / level - 2*base - ev/4 - 100;       //CASE CALCULATE FOR IV
+        } else if(ev == -1 && hp != -1 && iv != -1){
+            ev = (((hp - 10) * 100) / level - 2*base - iv - 100) * 4;   //CASE CALCULATE FOR EV
+        }
+        return new int[] {hp, iv, ev};
+    }
+
+    public int[] calculateStat(int base, int level, int nature, int stat, int iv, int ev){
+        if(stat == -1 && iv != -1 && ev != -1){
+            stat = (((2*base + iv + ev/4) * level) / 100 + 5) * nature; //CASE CALCULATE FOR STAT
+        } else if(iv == -1 && stat != -1 && ev != -1){
+            iv = ((stat/nature - 5) * 100) / level - 2*base - ev/4;     //CASE CALCULATE FOR IV
+        } else if(ev == -1 && stat != -1 && iv != -1){
+            ev = (((stat/nature - 5) * 100) / level - 2*base - iv) * 4; //CASE CALCULATE FOR EV
+        }
+        return new int[] {stat, iv, ev};
+    }
 }
