@@ -1,8 +1,10 @@
 package prokedex.com.xtreme.prokedex;
 
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.design.widget.AppBarLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatDelegate;
@@ -14,6 +16,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class IVCalculatorActivity extends AppCompatActivity {
 
@@ -80,6 +83,16 @@ public class IVCalculatorActivity extends AppCompatActivity {
                     hpEt.setText(result[0] + "");
                     ivHpEt.setText(result[1] + "");
                     evHpEt.setText(result[2] + "");
+                } else{
+                    AlertDialog.Builder builder = new AlertDialog.Builder(IVCalculatorActivity.this);
+                    builder.setMessage("Please fill in the blank.");
+                    builder.setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                        }
+                    });
+                    builder.show();
                 }
             }
         });
