@@ -32,7 +32,41 @@
     <string name="movedex_accuracy">Accuracy</string>
     <string name="movedex_category">Category</string>
     <string name="movedex_type">Type</string>
+
     <string name="dark_mode_summary">Toggle dark mode</string>
     <string name="dark_mode_title">Dark Mode</string>
     <string name="title_activity_settings">Settings</string>
+
+    <string-array name="iv_calculator_pokemon_list">
+        <item>Choose Pokemon</item>
+    </string-array>
+
+    <string-array name="iv_calculator_nature_list">
+        <item>Choose Nature</item>
+        <item>Adamant</item>
+        <item>Bashful</item>
+        <item>Bold</item>
+        <item>Brave</item>
+        <item>Calm</item>
+        <item>Careful</item>
+        <item>Docile</item>
+        <item>Gentle</item>
+        <item>Hardy</item>
+        <item>Hasty</item>
+        <item>Impish</item>
+        <item>Jolly</item>
+        <item>Lax</item>
+        <item>Lonely</item>
+        <item>Mild</item>
+        <item>Modest</item>
+        <item>Naive</item>
+        <item>Naughty</item>
+        <item>Quiet</item>
+        <item>Quirky</item>
+        <item>Rash</item>
+        <item>Relaxed</item>
+        <item>Sassy</item>
+        <item>Serious</item>
+        <item>Timid</item>
+    </string-array>
 </resources>

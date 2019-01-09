@@ -7,9 +7,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.EditText;
 
 public class IVCalculatorActivity extends AppCompatActivity {
 
@@ -46,6 +50,37 @@ public class IVCalculatorActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+
+        final EditText levelEt = findViewById(R.id.iv_calculator_level);
+
+        final EditText hpEt = findViewById(R.id.iv_calculator_hp);
+        final EditText ivHpEt = findViewById(R.id.iv_calculator_iv);
+        final EditText evHpEt = findViewById(R.id.iv_calculator_ev);
+
+        Button calculateButton = findViewById(R.id.button_calculate);
+        calculateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String level = levelEt.getText().toString();
+                String hp = hpEt.getText().toString();
+                String iv = ivHpEt.getText().toString();
+                String ev = evHpEt.getText().toString();
+                if(!level.equals("") && ((hp.equals("") && !iv.equals("") && !ev.equals("")) ||
+                                        (!hp.equals("") && iv.equals("") && !ev.equals("")) ||
+                                        (!hp.equals("") && !iv.equals("") && ev.equals("")))){
+                    if(hp.equals(""))
+                        hp = "-1";
+                    else if (iv.equals(""))
+                        iv = "-1";
+                    else if (ev.equals(""))
+                        ev = "-1";
+                    int[] result = calculateHP(45, Integer.parseInt(level), Integer.parseInt(hp), Integer.parseInt(iv), Integer.parseInt(ev));
+                    hpEt.setText(result[0] + "");
+                    ivHpEt.setText(result[1] + "");
+                    evHpEt.setText(result[2] + "");
+                }
             }
         });
 
