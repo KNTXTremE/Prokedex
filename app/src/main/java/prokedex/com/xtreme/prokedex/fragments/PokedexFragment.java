@@ -38,6 +38,7 @@ public class PokedexFragment extends Fragment {
         recyclerPokemonView = view.findViewById((R.id.pokemon_list_recycle));
         recyclerPokemonView.setHasFixedSize(true);
         recyclerPokemonView.setNestedScrollingEnabled(true);
+        recyclerPokemonView.setItemViewCacheSize(20);
         recyclerPokemonView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         recyclerPokemonView.setItemAnimator(new DefaultItemAnimator());
         allPokemon = getData();
