@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.CardView;
@@ -18,6 +20,15 @@ import android.view.animation.AnimationUtils;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.RequestBuilder;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.target.Target;
+import com.bumptech.glide.request.transition.Transition;
 
 import java.util.ArrayList;
 
@@ -95,19 +106,29 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
         viewHolder.element1.setBackgroundColor(Color.parseColor(AllItems.getElementsColor(pokemons.get(position).getElement1())));
         viewHolder.element2.setText(AllItems.getElements().get(pokemons.get(position).getElement2()));
         viewHolder.element2.setBackgroundColor(Color.parseColor(AllItems.getElementsColor(pokemons.get(position).getElement2())));
-        viewHolder.sprite.setBackgroundResource(pokemons.get(position).getResId());
+        int sprite = pokemons.get(position).getResId();
+        Glide.with(context).load(sprite).listener(new RequestListener<Drawable>() {
+            @Override
+            public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                return false;
+            }
+
+            @Override
+            public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                Bitmap bitmap = ((BitmapDrawable) resource).getBitmap();
+                Palette palette = Palette.from(bitmap).maximumColorCount(24).generate();
+                Palette.Swatch lightMutedSwatch = palette.getLightMutedSwatch();
+                if(lightMutedSwatch != null)
+                    viewHolder.cardView.setCardBackgroundColor(lightMutedSwatch.getRgb());
+                return false;
+            }
+        }).into(viewHolder.sprite);
         if(pokemons.get(position).isCaught()){
             viewHolder.backgroundIsCaught.setBackgroundResource(R.drawable.ic_pokemon_bg_caught);
         }else {
             viewHolder.backgroundIsCaught.setBackgroundResource(R.drawable.ic_pokemon_bg);
         }
         viewHolder.backgroundIsCaught.setTag(position);
-
-        Bitmap bitmap = ((BitmapDrawable) viewHolder.sprite.getBackground()).getBitmap();
-        Palette palette = Palette.from(bitmap).maximumColorCount(24).generate();
-        Palette.Swatch lightMutedSwatch = palette.getLightMutedSwatch();
-        if(lightMutedSwatch != null)
-            viewHolder.cardView.setCardBackgroundColor(lightMutedSwatch.getRgb());
 
         setAnimation(viewHolder.itemView, position);
     }
