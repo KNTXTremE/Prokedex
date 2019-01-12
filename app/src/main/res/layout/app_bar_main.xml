@@ -54,7 +54,8 @@
         android:layout_alignParentBottom="true"
         app:menu="@menu/bottom_nav_menu"
         app:layout_scrollFlags="scroll|enterAlways|snap"
-        app:layout_behavior="prokedex.com.xtreme.prokedex.BottomNavigationBehavior"/>
+        app:layout_behavior="prokedex.com.xtreme.prokedex.BottomNavigationBehavior"
+        app:labelVisibilityMode="labeled"/>
 
 </android.support.design.widget.CoordinatorLayout>
 
