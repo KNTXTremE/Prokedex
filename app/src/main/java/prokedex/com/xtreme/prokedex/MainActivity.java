@@ -146,27 +146,26 @@ public class MainActivity extends AppCompatActivity {
 //    }
 
     public void selectFragment(MenuItem item) {
-        // Handle navigation view item clicks here.
         int id = item.getItemId();
         Fragment fragment = null;
-//        Class fragmentClass = null;
 
-        if (id == R.id.bottom_nav_pokedex) {
-            Log.d(TAG, "selectFragment: Initialize Pokedex fragment");
-            fragment = new PokedexFragment();
-        } else if (id == R.id.bottom_nav_movedex) {
-            Log.d(TAG, "selectFragment: Initialize Movedex fragment");
-            fragment = new MovedexFragment();
-        } else if (id == R.id.bottom_nav_itemdex) {
-            Log.d(TAG, "selectFragment: Initialize Itemdex fragment");
-            fragment = new ItemdexFragment();
-        } else if (id == R.id.bottom_nav_natures) {
-            Log.d(TAG, "selectFragment: Initialize Natures fragment");
-            fragment = new NaturesFragment();
-        } else if (id == R.id.bottom_nav_more) {
-            Log.d(TAG, "selectFragment: Initialize More fragment");
-            fragment = new MoreFragment();
-
+        if(!item.isChecked()){
+            if (id == R.id.bottom_nav_pokedex ) {
+                Log.d(TAG, "selectFragment: Initialize Pokedex fragment");
+                fragment = new PokedexFragment();
+            } else if (id == R.id.bottom_nav_movedex) {
+                Log.d(TAG, "selectFragment: Initialize Movedex fragment");
+                fragment = new MovedexFragment();
+            } else if (id == R.id.bottom_nav_itemdex) {
+                Log.d(TAG, "selectFragment: Initialize Itemdex fragment");
+                fragment = new ItemdexFragment();
+            } else if (id == R.id.bottom_nav_natures) {
+                Log.d(TAG, "selectFragment: Initialize Natures fragment");
+                fragment = new NaturesFragment();
+            } else if (id == R.id.bottom_nav_more) {
+                Log.d(TAG, "selectFragment: Initialize More fragment");
+                fragment = new MoreFragment();
+            }
         }
 
         if(fragment != null){
