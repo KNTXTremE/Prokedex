@@ -63,8 +63,8 @@ public class NatureListAdapter extends RecyclerView.Adapter<NatureListAdapter.My
                 if (n.getName().toLowerCase().contains(text.toLowerCase())
                         || AllItems.getStat(Integer.parseInt(n.getIncStat())).toLowerCase().contains(text.toLowerCase())
                         || AllItems.getStat(Integer.parseInt(n.getDecStat())).toLowerCase().contains(text.toLowerCase())
-                        || AllItems.getStat(Integer.parseInt(n.getFavFlavor())).toLowerCase().contains(text.toLowerCase())
-                        || AllItems.getStat(Integer.parseInt(n.getDisFlavor())).toLowerCase().contains(text.toLowerCase())) {
+                        || AllItems.getFlavor(Integer.parseInt(n.getFavFlavor())).toLowerCase().contains(text.toLowerCase())
+                        || AllItems.getFlavor(Integer.parseInt(n.getDisFlavor())).toLowerCase().contains(text.toLowerCase())) {
                     natures.add(n);
                 }
             }

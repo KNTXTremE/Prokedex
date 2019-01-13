@@ -1,12 +1,20 @@
 package prokedex.com.xtreme.prokedex.fragments;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -18,6 +26,7 @@ import prokedex.com.xtreme.prokedex.resources.AllItems;
 import prokedex.com.xtreme.prokedex.resources.Nature;
 
 public class NaturesFragment extends Fragment {
+    private static final String TAG = "NaturesFragment";
     private RecyclerView recyclerNatureView;
     private ArrayList<Nature> allNature;
     private NatureListAdapter adapter;
@@ -35,9 +44,9 @@ public class NaturesFragment extends Fragment {
         recyclerNatureView.setItemAnimator(new DefaultItemAnimator());
         allNature = getData();
         adapter = new NatureListAdapter(getContext(), allNature);
-
         recyclerNatureView.setAdapter(adapter);
-
+        
+        setHasOptionsMenu(true);
         return view;
     }
 
@@ -48,5 +57,39 @@ public class NaturesFragment extends Fragment {
             allNatures.add(nature);
         }
         return allNatures;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.toolbar_menu, menu);
+        MenuItem mSearch = menu.findItem(R.id.action_search);
+
+        if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES){
+            mSearch.setIcon(R.drawable.ic_search_white_24dp);
+        } else {
+            mSearch.setIcon(R.drawable.ic_search_black_24dp);
+        }
+
+        SearchView mSearchView = (SearchView) mSearch.getActionView();
+        mSearchView.setQueryHint("Search");
+
+        mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                adapter.filter(newText);
+                Log.d(TAG, "onQueryTextChange: Searching in Nature");
+                return false;
+            }
+        });
+        View searchPlate = mSearchView.findViewById(android.support.v7.appcompat.R.id.search_plate);
+        searchPlate.setBackgroundColor(Color.TRANSPARENT);
+
+        super.onCreateOptionsMenu(menu, inflater);
     }
 }
