@@ -119,6 +119,8 @@ public class AllItems {
 
     private static String[] flavor = {"-", "Spicy", "Sour", "Dry", "Bitter", "Sweet"};
 
+    private static String[] flavorColor = {"#00000000", "#f5ac78", "#fae078", "#9db7f5", "#a7db8d", "#fa92b2"};
+
     private static Map<Integer, String[]> natures = new HashMap<>(); //{No.:{"Name", "IncStat", "DecStat", "FavFlavor", "DisFlavor"}}
 
     public  static void addNatures(){
@@ -227,5 +229,9 @@ public class AllItems {
 
     public static Map<Integer, String[]> getNatures() {
         return natures;
+    }
+
+    public static String getFlavorColor(int i) {
+        return flavorColor[i];
     }
 }

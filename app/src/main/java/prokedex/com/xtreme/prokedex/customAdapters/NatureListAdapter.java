@@ -45,9 +45,9 @@ public class NatureListAdapter extends RecyclerView.Adapter<NatureListAdapter.My
         viewHolder.natureIncStat.setText(AllItems.getStat(Integer.parseInt(natures.get(position).getIncStat())));
         viewHolder.natureDecStat.setText(AllItems.getStat(Integer.parseInt(natures.get(position).getDecStat())));
         viewHolder.natureFavFlavor.setText(AllItems.getFlavor(Integer.parseInt(natures.get(position).getFavFlavor())));
-//        viewHolder.natureFavFlavor.setBackgroundColor(Color.parseColor(AllItems.getElementsColor(moves.get(position).getType())));
+        viewHolder.natureFavFlavor.setBackgroundColor(Color.parseColor(AllItems.getFlavorColor(Integer.parseInt(natures.get(position).getFavFlavor()))));
         viewHolder.natureDisFlavor.setText(AllItems.getFlavor(Integer.parseInt(natures.get(position).getDisFlavor())));
-//        viewHolder.natureDisFlavor.setBackgroundColor(Color.parseColor(AllItems.getMoveCategoryColor(moves.get(position).getCategory())));
+        viewHolder.natureDisFlavor.setBackgroundColor(Color.parseColor(AllItems.getFlavorColor(Integer.parseInt(natures.get(position).getDisFlavor()))));
 
         setAnimation(viewHolder.itemView, position);
     }
