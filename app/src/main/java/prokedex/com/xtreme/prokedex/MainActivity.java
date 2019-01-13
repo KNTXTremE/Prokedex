@@ -1,6 +1,7 @@
 package prokedex.com.xtreme.prokedex;
 
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -53,18 +54,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
 
-
-        if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES){
-            Window window = this.getWindow();
-            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                window.setStatusBarColor(Color.BLACK);
+        BottomNavigationView bottomNavView = findViewById(R.id.bottom_navigation);
+        bottomNavView.setSelectedItemId(R.id.bottom_nav_pokedex);
+        bottomNavView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                selectFragment(item);
+                return true;
             }
-        } else {
-            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-        }
+        });
 
+        setDarkMode(bottomNavView);
 
         setSupportActionBar(toolbar);
         FragmentManager manager = getSupportFragmentManager();
@@ -75,16 +75,6 @@ public class MainActivity extends AppCompatActivity {
             transaction.add(R.id.pokedex_fragment_init, fragment);
             transaction.commit();
         }
-
-        BottomNavigationView bottomNavView = findViewById(R.id.bottom_navigation);
-        bottomNavView.setSelectedItemId(R.id.bottom_nav_pokedex);
-        bottomNavView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                selectFragment(item);
-                return true;
-            }
-        });
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
@@ -107,8 +97,39 @@ public class MainActivity extends AppCompatActivity {
         AllItems.addElements();
         AllItems.addMoves();
         AllItems.addPokemonIds();
+        AllItems.addNatures();
     }
 
+    private void setDarkMode(BottomNavigationView bottomNavView) {
+        int [][] states = new int [][]{
+                new int[] { android.R.attr.state_enabled, -android.R.attr.state_checked},
+                new int[] {android.R.attr.state_enabled, android.R.attr.state_checked}
+        };
+        if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES){
+            int[] colors = new int[] {
+                    Color.parseColor("#909090"),
+                    Color.parseColor("#ffffff"),
+            };
+            bottomNavView.setBackgroundColor(getResources().getColor(R.color.colorDarkPrimary));
+            bottomNavView.setItemTextColor(new ColorStateList(states, colors));
+            bottomNavView.setItemIconTintList(new ColorStateList(states, colors));
+            Window window = this.getWindow();
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                window.setStatusBarColor(Color.BLACK);
+            }
+        } else {
+            int[] colors = new int[] {
+                    Color.parseColor("#4d4d4d"),
+                    Color.parseColor("#a40000"),
+            };
+            bottomNavView.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+            bottomNavView.setItemTextColor(new ColorStateList(states, colors));
+            bottomNavView.setItemIconTintList(new ColorStateList(states, colors));
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        }
+    }
 
 
 //    @Override
