@@ -40,7 +40,7 @@ public class NaturesFragment extends Fragment {
         recyclerNatureView.setHasFixedSize(true);
         recyclerNatureView.setNestedScrollingEnabled(true);
         recyclerNatureView.setItemViewCacheSize(5);
-        recyclerNatureView.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        recyclerNatureView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         recyclerNatureView.setItemAnimator(new DefaultItemAnimator());
         allNature = getData();
         adapter = new NatureListAdapter(getContext(), allNature);
