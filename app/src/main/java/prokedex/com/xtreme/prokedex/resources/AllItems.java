@@ -113,6 +113,42 @@ public class AllItems {
         moves.put(11, new String[]{"Aeroblast", "10", "1", "100", "95"});
     }
 
+    //###NATURE
+
+    private static String[] stat = {"-", "Attack", "Defense", "Sp.Attack", "Sp.Defense", "Speed"};
+
+    private static String[] flavor = {"-", "Spicy", "Sour", "Dry", "Bitter", "Sweet"};
+
+    private static Map<Integer, String[]> natures = new HashMap<>(); //{No.:{"Name", "IncStat", "DecStat", "FavFlavor", "DisFlavor"}}
+
+    public  static void addNatures(){
+        natures.put(1, new String[]{"Hardy", "0", "0"});
+        natures.put(2, new String[]{"Lonely", "1", "2"});
+        natures.put(3, new String[]{"Brave", "1", "5"});
+        natures.put(4, new String[]{"Adamant", "1", "3"});
+        natures.put(5, new String[]{"Naughty", "1", "4"});
+        natures.put(6, new String[]{"Bold", "2", "1"});
+        natures.put(7, new String[]{"Docile", "0", "0"});
+        natures.put(8, new String[]{"Relaxed", "2", "5"});
+        natures.put(9, new String[]{"Impish", "2", "3"});
+        natures.put(10, new String[]{"Lax", "2", "4"});
+        natures.put(11, new String[]{"Timid", "5", "1"});
+        natures.put(12, new String[]{"Hasty", "5", "2"});
+        natures.put(13, new String[]{"Serious", "0", "0"});
+        natures.put(14, new String[]{"Jolly", "5", "3"});
+        natures.put(15, new String[]{"Naive", "5", "4"});
+        natures.put(16, new String[]{"Modest", "3", "1"});
+        natures.put(17, new String[]{"Mild", "3", "2"});
+        natures.put(18, new String[]{"Quiet", "3", "5"});
+        natures.put(19, new String[]{"Bashful", "0", "0"});
+        natures.put(20, new String[]{"Rash", "3", "4"});
+        natures.put(21, new String[]{"Calm", "4", "1"});
+        natures.put(22, new String[]{"Gentle", "4", "2"});
+        natures.put(23, new String[]{"Sassy", "4", "5"});
+        natures.put(24, new String[]{"Careful", "4", "3"});
+        natures.put(25, new String[]{"Quirky", "0", "0"});
+    }
+
     public static ArrayList<String> getPokemonIds() {
         return pokemonIds;
     }
@@ -179,5 +215,17 @@ public class AllItems {
 
     public static Map<Integer, String[]> getMoves() {
         return moves;
+    }
+
+    public static String getStat(int i) {
+        return stat[i];
+    }
+
+    public static String getFlavor(int i) {
+        return flavor[i];
+    }
+
+    public static Map<Integer, String[]> getNatures() {
+        return natures;
     }
 }
