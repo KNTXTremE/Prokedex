@@ -23,7 +23,7 @@
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="Name"
                 android:layout_weight="4"
                 android:textSize="16sp"
@@ -32,7 +32,7 @@
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="Power"
                 android:layout_weight="1"
                 android:textSize="16sp"
@@ -41,7 +41,7 @@
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="Acc."
                 android:layout_weight="1"
                 android:textSize="16sp"
