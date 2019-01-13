@@ -18,94 +18,132 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <Spinner
-        android:id="@+id/iv_calculator_pokemon_selector"
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:entries="@array/iv_calculator_pokemon_list"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_calculator_app_bar" />
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:layout_constraintTop_toBottomOf="@+id/iv_calculator_app_bar"
+        card_view:cardCornerRadius="20dp"
+        card_view:cardElevation="3dp"
+        card_view:cardUseCompatPadding="true">
 
-    <Spinner
-        android:id="@+id/iv_calculator_nature_selector"
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Spinner
+                android:id="@+id/iv_calculator_pokemon_selector"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:entries="@array/iv_calculator_pokemon_list"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Spinner
+                android:id="@+id/iv_calculator_nature_selector"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:entries="@array/iv_calculator_nature_list"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_calculator_pokemon_selector" />
+
+            <EditText
+                android:id="@+id/iv_calculator_level"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:hint="Level"
+                android:inputType="numberDecimal"
+                app:layout_constraintEnd_toStartOf="@+id/iv_calculator_hp"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_calculator_nature_selector" />
+
+            <EditText
+                android:id="@+id/iv_calculator_hp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="HP"
+                android:inputType="numberDecimal"
+                app:layout_constraintEnd_toStartOf="@+id/iv_calculator_iv"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/iv_calculator_level"
+                app:layout_constraintTop_toBottomOf="@+id/iv_calculator_nature_selector" />
+
+            <EditText
+                android:id="@+id/iv_calculator_iv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="IV"
+                android:inputType="numberDecimal"
+                app:layout_constraintEnd_toStartOf="@+id/iv_calculator_ev"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/iv_calculator_hp"
+                app:layout_constraintTop_toBottomOf="@+id/iv_calculator_nature_selector" />
+
+            <EditText
+                android:id="@+id/iv_calculator_ev"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:hint="EV"
+                android:inputType="numberDecimal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/iv_calculator_iv"
+                app:layout_constraintTop_toBottomOf="@+id/iv_calculator_nature_selector" />
+
+            <Button
+                android:id="@+id/button_calculate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="Calculate"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_calculator_iv" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:entries="@array/iv_calculator_nature_list"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_calculator_pokemon_selector" />
-
-    <EditText
-        android:id="@+id/iv_calculator_level"
-        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:hint="Level"
-        android:inputType="numberDecimal"
-        app:layout_constraintEnd_toStartOf="@+id/iv_calculator_hp"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_calculator_nature_selector" />
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        card_view:cardCornerRadius="20dp"
+        card_view:cardElevation="3dp"
+        card_view:cardUseCompatPadding="true"
+        card_view:layout_constraintTop_toBottomOf="@+id/cardView">
 
-    <EditText
-        android:id="@+id/iv_calculator_hp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:hint="HP"
-        android:inputType="numberDecimal"
-        app:layout_constraintEnd_toStartOf="@+id/iv_calculator_iv"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toEndOf="@+id/iv_calculator_level"
-        app:layout_constraintTop_toBottomOf="@+id/iv_calculator_nature_selector" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTEST"/>
 
-    <EditText
-        android:id="@+id/iv_calculator_iv"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:hint="IV"
-        android:inputType="numberDecimal"
-        app:layout_constraintEnd_toStartOf="@+id/iv_calculator_ev"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toEndOf="@+id/iv_calculator_hp"
-        app:layout_constraintTop_toBottomOf="@+id/iv_calculator_nature_selector" />
+    </android.support.v7.widget.CardView>
 
-    <EditText
-        android:id="@+id/iv_calculator_ev"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:hint="EV"
-        android:inputType="numberDecimal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toEndOf="@+id/iv_calculator_iv"
-        app:layout_constraintTop_toBottomOf="@+id/iv_calculator_nature_selector" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/button_calculate"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="Calculate"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_calculator_iv" />
+
 
 </android.support.constraint.ConstraintLayout>
