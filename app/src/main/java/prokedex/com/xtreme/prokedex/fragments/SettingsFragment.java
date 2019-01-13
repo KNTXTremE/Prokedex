@@ -49,7 +49,8 @@ public class SettingsFragment extends PreferenceFragment {
 
                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
                     Intent intent = new Intent(getContext(), MainActivity.class);
-                    ActivityCompat.finishAffinity(getActivity());
+                    intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_PREVIOUS_IS_TOP);
+//                    ActivityCompat.finishAffinity(getActivity());
                     startActivity(intent);
                 } else {
                     Snackbar.make(getView(), "Please restart application to apply change.", Snackbar.LENGTH_LONG).show();
