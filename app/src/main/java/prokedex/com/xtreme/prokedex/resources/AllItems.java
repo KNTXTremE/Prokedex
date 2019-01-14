@@ -151,6 +151,36 @@ public class AllItems {
         natures.put(25, new String[]{"Quirky", "0", "0"});
     }
 
+    private static Map<String, String[]> naturesCal = new HashMap<>(); //{No.:{"Name", "IncStat", "DecStat", "FavFlavor", "DisFlavor"}}
+
+    public  static void addNaturesCal(){
+        naturesCal.put("Hardy", new String[]{"0", "0"});
+        naturesCal.put("Lonely", new String[]{"1", "2"});
+        naturesCal.put("Brave", new String[]{"1", "5"});
+        naturesCal.put("Adamant", new String[]{"1", "3"});
+        naturesCal.put("Naughty", new String[]{"1", "4"});
+        naturesCal.put("Bold", new String[]{"2", "1"});
+        naturesCal.put("Docile", new String[]{"0", "0"});
+        naturesCal.put("Relaxed", new String[]{"2", "5"});
+        naturesCal.put("Impish", new String[]{"2", "3"});
+        naturesCal.put("Lax", new String[]{"2", "4"});
+        naturesCal.put("Timid", new String[]{"5", "1"});
+        naturesCal.put("Hasty", new String[]{"5", "2"});
+        naturesCal.put("Serious", new String[]{"0", "0"});
+        naturesCal.put("Jolly", new String[]{"5", "3"});
+        naturesCal.put("Naive", new String[]{"5", "4"});
+        naturesCal.put("Modest", new String[]{"3", "1"});
+        naturesCal.put("Mild", new String[]{"3", "2"});
+        naturesCal.put("Quiet", new String[]{"3", "5"});
+        naturesCal.put("Bashful", new String[]{"0", "0"});
+        naturesCal.put("Rash", new String[]{"3", "4"});
+        naturesCal.put("Calm", new String[]{"4", "1"});
+        naturesCal.put("Gentle", new String[]{"4", "2"});
+        naturesCal.put("Sassy", new String[]{"4", "5"});
+        naturesCal.put("Careful", new String[]{"4", "3"});
+        naturesCal.put("Quirky", new String[]{"0", "0"});
+    }
+
     public static ArrayList<String> getPokemonIds() {
         return pokemonIds;
     }
@@ -234,4 +264,9 @@ public class AllItems {
     public static String getFlavorColor(int i) {
         return flavorColor[i];
     }
+
+    public static Map<String, String[]> getNaturesCal() {
+        return naturesCal;
+    }
 }
+
