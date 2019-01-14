@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
-    <!--xmlns:tools="http://schemas.android.com/tools"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:fitsSystemWindows="true"-->
-        <!--tools:context="prokedex.com.xtreme.prokedex.MainActivity">-->
-
 <android.support.design.widget.CoordinatorLayout android:id="@+id/main_coordinator"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:layout_above="@+id/bottom_navigation"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="prokedex.com.xtreme.prokedex.MainActivity"
+    xmlns:tools="http://schemas.android.com/tools">
 
 
     <android.support.design.widget.AppBarLayout
@@ -39,8 +33,6 @@
         <!--android:layout_gravity="bottom|end"-->
         <!--android:layout_margin="@dimen/fab_margin"-->
         <!--app:srcCompat="@drawable/ic_search_white_24dp" />-->
-
-<!--</android.support.design.widget.CoordinatorLayout>-->
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bottom_navigation"
