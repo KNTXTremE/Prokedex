@@ -3,14 +3,11 @@ package prokedex.com.xtreme.prokedex;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Build;
-import android.support.design.widget.AppBarLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -18,7 +15,6 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import java.math.RoundingMode;
 import java.text.NumberFormat;
@@ -92,6 +88,8 @@ public class IVCalculatorActivity extends AppCompatActivity {
         final EditText speedIvEt = findViewById(R.id.iv_calculator_speed_iv);
         final EditText speedEvEt = findViewById(R.id.iv_calculator_speed_ev);
 
+        showDialog("Please fill in only 2 values on each row and leave value that you want to know blank.");
+
         Button resetButton = findViewById(R.id.button_reset);
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -152,7 +150,7 @@ public class IVCalculatorActivity extends AppCompatActivity {
                 String speed_ev = speedEvEt.getText().toString();
 
                 if(level.equals("") || nature.equals("Choose Nature")){
-                    showDialog("Please fill in the level and nature");
+                    showDialog("Please fill in the level and nature.");
                 } else {
                     if((hp.equals("") && !hp_iv.equals("") && !hp_ev.equals("")) ||
                             (!hp.equals("") && hp_iv.equals("") && !hp_ev.equals("")) ||
@@ -266,9 +264,6 @@ public class IVCalculatorActivity extends AppCompatActivity {
                 }
             }
         });
-
-        showDialog("Please fill in only 2 values on each row and leave value that you want to know blank.");
-
     }
 
     public int[] calculateHP(int base, int level, int hp, int iv, int ev){
