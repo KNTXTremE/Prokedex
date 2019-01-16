@@ -35,7 +35,7 @@ public class NatureListAdapter extends RecyclerView.Adapter<NatureListAdapter.My
 
     @Override
     public NatureListAdapter.MyViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-        View itemView = inflater.inflate(R.layout.nature_list, viewGroup, false);
+        View itemView = inflater.inflate(R.layout.nature_lists, viewGroup, false);
         return new NatureListAdapter.MyViewHolder(itemView);
     }
 
