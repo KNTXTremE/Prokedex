@@ -123,7 +123,7 @@ public class AllItems {
 
     private static Map<Integer, String[]> natures = new HashMap<>(); //{No.:{"Name", "IncStat", "DecStat", "FavFlavor", "DisFlavor"}}
 
-    public  static void addNatures(){
+    public static void addNatures(){
         natures.put(1, new String[]{"Hardy", "0", "0"});
         natures.put(2, new String[]{"Lonely", "1", "2"});
         natures.put(3, new String[]{"Brave", "1", "5"});
@@ -153,7 +153,7 @@ public class AllItems {
 
     private static Map<String, String[]> naturesCal = new HashMap<>(); //{No.:{"Name", "IncStat", "DecStat", "FavFlavor", "DisFlavor"}}
 
-    public  static void addNaturesCal(){
+    public static void addNaturesCal(){
         naturesCal.put("Hardy", new String[]{"0", "0"});
         naturesCal.put("Lonely", new String[]{"1", "2"});
         naturesCal.put("Brave", new String[]{"1", "5"});

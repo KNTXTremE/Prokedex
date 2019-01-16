@@ -54,7 +54,6 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
         inflater = LayoutInflater.from(context);
         this.pokemons = pokemons;
         this.context = context;
-        Log.d(TAG, "PokemonListAdapter: " + this.pokemons.size());
         this.pokemonsTemp = (ArrayList<Pokemon>) pokemons.clone();
 
     }
