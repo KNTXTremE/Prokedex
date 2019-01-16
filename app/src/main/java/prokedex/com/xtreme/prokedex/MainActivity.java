@@ -99,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
         AllItems.addPokemonIds();
         AllItems.addNatures();
         AllItems.addNaturesCal();
+        AllItems.addItems();
     }
 
     private void setDarkMode(BottomNavigationView bottomNavView) {

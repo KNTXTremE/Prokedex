@@ -181,6 +181,54 @@ public class AllItems {
         naturesCal.put("Quirky", new String[]{"0", "0"});
     }
 
+    //###ITEM
+
+    private static Map<Integer, String[]> items = new HashMap<>();
+
+    private static int[] itemsImage = {R.drawable.i001_dream_ability_capsule_sprite,
+            R.drawable.i002_bag_ability_urge_sprite,
+            R.drawable.i003_dream_abomasite_sprite,
+            R.drawable.i004_dream_absolite_sprite,
+            R.drawable.i005_dream_absorb_bulb_sprite,
+            R.drawable.i006_bag_acro_bike_sprite,
+            R.drawable.i007_dream_adamant_orb_sprite,
+            R.drawable.i008_dream_adrenaline_orb_sprite,
+            R.drawable.i009_bag_adventure_rules_sprite,
+            R.drawable.i010_dream_aerodactylite_sprite,
+            R.drawable.i011_dream_aggronite_sprite,
+            R.drawable.i012_dream_aguav_berry_sprite,
+            R.drawable.i013_dream_air_balloon_sprite,
+            R.drawable.i014_bag_air_mail_sprite,
+            R.drawable.i015_dream_alakazite_sprite,
+            R.drawable.i016_dream_aloraichium_z_sprite,
+            R.drawable.i017_dream_altarianite_sprite,
+            R.drawable.i018_dream_amaze_mulch_sprite,
+            R.drawable.i019_dream_ampharosite_sprite,
+            R.drawable.i020_dream_amulet_coin_sprite,};
+
+    public static void addItems(){
+        items.put(R.drawable.i001_dream_ability_capsule_sprite, new String[]{"Ability Capsule", "Allows a Pokémon with two Abilities to switch between these Abilities."});
+        items.put(R.drawable.i002_bag_ability_urge_sprite, new String[]{"Ability Urge", "Activates the Ability of an ally Pokémon. Wonder Launcher only."});
+        items.put(R.drawable.i003_dream_abomasite_sprite, new String[]{"Abomasite", "Allows Abomasnow to Mega Evolve into Mega Abomasnow."});
+        items.put(R.drawable.i004_dream_absolite_sprite, new String[]{"Absolite", "Allows Absol to Mega Evolve into Mega Absol."});
+        items.put(R.drawable.i005_dream_absorb_bulb_sprite, new String[]{"Absorb Bulb", "Raises the holder's Special Attack after being hit by a Water-type attack. Consumed after use."});
+        items.put(R.drawable.i006_bag_acro_bike_sprite, new String[]{"Acro Bike", "A bicycle with which the player can do tricks such as jump sideways."});
+        items.put(R.drawable.i007_dream_adamant_orb_sprite, new String[]{"Adamant Orb", "Boosts Dialga's Steel- and Dragon-type attacks."});
+        items.put(R.drawable.i008_dream_adrenaline_orb_sprite, new String[]{"Adrenaline Orb", "When used, makes wild Pokémon more likely to call allies for help in an SOS Battle. Is not consumed if it fails. If the holder is affected by Intimidate, its Speed is increased by one stage."});
+        items.put(R.drawable.i009_bag_adventure_rules_sprite, new String[]{"Adventure Rules", "Contains information new Trainers should know."});
+        items.put(R.drawable.i010_dream_aerodactylite_sprite, new String[]{"Aerodactylite", "Allows Aerodactyl to Mega Evolve into Mega Aerodactyl."});
+        items.put(R.drawable.i011_dream_aggronite_sprite, new String[]{"Aggronite", "Allows Aggron to Mega Evolve into Mega Aggron."});
+        items.put(R.drawable.i012_dream_aguav_berry_sprite, new String[]{"Aguav Berry", "When HP falls below 25%, restores 50% HP, but confuses Pokémon that dislike bitter food (12.5% when below 50% before Gen. VII)."});
+        items.put(R.drawable.i013_dream_air_balloon_sprite, new String[]{"Air Balloon", "Gives the holder an immunity to Ground-type moves but is popped when the holder is hit by any non-Ground-type attacks."});
+        items.put(R.drawable.i014_bag_air_mail_sprite, new String[]{"Air Mail", "A red- and blue-striped stationery. To be held by a Pokémon for delivery."});
+        items.put(R.drawable.i015_dream_alakazite_sprite, new String[]{"Alakazite", "Allows Alakazam to Mega Evolve into Mega Alakazam."});
+        items.put(R.drawable.i016_dream_aloraichium_z_sprite, new String[]{"Aloraichium Z", "Allows Alolan Raichu to upgrade Thunderbolt to the special Z-Move Stoked Sparksurfer."});
+        items.put(R.drawable.i017_dream_altarianite_sprite, new String[]{"Altarianite", "Allows Altaria to Mega Evolve into Mega Altaria."});
+        items.put(R.drawable.i018_dream_amaze_mulch_sprite, new String[]{"Amaze Mulch", "Combines the effects of Boost Mulch, Rich Mulch, and Surprise Mulch: Causes an applied Berry patch's soil to dry quicker, increases final Berry harvest by 2 Berries, and makes Berry mutations more likely."});
+        items.put(R.drawable.i019_dream_ampharosite_sprite, new String[]{"Ampharosite", "Allows Ampharos to Mega Evolve into Mega Ampharos."});
+        items.put(R.drawable.i020_dream_amulet_coin_sprite, new String[]{"Amulet Coin", "Doubles the earned money after a battle against a Trainer."});
+    }
+
     public static ArrayList<String> getPokemonIds() {
         return pokemonIds;
     }
@@ -267,6 +315,14 @@ public class AllItems {
 
     public static Map<String, String[]> getNaturesCal() {
         return naturesCal;
+    }
+
+    public static Map<Integer, String[]> getItems() {
+        return items;
+    }
+
+    public static int[] getItemsImage() {
+        return itemsImage;
     }
 }
 
