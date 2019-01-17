@@ -56,7 +56,7 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-        View itemView = inflater.inflate(R.layout.pokemon_lists, viewGroup, false);
+        View itemView = inflater.inflate(R.layout.lists_pokemon, viewGroup, false);
         final MyViewHolder viewHolder = new MyViewHolder(itemView);
 
         viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
