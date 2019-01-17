@@ -11,8 +11,11 @@ import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatDelegate;
 import android.util.Log;
 import android.support.v7.app.AppCompatActivity;
@@ -22,6 +25,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+
+import java.util.ArrayList;
 
 import prokedex.com.xtreme.prokedex.fragments.ItemdexFragment;
 import prokedex.com.xtreme.prokedex.fragments.MoreFragment;
@@ -35,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
     public static SharedPreferences prefs;
+    private ViewPager mPager;
+    private PagerAdapter mPagerAdapter;
+    private MenuItem prevMenuItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +62,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
 
-        BottomNavigationView bottomNavView = findViewById(R.id.bottom_navigation);
+        mPager = findViewById(R.id.view_pager);
+        mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
+        ((ScreenSlidePagerAdapter) mPagerAdapter).addFragment(new MovedexFragment());
+        ((ScreenSlidePagerAdapter) mPagerAdapter).addFragment(new ItemdexFragment());
+        ((ScreenSlidePagerAdapter) mPagerAdapter).addFragment(new PokedexFragment());
+        ((ScreenSlidePagerAdapter) mPagerAdapter).addFragment(new NaturesFragment());
+        ((ScreenSlidePagerAdapter) mPagerAdapter).addFragment(new MoreFragment());
+        mPager.setAdapter(mPagerAdapter);
+        mPager.setCurrentItem(2);
+
+        final BottomNavigationView bottomNavView = findViewById(R.id.bottom_navigation);
         bottomNavView.setSelectedItemId(R.id.bottom_nav_pokedex);
         bottomNavView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -65,16 +83,41 @@ public class MainActivity extends AppCompatActivity {
         });
 
         setDarkMode(bottomNavView);
-
         setSupportActionBar(toolbar);
-        FragmentManager manager = getSupportFragmentManager();
-        Fragment prevFragment = manager.findFragmentById(R.id.pokedex_fragment_init);
-        if(prevFragment == null){
-            Fragment fragment = new PokedexFragment();
-            FragmentTransaction transaction = manager.beginTransaction();
-            transaction.add(R.id.pokedex_fragment_init, fragment);
-            transaction.commit();
-        }
+
+        mPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if (prevMenuItem != null)
+                    prevMenuItem.setChecked(false);
+                else {
+                    bottomNavView.getMenu().getItem(0).setChecked(false);
+                }
+
+                bottomNavView.getMenu().getItem(position).setChecked(true);
+                prevMenuItem = bottomNavView.getMenu().getItem(position);
+                setTitle(bottomNavView.getMenu().getItem(position).getTitle());
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
+//        FragmentManager manager = getSupportFragmentManager();
+//        Fragment prevFragment = manager.findFragmentById(R.id.pokedex_fragment_init);
+//        if(prevFragment == null){
+//            Fragment fragment = new PokedexFragment();
+//            FragmentTransaction transaction = manager.beginTransaction();
+//            transaction.add(R.id.pokedex_fragment_init, fragment);
+//            transaction.commit();
+//        }
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
@@ -134,22 +177,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-//    @Override
-//    public void onBackPressed() {
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
 //        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 //        if (drawer.isDrawerOpen(GravityCompat.START)) {
 //            drawer.closeDrawer(GravityCompat.START);
 //        } else {
 //            super.onBackPressed();
 //        }
-//    }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-
-
-
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -173,34 +214,59 @@ public class MainActivity extends AppCompatActivity {
         Fragment fragment = null;
 
         if(!item.isChecked()){
-            if (id == R.id.bottom_nav_pokedex ) {
-                Log.d(TAG, "selectFragment: Initialize Pokedex fragment");
-                fragment = new PokedexFragment();
-            } else if (id == R.id.bottom_nav_movedex) {
-                Log.d(TAG, "selectFragment: Initialize Movedex fragment");
-                fragment = new MovedexFragment();
-            } else if (id == R.id.bottom_nav_itemdex) {
-                Log.d(TAG, "selectFragment: Initialize Itemdex fragment");
-                fragment = new ItemdexFragment();
-            } else if (id == R.id.bottom_nav_natures) {
-                Log.d(TAG, "selectFragment: Initialize Natures fragment");
-                fragment = new NaturesFragment();
-            } else if (id == R.id.bottom_nav_more) {
-                Log.d(TAG, "selectFragment: Initialize More fragment");
-                fragment = new MoreFragment();
+            switch (id){
+                case R.id.bottom_nav_pokedex:
+                    mPager.setCurrentItem(2);
+                    break;
+                case R.id.bottom_nav_movedex:
+                    mPager.setCurrentItem(0);
+                    break;
+                case R.id.bottom_nav_itemdex:
+                    mPager.setCurrentItem(1);
+                    break;
+                case R.id.bottom_nav_natures:
+                    mPager.setCurrentItem(3);
+                    break;
+                case R.id.bottom_nav_more:
+                    mPager.setCurrentItem(4);
+                    break;
             }
-        }
-
-        if(fragment != null){
-            FragmentManager manager = getSupportFragmentManager();
-            FragmentTransaction transaction = manager.beginTransaction();
-            transaction.replace(R.id.pokedex_fragment_init, fragment);
-            transaction.commit();
             item.setChecked(true);
             setTitle(item.getTitle());
         }
 
+//        if(fragment != null){
+//            FragmentManager manager = getSupportFragmentManager();
+//            FragmentTransaction transaction = manager.beginTransaction();
+//            transaction.replace(R.id.pokedex_fragment_init, fragment);
+//            transaction.commit();
+//            item.setChecked(true);
+//            setTitle(item.getTitle());
+//        }
+
 //        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 //        drawer.closeDrawer(GravityCompat.START);
+    }
+
+    private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
+        private ArrayList<Fragment> mFragmentList = new ArrayList<>();
+
+        public ScreenSlidePagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return mFragmentList.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return mFragmentList.size();
+        }
+
+        public void addFragment(Fragment fragment) {
+            mFragmentList.add(fragment);
+        }
     }
 }
