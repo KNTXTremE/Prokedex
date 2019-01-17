@@ -229,6 +229,33 @@ public class AllItems {
         items.put(R.drawable.i020_dream_amulet_coin_sprite, new String[]{"Amulet Coin", "Doubles the earned money after a battle against a Trainer."});
     }
 
+    //###ABILITY
+
+    private static Map<Integer, String[]> abilities = new HashMap<>();
+
+    public static void  addAbilities(){
+        abilities.put(1, new String[]{"Adaptability", "Powers up moves of the same type as the Pokémon."});
+        abilities.put(2, new String[]{"Aerilate", "Normal-type moves become Flying-type moves. The power of those moves is boosted a little."});
+        abilities.put(3, new String[]{"Aftermath", "Damages the attacker if it contacts the Pokémon with a finishing hit."});
+        abilities.put(4, new String[]{"Air Lock", "Eliminates the effects of weather."});
+        abilities.put(5, new String[]{"Analytic", "Boosts move power when the Pokémon moves last."});
+        abilities.put(6, new String[]{"Anger Point", "The Pokémon is angered when it takes a critical hit, and that maxes its Attack stat."});
+        abilities.put(7, new String[]{"Anticipation", "The Pokémon can sense an opposing Pokémon's dangerous moves."});
+        abilities.put(8, new String[]{"Arena Trap", "Prevents opposing Pokémon from fleeing."});
+        abilities.put(9, new String[]{"Aroma Veil", "Protects itself and its allies from attacks that limit their move choices."});
+        abilities.put(10, new String[]{"Aura Break", "The effects of \"Aura\" Abilities are reversed to lower the power of affected moves."});
+        abilities.put(11, new String[]{"Bad Dreams", "Reduces the HP of sleeping opposing Pokémon."});
+        abilities.put(12, new String[]{"Battery", "Powers up ally Pokémon's special moves."});
+        abilities.put(13, new String[]{"Battle Armor", "Hard armor protects the Pokémon from critical hits."});
+        abilities.put(14, new String[]{"Battle Bond", "Defeating an opposing Pokémon strengthens the Pokémon's bond with its Trainer, and it becomes Ash-Greninja. Water Shuriken gets more powerful."});
+        abilities.put(15, new String[]{"Beast Boost", "The Pokémon boosts its most proficient stat each time it knocks out a Pokémon."});
+        abilities.put(16, new String[]{"Berserk", "Boosts the Pokémon's Sp. Atk stat when it takes a hit that causes its HP to become half or less."});
+        abilities.put(17, new String[]{"Big Pecks", "Protects the Pokémon from Defense-lowering effects."});
+        abilities.put(18, new String[]{"Blaze", "Powers up Fire-type moves when the Pokémon's HP is low."});
+        abilities.put(19, new String[]{"Bulletproof", "Protects the Pokémon from some ball and bomb moves."});
+        abilities.put(20, new String[]{"Cacophony", "Avoids sound-based moves."});
+    }
+
     public static ArrayList<String> getPokemonIds() {
         return pokemonIds;
     }
@@ -323,6 +350,10 @@ public class AllItems {
 
     public static int[] getItemsImage() {
         return itemsImage;
+    }
+
+    public static Map<Integer, String[]> getAbilities() {
+        return abilities;
     }
 }
 

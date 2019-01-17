@@ -143,6 +143,7 @@ public class MainActivity extends AppCompatActivity {
         AllItems.addNatures();
         AllItems.addNaturesCal();
         AllItems.addItems();
+        AllItems.addAbilities();
     }
 
     private void setDarkMode(BottomNavigationView bottomNavView) {
