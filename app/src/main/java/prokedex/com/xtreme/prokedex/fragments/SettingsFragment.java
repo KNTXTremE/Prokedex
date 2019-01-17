@@ -10,13 +10,11 @@ import android.preference.PreferenceManager;
 import android.preference.SwitchPreference;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatDelegate;
 import android.util.Log;
 
 import prokedex.com.xtreme.prokedex.MainActivity;
 import prokedex.com.xtreme.prokedex.R;
-import prokedex.com.xtreme.prokedex.SettingsActivity;
 
 import static prokedex.com.xtreme.prokedex.MainActivity.prefs;
 
