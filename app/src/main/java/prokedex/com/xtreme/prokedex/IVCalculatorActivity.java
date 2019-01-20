@@ -1,6 +1,7 @@
 package prokedex.com.xtreme.prokedex;
 
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.v7.app.AlertDialog;
@@ -9,10 +10,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -54,6 +58,8 @@ public class IVCalculatorActivity extends AppCompatActivity {
             toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         }
+
+        showDialog("Please fill in only 2 values on each row and leave value that you want to know blank.", true);
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,8 +121,6 @@ public class IVCalculatorActivity extends AppCompatActivity {
         final TextView resultSpeed = findViewById(R.id.iv_result_speed);
         final TextView resultSpeedIv = findViewById(R.id.iv_result_speed_iv);
         final TextView resultSpeedEv = findViewById(R.id.iv_result_speed_ev);
-
-        showDialog("Please fill in only 2 values on each row and leave value that you want to know blank.");
 
         Button resetButton = findViewById(R.id.button_reset);
         resetButton.setOnClickListener(new View.OnClickListener() {
@@ -198,7 +202,7 @@ public class IVCalculatorActivity extends AppCompatActivity {
                 String speed_ev = speedEvEt.getText().toString();
 
                 if(level.equals("") || nature.equals("Choose Nature")){
-                    showDialog("Please fill in the level and nature.");
+                    showDialog("Please fill in the level and nature.", false);
                 } else {
                     resultLevel.setText(level);
                     resultNature.setText(nature);
@@ -346,15 +350,53 @@ public class IVCalculatorActivity extends AppCompatActivity {
         return new int[] {(int) Math.round(stat), (int) Math.round(iv), (int) Math.round(ev)};
     }
 
-    private void showDialog(String info){
+    private void showDialog(String info, boolean haveDontShowThisAgain){
         AlertDialog.Builder builder = new AlertDialog.Builder(IVCalculatorActivity.this);
         builder.setMessage(info);
-        builder.setNeutralButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.dismiss();
+        if(haveDontShowThisAgain) {
+            LayoutInflater adbInflater = LayoutInflater.from(IVCalculatorActivity.this);
+            View view = adbInflater.inflate(R.layout.dialog_iv_calculator_warning, null);
+            CheckBox dontShowAgain = view.findViewById(R.id.iv_calculator_dont_show_checkbox);
+            builder.setView(view);
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.dismiss();
+                }
+            });
+            dontShowAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    if(compoundButton.isChecked()){
+                        storeDialogStatus(true);
+                    } else {
+                        storeDialogStatus(false);
+                    }
+                }
+            });
+            if(!getDialogStatus()){
+                builder.show();
             }
-        });
-        builder.show();
+        } else {
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.dismiss();
+                }
+            });
+            builder.show();
+        }
+    }
+
+    private void storeDialogStatus(boolean isChecked){
+        SharedPreferences mSharedPreferences = getSharedPreferences("CheckItem", MODE_PRIVATE);
+        SharedPreferences.Editor mEditor = mSharedPreferences.edit();
+        mEditor.putBoolean("iv_cal_dont_show", isChecked);
+        mEditor.apply();
+    }
+
+    private boolean getDialogStatus(){
+        SharedPreferences mSharedPreferences = getSharedPreferences("CheckItem", MODE_PRIVATE);
+        return mSharedPreferences.getBoolean("iv_cal_dont_show", false);
     }
 }
