@@ -11,8 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        card_view:cardCornerRadius="10dp"
-        card_view:cardElevation="3dp"
         card_view:cardUseCompatPadding="true"
         android:clickable="true"
         android:foreground="?android:attr/selectableItemBackground"
@@ -25,7 +23,7 @@
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="Name"
                 android:layout_weight="4"
                 android:textSize="16sp"
@@ -34,7 +32,7 @@
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="Power"
                 android:layout_weight="1"
                 android:textSize="16sp"
@@ -43,7 +41,7 @@
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="Acc."
                 android:layout_weight="1"
                 android:textSize="16sp"

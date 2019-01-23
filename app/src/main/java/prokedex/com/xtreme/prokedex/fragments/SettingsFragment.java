@@ -10,13 +10,11 @@ import android.preference.PreferenceManager;
 import android.preference.SwitchPreference;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatDelegate;
 import android.util.Log;
 
 import prokedex.com.xtreme.prokedex.MainActivity;
 import prokedex.com.xtreme.prokedex.R;
-import prokedex.com.xtreme.prokedex.SettingsActivity;
 
 import static prokedex.com.xtreme.prokedex.MainActivity.prefs;
 
@@ -49,7 +47,7 @@ public class SettingsFragment extends PreferenceFragment {
 
                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
                     Intent intent = new Intent(getContext(), MainActivity.class);
-                    ActivityCompat.finishAffinity(getActivity());
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                 } else {
                     Snackbar.make(getView(), "Please restart application to apply change.", Snackbar.LENGTH_LONG).show();

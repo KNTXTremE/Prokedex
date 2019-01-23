@@ -113,6 +113,149 @@ public class AllItems {
         moves.put(11, new String[]{"Aeroblast", "10", "1", "100", "95"});
     }
 
+    //###NATURE
+
+    private static String[] stat = {"-", "Attack", "Defense", "Sp.Attack", "Sp.Defense", "Speed"};
+
+    private static String[] flavor = {"-", "Spicy", "Sour", "Dry", "Bitter", "Sweet"};
+
+    private static String[] flavorColor = {"#00000000", "#f5ac78", "#fae078", "#9db7f5", "#a7db8d", "#fa92b2"};
+
+    private static Map<Integer, String[]> natures = new HashMap<>(); //{No.:{"Name", "IncStat", "DecStat", "FavFlavor", "DisFlavor"}}
+
+    public static void addNatures(){
+        natures.put(1, new String[]{"Hardy", "0", "0"});
+        natures.put(2, new String[]{"Lonely", "1", "2"});
+        natures.put(3, new String[]{"Brave", "1", "5"});
+        natures.put(4, new String[]{"Adamant", "1", "3"});
+        natures.put(5, new String[]{"Naughty", "1", "4"});
+        natures.put(6, new String[]{"Bold", "2", "1"});
+        natures.put(7, new String[]{"Docile", "0", "0"});
+        natures.put(8, new String[]{"Relaxed", "2", "5"});
+        natures.put(9, new String[]{"Impish", "2", "3"});
+        natures.put(10, new String[]{"Lax", "2", "4"});
+        natures.put(11, new String[]{"Timid", "5", "1"});
+        natures.put(12, new String[]{"Hasty", "5", "2"});
+        natures.put(13, new String[]{"Serious", "0", "0"});
+        natures.put(14, new String[]{"Jolly", "5", "3"});
+        natures.put(15, new String[]{"Naive", "5", "4"});
+        natures.put(16, new String[]{"Modest", "3", "1"});
+        natures.put(17, new String[]{"Mild", "3", "2"});
+        natures.put(18, new String[]{"Quiet", "3", "5"});
+        natures.put(19, new String[]{"Bashful", "0", "0"});
+        natures.put(20, new String[]{"Rash", "3", "4"});
+        natures.put(21, new String[]{"Calm", "4", "1"});
+        natures.put(22, new String[]{"Gentle", "4", "2"});
+        natures.put(23, new String[]{"Sassy", "4", "5"});
+        natures.put(24, new String[]{"Careful", "4", "3"});
+        natures.put(25, new String[]{"Quirky", "0", "0"});
+    }
+
+    private static Map<String, String[]> naturesCal = new HashMap<>(); //{No.:{"Name", "IncStat", "DecStat", "FavFlavor", "DisFlavor"}}
+
+    public static void addNaturesCal(){
+        naturesCal.put("Hardy", new String[]{"0", "0"});
+        naturesCal.put("Lonely", new String[]{"1", "2"});
+        naturesCal.put("Brave", new String[]{"1", "5"});
+        naturesCal.put("Adamant", new String[]{"1", "3"});
+        naturesCal.put("Naughty", new String[]{"1", "4"});
+        naturesCal.put("Bold", new String[]{"2", "1"});
+        naturesCal.put("Docile", new String[]{"0", "0"});
+        naturesCal.put("Relaxed", new String[]{"2", "5"});
+        naturesCal.put("Impish", new String[]{"2", "3"});
+        naturesCal.put("Lax", new String[]{"2", "4"});
+        naturesCal.put("Timid", new String[]{"5", "1"});
+        naturesCal.put("Hasty", new String[]{"5", "2"});
+        naturesCal.put("Serious", new String[]{"0", "0"});
+        naturesCal.put("Jolly", new String[]{"5", "3"});
+        naturesCal.put("Naive", new String[]{"5", "4"});
+        naturesCal.put("Modest", new String[]{"3", "1"});
+        naturesCal.put("Mild", new String[]{"3", "2"});
+        naturesCal.put("Quiet", new String[]{"3", "5"});
+        naturesCal.put("Bashful", new String[]{"0", "0"});
+        naturesCal.put("Rash", new String[]{"3", "4"});
+        naturesCal.put("Calm", new String[]{"4", "1"});
+        naturesCal.put("Gentle", new String[]{"4", "2"});
+        naturesCal.put("Sassy", new String[]{"4", "5"});
+        naturesCal.put("Careful", new String[]{"4", "3"});
+        naturesCal.put("Quirky", new String[]{"0", "0"});
+    }
+
+    //###ITEM
+
+    private static Map<Integer, String[]> items = new HashMap<>();
+
+    private static int[] itemsImage = {R.drawable.i001_dream_ability_capsule_sprite,
+            R.drawable.i002_bag_ability_urge_sprite,
+            R.drawable.i003_dream_abomasite_sprite,
+            R.drawable.i004_dream_absolite_sprite,
+            R.drawable.i005_dream_absorb_bulb_sprite,
+            R.drawable.i006_bag_acro_bike_sprite,
+            R.drawable.i007_dream_adamant_orb_sprite,
+            R.drawable.i008_dream_adrenaline_orb_sprite,
+            R.drawable.i009_bag_adventure_rules_sprite,
+            R.drawable.i010_dream_aerodactylite_sprite,
+            R.drawable.i011_dream_aggronite_sprite,
+            R.drawable.i012_dream_aguav_berry_sprite,
+            R.drawable.i013_dream_air_balloon_sprite,
+            R.drawable.i014_bag_air_mail_sprite,
+            R.drawable.i015_dream_alakazite_sprite,
+            R.drawable.i016_dream_aloraichium_z_sprite,
+            R.drawable.i017_dream_altarianite_sprite,
+            R.drawable.i018_dream_amaze_mulch_sprite,
+            R.drawable.i019_dream_ampharosite_sprite,
+            R.drawable.i020_dream_amulet_coin_sprite,};
+
+    public static void addItems(){
+        items.put(R.drawable.i001_dream_ability_capsule_sprite, new String[]{"Ability Capsule", "Allows a Pokémon with two Abilities to switch between these Abilities."});
+        items.put(R.drawable.i002_bag_ability_urge_sprite, new String[]{"Ability Urge", "Activates the Ability of an ally Pokémon. Wonder Launcher only."});
+        items.put(R.drawable.i003_dream_abomasite_sprite, new String[]{"Abomasite", "Allows Abomasnow to Mega Evolve into Mega Abomasnow."});
+        items.put(R.drawable.i004_dream_absolite_sprite, new String[]{"Absolite", "Allows Absol to Mega Evolve into Mega Absol."});
+        items.put(R.drawable.i005_dream_absorb_bulb_sprite, new String[]{"Absorb Bulb", "Raises the holder's Special Attack after being hit by a Water-type attack. Consumed after use."});
+        items.put(R.drawable.i006_bag_acro_bike_sprite, new String[]{"Acro Bike", "A bicycle with which the player can do tricks such as jump sideways."});
+        items.put(R.drawable.i007_dream_adamant_orb_sprite, new String[]{"Adamant Orb", "Boosts Dialga's Steel- and Dragon-type attacks."});
+        items.put(R.drawable.i008_dream_adrenaline_orb_sprite, new String[]{"Adrenaline Orb", "When used, makes wild Pokémon more likely to call allies for help in an SOS Battle. Is not consumed if it fails. If the holder is affected by Intimidate, its Speed is increased by one stage."});
+        items.put(R.drawable.i009_bag_adventure_rules_sprite, new String[]{"Adventure Rules", "Contains information new Trainers should know."});
+        items.put(R.drawable.i010_dream_aerodactylite_sprite, new String[]{"Aerodactylite", "Allows Aerodactyl to Mega Evolve into Mega Aerodactyl."});
+        items.put(R.drawable.i011_dream_aggronite_sprite, new String[]{"Aggronite", "Allows Aggron to Mega Evolve into Mega Aggron."});
+        items.put(R.drawable.i012_dream_aguav_berry_sprite, new String[]{"Aguav Berry", "When HP falls below 25%, restores 50% HP, but confuses Pokémon that dislike bitter food (12.5% when below 50% before Gen. VII)."});
+        items.put(R.drawable.i013_dream_air_balloon_sprite, new String[]{"Air Balloon", "Gives the holder an immunity to Ground-type moves but is popped when the holder is hit by any non-Ground-type attacks."});
+        items.put(R.drawable.i014_bag_air_mail_sprite, new String[]{"Air Mail", "A red- and blue-striped stationery. To be held by a Pokémon for delivery."});
+        items.put(R.drawable.i015_dream_alakazite_sprite, new String[]{"Alakazite", "Allows Alakazam to Mega Evolve into Mega Alakazam."});
+        items.put(R.drawable.i016_dream_aloraichium_z_sprite, new String[]{"Aloraichium Z", "Allows Alolan Raichu to upgrade Thunderbolt to the special Z-Move Stoked Sparksurfer."});
+        items.put(R.drawable.i017_dream_altarianite_sprite, new String[]{"Altarianite", "Allows Altaria to Mega Evolve into Mega Altaria."});
+        items.put(R.drawable.i018_dream_amaze_mulch_sprite, new String[]{"Amaze Mulch", "Combines the effects of Boost Mulch, Rich Mulch, and Surprise Mulch: Causes an applied Berry patch's soil to dry quicker, increases final Berry harvest by 2 Berries, and makes Berry mutations more likely."});
+        items.put(R.drawable.i019_dream_ampharosite_sprite, new String[]{"Ampharosite", "Allows Ampharos to Mega Evolve into Mega Ampharos."});
+        items.put(R.drawable.i020_dream_amulet_coin_sprite, new String[]{"Amulet Coin", "Doubles the earned money after a battle against a Trainer."});
+    }
+
+    //###ABILITY
+
+    private static Map<Integer, String[]> abilities = new HashMap<>();
+
+    public static void  addAbilities(){
+        abilities.put(1, new String[]{"Adaptability", "Powers up moves of the same type as the Pokémon."});
+        abilities.put(2, new String[]{"Aerilate", "Normal-type moves become Flying-type moves. The power of those moves is boosted a little."});
+        abilities.put(3, new String[]{"Aftermath", "Damages the attacker if it contacts the Pokémon with a finishing hit."});
+        abilities.put(4, new String[]{"Air Lock", "Eliminates the effects of weather."});
+        abilities.put(5, new String[]{"Analytic", "Boosts move power when the Pokémon moves last."});
+        abilities.put(6, new String[]{"Anger Point", "The Pokémon is angered when it takes a critical hit, and that maxes its Attack stat."});
+        abilities.put(7, new String[]{"Anticipation", "The Pokémon can sense an opposing Pokémon's dangerous moves."});
+        abilities.put(8, new String[]{"Arena Trap", "Prevents opposing Pokémon from fleeing."});
+        abilities.put(9, new String[]{"Aroma Veil", "Protects itself and its allies from attacks that limit their move choices."});
+        abilities.put(10, new String[]{"Aura Break", "The effects of \"Aura\" Abilities are reversed to lower the power of affected moves."});
+        abilities.put(11, new String[]{"Bad Dreams", "Reduces the HP of sleeping opposing Pokémon."});
+        abilities.put(12, new String[]{"Battery", "Powers up ally Pokémon's special moves."});
+        abilities.put(13, new String[]{"Battle Armor", "Hard armor protects the Pokémon from critical hits."});
+        abilities.put(14, new String[]{"Battle Bond", "Defeating an opposing Pokémon strengthens the Pokémon's bond with its Trainer, and it becomes Ash-Greninja. Water Shuriken gets more powerful."});
+        abilities.put(15, new String[]{"Beast Boost", "The Pokémon boosts its most proficient stat each time it knocks out a Pokémon."});
+        abilities.put(16, new String[]{"Berserk", "Boosts the Pokémon's Sp. Atk stat when it takes a hit that causes its HP to become half or less."});
+        abilities.put(17, new String[]{"Big Pecks", "Protects the Pokémon from Defense-lowering effects."});
+        abilities.put(18, new String[]{"Blaze", "Powers up Fire-type moves when the Pokémon's HP is low."});
+        abilities.put(19, new String[]{"Bulletproof", "Protects the Pokémon from some ball and bomb moves."});
+        abilities.put(20, new String[]{"Cacophony", "Avoids sound-based moves."});
+    }
+
     public static ArrayList<String> getPokemonIds() {
         return pokemonIds;
     }
@@ -180,4 +323,37 @@ public class AllItems {
     public static Map<Integer, String[]> getMoves() {
         return moves;
     }
+
+    public static String getStat(int i) {
+        return stat[i];
+    }
+
+    public static String getFlavor(int i) {
+        return flavor[i];
+    }
+
+    public static Map<Integer, String[]> getNatures() {
+        return natures;
+    }
+
+    public static String getFlavorColor(int i) {
+        return flavorColor[i];
+    }
+
+    public static Map<String, String[]> getNaturesCal() {
+        return naturesCal;
+    }
+
+    public static Map<Integer, String[]> getItems() {
+        return items;
+    }
+
+    public static int[] getItemsImage() {
+        return itemsImage;
+    }
+
+    public static Map<Integer, String[]> getAbilities() {
+        return abilities;
+    }
 }
+
