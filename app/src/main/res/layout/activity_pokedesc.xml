@@ -257,7 +257,7 @@
         android:id="@+id/pokedesc_sprite"
         android:layout_width="@dimen/image_width"
         android:layout_height="@dimen/image_width"
-        android:layout_gravity="center"
+        android:layout_gravity="center_horizontal"
         android:src="@drawable/ic_launcher"
         app:civ_border_color="@android:color/white"
         app:civ_border_width="2dp"
