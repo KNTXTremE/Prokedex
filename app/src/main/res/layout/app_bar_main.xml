@@ -42,7 +42,8 @@
         app:srcCompat="@drawable/ic_arrow_upward_black_24dp"
         app:layout_anchor="@id/bottom_navigation"
         app:layout_anchorGravity="top|end"
-        app:useCompatPadding="true"/>
+        app:useCompatPadding="true"
+        app:fabSize="mini" />
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bottom_navigation"
