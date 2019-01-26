@@ -3,9 +3,11 @@ package prokedex.com.xtreme.prokedex.fragments;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,6 +31,8 @@ public class MoreFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_more, null);
+        AppBarLayout appBarLayout = getActivity().findViewById(R.id.main_app_bar);
+        appBarLayout.setExpanded(true, true);
         ImageView iVCalculatorImg = view.findViewById(R.id.more_iv_calculator_image);
         ImageView teamBuilderImg = view.findViewById(R.id.more_team_builder_image);
         ImageView abilityDexImg = view.findViewById(R.id.more_ability_dex_image);
