@@ -9,6 +9,8 @@ import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -17,6 +19,8 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatDelegate;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -61,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
+        final FloatingActionButton fab = findViewById(R.id.fab);
 
         mPager = findViewById(R.id.view_pager);
         mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
@@ -77,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         bottomNavView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                selectFragment(item);
+                selectFragment(item, fab);
                 return true;
             }
         });
@@ -93,6 +98,8 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int position) {
+                if(position == 4)
+                    fab.hide();
                 if (prevMenuItem != null)
                     prevMenuItem.setChecked(false);
                 else {
@@ -119,15 +126,6 @@ public class MainActivity extends AppCompatActivity {
 //            transaction.commit();
 //        }
 
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Coming Soon", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
-
 //        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 //        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
 //                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -137,6 +135,8 @@ public class MainActivity extends AppCompatActivity {
 //        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
 //        navigationView.setNavigationItemSelectedListener(this);
 
+        setFloatingActionButtonListener(fab);
+
         AllItems.addElements();
         AllItems.addMoves();
         AllItems.addPokemonIds();
@@ -144,6 +144,40 @@ public class MainActivity extends AppCompatActivity {
         AllItems.addNaturesCal();
         AllItems.addItems();
         AllItems.addAbilities();
+    }
+
+    private void setFloatingActionButtonListener(FloatingActionButton fab) {
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment page = ((ScreenSlidePagerAdapter) mPagerAdapter).getItem(mPager.getCurrentItem());
+//                Fragment page = getSupportFragmentManager().findFragmentByTag("android:switcher:" + R.id.view_pager + ":" + );
+                RecyclerView recyclerView = null;
+                Log.d(TAG, "onClick: ");
+                if(page != null){
+                    if (mPager.getCurrentItem() == 0) {
+                        recyclerView = ((MovedexFragment)page).getRecyclerMoveView();
+                    }
+                    if (mPager.getCurrentItem() == 1) {
+                        recyclerView = ((ItemdexFragment)page).getRecyclerItemView();
+                    }
+                    if (mPager.getCurrentItem() == 2) {
+                        recyclerView = ((PokedexFragment)page).getRecyclerPokemonView();
+                    }
+                    if (mPager.getCurrentItem() == 3) {
+                        recyclerView = ((NaturesFragment)page).getRecyclerNatureView();
+                    }
+                    if (mPager.getCurrentItem() == 4) {
+                        Log.d(TAG, "setFloatingActionButton: FAB More");
+                    }
+                }
+                if(recyclerView != null){
+                    LinearLayoutManager layoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
+                    layoutManager.smoothScrollToPosition(recyclerView, null,0);
+                }
+            }
+        });
     }
 
     private void setDarkMode(BottomNavigationView bottomNavView) {
@@ -210,7 +244,7 @@ public class MainActivity extends AppCompatActivity {
 //        return super.onOptionsItemSelected(item);
 //    }
 
-    public void selectFragment(MenuItem item) {
+    public void selectFragment(MenuItem item, FloatingActionButton fab) {
         int id = item.getItemId();
         Fragment fragment = null;
 
@@ -230,6 +264,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.bottom_nav_more:
                     mPager.setCurrentItem(4);
+                    fab.hide();
                     break;
             }
             item.setChecked(true);

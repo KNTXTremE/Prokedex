@@ -1,6 +1,8 @@
 package prokedex.com.xtreme.prokedex.fragments;
 
 import android.graphics.Color;
+import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -45,7 +47,19 @@ public class ItemdexFragment extends Fragment {
         adapter = new ItemListAdapter(getContext(), allItem);
 
         recyclerItemView.setAdapter(adapter);
+        recyclerItemView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                FloatingActionButton fab = getActivity().findViewById(R.id.fab);
+                if(dy > 0){
+                    fab.show();
+                } else{
+                    fab.hide();
+                }
+            }
+        });
         setHasOptionsMenu(true);
+
         return view;
     }
 
@@ -90,5 +104,9 @@ public class ItemdexFragment extends Fragment {
         searchPlate.setBackgroundColor(Color.TRANSPARENT);
 
         super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    public RecyclerView getRecyclerItemView() {
+        return recyclerItemView;
     }
 }

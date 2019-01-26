@@ -2,7 +2,10 @@ package prokedex.com.xtreme.prokedex.fragments;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -16,6 +19,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 
@@ -45,7 +49,19 @@ public class PokedexFragment extends Fragment {
         adapter = new PokemonListAdapter(getContext(), allPokemon);
 
         recyclerPokemonView.setAdapter(adapter);
+        recyclerPokemonView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                FloatingActionButton fab = getActivity().findViewById(R.id.fab);
+                if(dy > 0){
+                    fab.show();
+                } else{
+                    fab.hide();
+                }
+            }
+        });
         setHasOptionsMenu(true);
+
         return view;
     }
 
@@ -91,5 +107,9 @@ public class PokedexFragment extends Fragment {
         searchPlate.setBackgroundColor(Color.TRANSPARENT);
 
         super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    public RecyclerView getRecyclerPokemonView() {
+        return recyclerPokemonView;
     }
 }
