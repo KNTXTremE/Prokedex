@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
@@ -105,9 +106,12 @@ public class PokeDescActivity extends AppCompatActivity implements AppBarLayout.
             public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
                 Bitmap bitmap = ((BitmapDrawable) resource).getBitmap();
                 Palette palette = Palette.from(bitmap).maximumColorCount(24).generate();
-                Palette.Swatch mutedSwatch = palette.getMutedSwatch();
-                int color = mutedSwatch.getRgb();
-
+                int color;
+                if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES){
+                    color = palette.getLightMutedSwatch().getRgb();
+                } else {
+                    color = palette.getLightMutedSwatch().getRgb();
+                }
                 pokedescAppBar.setBackgroundColor(color);
                 pokedescToolBar.setBackgroundColor(color);
                 Window window = PokeDescActivity.this.getWindow();

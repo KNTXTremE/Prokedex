@@ -8,6 +8,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -112,9 +113,15 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
             public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
                 Bitmap bitmap = ((BitmapDrawable) resource).getBitmap();
                 Palette palette = Palette.from(bitmap).maximumColorCount(24).generate();
-                Palette.Swatch lightMutedSwatch = palette.getLightMutedSwatch();
-                if(lightMutedSwatch != null)
-                    viewHolder.cardView.setCardBackgroundColor(lightMutedSwatch.getRgb());
+                int color;
+                if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES){
+                    color = palette.getLightMutedSwatch().getRgb();
+                } else {
+                    color = palette.getLightMutedSwatch().getRgb();
+                }
+                if(color != Integer.MIN_VALUE)
+                    viewHolder.cardView.setCardBackgroundColor(color);
+
                 return false;
             }
         }).into(viewHolder.sprite);
