@@ -27,7 +27,27 @@ public class AllItems {
             "Weedle", "Kakuna",
             "Beedrill", "Pidgey",
             "Pidgeotto", "Pidgeot",
-            "Rattata", "Raticate"};
+            "Rattata", "Raticate",
+            "Spearow", "Fearow",
+            "Ekans", "Arbok",
+            "Pikachu", "Raichu",
+            "Sandshrew", "Sandslash",
+            "Nidoran♀", "Nidorina",
+            "Nidoqueen", "Nidoran♂",
+            "Nidorino", "Nidoking",
+            "Clefairy", "Clefable",
+            "Vulpix", "Ninetales",
+            "Jigglypuff", "Wigglytuff",
+            "Zubat", "Golbat",
+            "Oddish", "Gloom",
+            "Vileplume", "Paras",
+            "Parasect", "Venonat",
+            "Venomoth", "Diglett",
+            "Dugtrio", "Meowth",
+            "Persian", "Psyduck",
+            "Golduck", "Mankey",
+            "Primeape", "Growlithe",
+            "Arcanine", "Poliwag"};
 
     private static String[] pokemonNameJaps = {"フシギダネ\nFushigidane", "フシギソウ\nFushigisou",
             "フシギバナ\nFushigibana", "ヒトカゲ\nHitokage",
@@ -38,7 +58,27 @@ public class AllItems {
             "ビードル\nBeedle", "コクーン\nCocoon",
             "スピアー\nSpear", "ポッポ\nPoppo",
             "ピジョン\nPigeon", "ピジョット\nPigeot",
-            "コラッタ\nKoratta ", "ラッタ\nRatta"};
+            "コラッタ\nKoratta ", "ラッタ\nRatta",
+            "オニスズメ\nOnisuzume", "オニドリル\nOnidrill",
+            "アーボ\nArbo", "アーボック\nArbok",
+            "ピカチュウ\nPikachu", "ライチュウ\nRaichu",
+            "サンド\nSand", "サンドパン\nSandpan",
+            "ニドラン♀\nNidoran♀", "ニドリーナ\nNidorina",
+            "ニドクイン\nNidoqueen", "ニドラン♂\nNidoran♂",
+            "ニドリーノ\nNidorino", "ニドキング\nNidoking",
+            "ピッピ\nPippi", "ピクシー\nPixy",
+            "ロコン\nRokon", "キュウコン\nKyukon",
+            "プリン\nPurin", "プクリン\nPukurin",
+            "ズバット\nZubat", "ゴルバット\nGolbat",
+            "ナゾノクサ\nNazonokusa", "クサイハナ\nKusaihana",
+            "ラフレシア\nRuffresia", "パラス\nParas",
+            "パラセクト\nParasect", "コンパン\nKongpang",
+            "モルフォン\nMorphon", "ディグダ\nDigda",
+            "ダグトリオ\nDugtrio", "ニャース\nNyarth",
+            "ペルシアン\nPersian", "コダック\nKoduck",
+            "ゴルダック\nGolduck", "マンキー\nMankey",
+            "オコリザル\nOkorizaru", "ガーディ\nGardie",
+            "ウインディ\nWindie", "ニョロモ\nNyoromo"};
 
     private static int[] resIds = {R.drawable.p001, R.drawable.p002,
             R.drawable.p003, R.drawable.p004,
@@ -49,15 +89,43 @@ public class AllItems {
             R.drawable.p013, R.drawable.p014,
             R.drawable.p015, R.drawable.p016,
             R.drawable.p017, R.drawable.p018,
-            R.drawable.p019, R.drawable.p020};
+            R.drawable.p019, R.drawable.p020,
+            R.drawable.p021, R.drawable.p022,
+            R.drawable.p023, R.drawable.p024,
+            R.drawable.p025, R.drawable.p026,
+            R.drawable.p027, R.drawable.p028,
+            R.drawable.p029, R.drawable.p030,
+            R.drawable.p031, R.drawable.p032,
+            R.drawable.p033, R.drawable.p034,
+            R.drawable.p035, R.drawable.p036,
+            R.drawable.p037, R.drawable.p038,
+            R.drawable.p039, R.drawable.p040,
+            R.drawable.p041, R.drawable.p042,
+            R.drawable.p043, R.drawable.p044,
+            R.drawable.p045, R.drawable.p046,
+            R.drawable.p047, R.drawable.p048,
+            R.drawable.p049, R.drawable.p050,
+            R.drawable.p051, R.drawable.p052,
+            R.drawable.p053, R.drawable.p054,
+            R.drawable.p055, R.drawable.p056,
+            R.drawable.p057, R.drawable.p058,
+            R.drawable.p059, R.drawable.p060};
 
     private static SparseArray<String> elements = new SparseArray<>();
 
     private static int[] element1s = {5, 5, 5, 2, 2, 2, 3, 3, 3, 12,
-            12, 12, 12, 12, 12, 1, 1, 1, 1, 1};
+            12, 12, 12, 12, 12, 1, 1, 1, 1, 1,
+            1, 1, 8, 8, 4, 4, 9, 9, 8, 8,
+            8, 8, 8, 8, 18, 18, 2, 2, 1, 1,
+            8, 8, 5, 5, 5, 12, 12, 12, 12, 9,
+            9, 1, 1, 3, 3, 7, 7, 2, 2, 3};
 
     private static int[] element2s = {8, 8, 8, 0, 0, 10, 0, 0, 0, 0,
-            0, 10, 8, 8, 8, 10, 10, 10, 0, 0};
+            0, 10, 8, 8, 8, 10, 10, 10, 0, 0,
+            10, 10, 0, 0, 0, 0, 0, 0, 0, 0,
+            9, 0, 0, 9, 0, 0, 0, 0, 18, 18,
+            10, 10, 8, 8, 8, 5, 5, 8, 8, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
     public static void addPokemonIds(){
         for (int i = 0; i < pokemonNames.length; i++){
@@ -80,10 +148,8 @@ public class AllItems {
         elements.append(11, "Psychic");
         elements.append(12, "Bug");
         elements.append(13, "Rock");
-        elements.append(14, "Ghost");
-        elements.append(15, "Dragon");
-        elements.append(16, "Dark");
-        elements.append(17, "Steel");
+        elements.append(14, "Ghost");elements.append(15, "Dragon");
+        elements.append(16, "Dark");elements.append(17, "Steel");
         elements.append(18, "Fairy");
     }
 
