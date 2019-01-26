@@ -21,7 +21,7 @@
             <ImageView
                 android:id="@+id/pokedesc_imageview_placeholder"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="250dp"
                 android:scaleType="centerCrop"
                 android:tint="#11000000"
                 app:layout_collapseMode="parallax"
@@ -266,5 +266,5 @@
         app:layout_behavior="prokedex.com.xtreme.prokedex.AvatarImageBehavior"
         app:startHeight="2dp"
         app:startToolbarPosition="2dp"
-        app:startXPosition="2dp" />
+        app:startXPosition="2dp"/>
 </android.support.design.widget.CoordinatorLayout>
