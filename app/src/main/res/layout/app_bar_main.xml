@@ -37,11 +37,10 @@
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="top"
         android:layout_margin="@dimen/fab_margin"
         app:srcCompat="@drawable/ic_arrow_upward_black_24dp"
         app:layout_anchor="@id/bottom_navigation"
-        app:layout_anchorGravity="top|end"
+        app:layout_anchorGravity="bottom|center_horizontal"
         app:useCompatPadding="true"
         app:fabSize="mini" />
 
