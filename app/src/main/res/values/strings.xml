@@ -36,6 +36,7 @@
     <string name="dark_mode_summary">Toggle dark mode</string>
     <string name="dark_mode_title">Dark Mode</string>
     <string name="title_activity_settings">Settings</string>
+    <string name="pokedex_element1_only">Element1 Only</string>
 
     <string-array name="iv_calculator_pokemon_list">
         <item>Choose Pokemon</item>

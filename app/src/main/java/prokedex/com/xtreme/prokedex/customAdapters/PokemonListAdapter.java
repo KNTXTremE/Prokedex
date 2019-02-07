@@ -100,8 +100,12 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
         viewHolder.nameJap.setText(pokemons.get(position).getNameJap());
         viewHolder.element1.setText(AllItems.getElements().get(pokemons.get(position).getElement1()));
         viewHolder.element1.setBackgroundColor(Color.parseColor(AllItems.getElementsColor(pokemons.get(position).getElement1())));
-        viewHolder.element2.setText(AllItems.getElements().get(pokemons.get(position).getElement2()));
-        viewHolder.element2.setBackgroundColor(Color.parseColor(AllItems.getElementsColor(pokemons.get(position).getElement2())));
+        if(pokemons.get(position).getElement2() == 0){
+            viewHolder.element2.setText("");
+        } else{
+            viewHolder.element2.setText(AllItems.getElements().get(pokemons.get(position).getElement2()));
+            viewHolder.element2.setBackgroundColor(Color.parseColor(AllItems.getElementsColor(pokemons.get(position).getElement2())));
+        }
         int sprite = pokemons.get(position).getResId();
         Glide.with(context).load(sprite).listener(new RequestListener<Drawable>() {
             @Override
@@ -119,8 +123,13 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
                 } else {
                     color = palette.getLightMutedSwatch().getRgb();
                 }
-                if(color != Integer.MIN_VALUE)
+                if(color != Integer.MIN_VALUE){
                     viewHolder.cardView.setCardBackgroundColor(color);
+                    if(pokemons.get(position).getElement2() == 0){
+                        viewHolder.element2.setBackgroundColor(color);
+                    }
+                }
+
 
                 return false;
             }
