@@ -23,6 +23,9 @@ import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 
+import prokedex.com.xtreme.prokedex.MainActivity;
+import prokedex.com.xtreme.prokedex.PokeApi.PokedexData;
+import prokedex.com.xtreme.prokedex.PokeApi.PokemonDescData;
 import prokedex.com.xtreme.prokedex.resources.AllItems;
 import prokedex.com.xtreme.prokedex.resources.Pokemon;
 import prokedex.com.xtreme.prokedex.customAdapters.PokemonListAdapter;
@@ -31,23 +34,27 @@ import prokedex.com.xtreme.prokedex.R;
 public class PokedexFragment extends Fragment {
 
     RecyclerView recyclerPokemonView;
-    ArrayList<Pokemon> allPokemon;
+    ArrayList<Pokemon> allPokemon = new ArrayList<>();
+    ArrayList<PokedexData> pokedex;
     PokemonListAdapter adapter;
     private final String TAG = "PokedexFragment";
+    private ArrayList<ArrayList<PokemonDescData>> pokemonDesc;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_pokedex, null);
+        pokedex = MainActivity.getPokedex();
+        pokemonDesc = MainActivity.getPokemonDesc();
+        getData();
         recyclerPokemonView = view.findViewById((R.id.pokemon_list_recycle));
         recyclerPokemonView.setHasFixedSize(true);
         recyclerPokemonView.setNestedScrollingEnabled(true);
         recyclerPokemonView.setItemViewCacheSize(5);
         recyclerPokemonView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         recyclerPokemonView.setItemAnimator(new DefaultItemAnimator());
-        allPokemon = getData();
-        adapter = new PokemonListAdapter(getContext(), allPokemon);
 
+        adapter = new PokemonListAdapter(getContext(), allPokemon);
         recyclerPokemonView.setAdapter(adapter);
         recyclerPokemonView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
@@ -65,13 +72,17 @@ public class PokedexFragment extends Fragment {
         return view;
     }
 
-    private ArrayList<Pokemon> getData(){
-        ArrayList<Pokemon> allPokemon = new ArrayList<>();
-        for(int i = 0; i < AllItems.getResIds().length; i++){
+    private void getData(){
+        for(int i = 0; i < pokedex.size(); i++){
+            PokedexData p = pokedex.get(i);
+            ArrayList<PokemonDescData> arrPd = pokemonDesc.get(i);
+            PokemonDescData pd = arrPd.get(i);
+            Log.d(TAG, "getData: " + pd.toString());
+            Log.d(TAG, "onResponse: " + p.getNumber() + " " + p.getName());
             Pokemon pkm = new Pokemon(AllItems.getPokemonId(i), AllItems.getPokemonName(i), AllItems.getPokemonNameJap(i), AllItems.getResId(i),AllItems.getElement1(i), AllItems.getElement2(i));
+//            Pokemon pkm = new Pokemon(p.getNumber(), p.getName(), "", "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + p.getNumber() + ".png",AllItems.getElement1(i), AllItems.getElement2(i));
             allPokemon.add(pkm);
         }
-        return allPokemon;
     }
 
     @Override

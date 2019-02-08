@@ -95,6 +95,8 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
 
     @Override
     public void onBindViewHolder(final MyViewHolder viewHolder, final int position) {
+
+//        "#"+ String.format("%03d", Integer.parseInt(urlSplit[urlSplit.length - 1]));
         viewHolder.pokemonId.setText(pokemons.get(position).getId());
         viewHolder.name.setText(pokemons.get(position).getName());
         viewHolder.nameJap.setText(pokemons.get(position).getNameJap());

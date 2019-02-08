@@ -7,15 +7,11 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
-import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatDelegate;
@@ -32,12 +28,22 @@ import android.view.WindowManager;
 
 import java.util.ArrayList;
 
+import prokedex.com.xtreme.prokedex.PokeApi.PokeApiService;
+import prokedex.com.xtreme.prokedex.PokeApi.PokedexData;
+import prokedex.com.xtreme.prokedex.PokeApi.PokemonDescData;
+import prokedex.com.xtreme.prokedex.PokeApi.PokemonDescRequest;
+import prokedex.com.xtreme.prokedex.PokeApi.PokemonRequest;
 import prokedex.com.xtreme.prokedex.fragments.ItemdexFragment;
 import prokedex.com.xtreme.prokedex.fragments.MoreFragment;
 import prokedex.com.xtreme.prokedex.fragments.MovedexFragment;
 import prokedex.com.xtreme.prokedex.fragments.NaturesFragment;
 import prokedex.com.xtreme.prokedex.fragments.PokedexFragment;
 import prokedex.com.xtreme.prokedex.resources.AllItems;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -47,6 +53,9 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager mPager;
     private PagerAdapter mPagerAdapter;
     private MenuItem prevMenuItem;
+    private static Retrofit retrofit;
+    private static ArrayList<PokedexData> pokedex;
+    private static ArrayList<ArrayList<PokemonDescData>> pokemonDesc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -144,6 +153,60 @@ public class MainActivity extends AppCompatActivity {
         AllItems.addNaturesCal();
         AllItems.addItems();
         AllItems.addAbilities();
+    }
+
+    public static void getData() {
+        retrofit = new Retrofit.Builder()
+                .baseUrl("https://pokeapi.co/api/v2/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        PokeApiService service = retrofit.create(PokeApiService.class);
+        Call<PokemonRequest> pokemonRequestCall = service.obtainListPokemon(807, 0);
+        pokemonRequestCall.enqueue(new Callback<PokemonRequest>() {
+            @Override
+            public void onResponse(Call<PokemonRequest> call, Response<PokemonRequest> response) {
+                if(response.isSuccessful()){
+                    PokemonRequest pokemonRequest = response.body();
+                    pokedex = pokemonRequest.getResults();
+                } else{
+                    Log.e(TAG, "onResponse: " + response.errorBody());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<PokemonRequest> call, Throwable t) {
+                Log.e(TAG, "onFailure: " + t.getMessage());
+            }
+        });
+        for(int i = 0; i < pokedex.size(); i++){
+            Call<PokemonDescRequest> pokemonDescRequestCall = service.obtainListPokemonDesc(i);
+            final int finalI = i;
+            pokemonDescRequestCall.enqueue(new Callback<PokemonDescRequest>() {
+                @Override
+                public void onResponse(Call<PokemonDescRequest> call, Response<PokemonDescRequest> response) {
+                    if(response.isSuccessful()) {
+                        PokemonDescRequest pokemonDescRequest = response.body();
+                        pokemonDesc.set(finalI, pokemonDescRequest.getResults());
+                    } else {
+                        Log.e(TAG, "onResponse: " + response.errorBody());
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<PokemonDescRequest> call, Throwable t) {
+
+                }
+            });
+        }
+
+    }
+
+    public static ArrayList<PokedexData> getPokedex() {
+        return pokedex;
+    }
+
+    public static ArrayList<ArrayList<PokemonDescData>> getPokemonDesc() {
+        return pokemonDesc;
     }
 
     private void setFloatingActionButtonListener(FloatingActionButton fab) {

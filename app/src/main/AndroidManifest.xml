@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="prokedex.com.xtreme.prokedex">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -27,7 +29,7 @@
         <activity android:name=".IVCalculatorActivity" />
         <activity android:name=".TeamBuilderActivity" />
         <activity android:name=".AbilityDexActivity" />
-        <activity android:name=".TypeDexActivity"></activity>
+        <activity android:name=".TypeDexActivity"/>
     </application>
 
 </manifest>
