@@ -187,6 +187,7 @@ public class MainActivity extends AppCompatActivity {
                     if(response.isSuccessful()) {
                         PokemonDescRequest pokemonDescRequest = response.body();
                         pokemonDesc.set(finalI, pokemonDescRequest.getResults());
+                        Log.d(TAG, "onResponse: " + pokemonDescRequest.getResults());
                     } else {
                         Log.e(TAG, "onResponse: " + response.errorBody());
                     }
