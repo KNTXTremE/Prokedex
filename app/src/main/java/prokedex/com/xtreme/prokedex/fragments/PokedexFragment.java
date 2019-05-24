@@ -44,9 +44,9 @@ public class PokedexFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_pokedex, null);
-//        pokedex = MainActivity.getPokedex();
-//        pokemonDesc = MainActivity.getPokemonDesc();
-//        getData();
+        pokedex = MainActivity.getPokedex();
+        pokemonDesc = MainActivity.getPokemonDesc();
+        allPokemon = getData();
         recyclerPokemonView = view.findViewById((R.id.pokemon_list_recycle));
         recyclerPokemonView.setHasFixedSize(true);
         recyclerPokemonView.setNestedScrollingEnabled(true);
@@ -72,17 +72,26 @@ public class PokedexFragment extends Fragment {
         return view;
     }
 
-    private void getData(){
-        for(int i = 0; i < pokedex.size(); i++){
-            PokedexData p = pokedex.get(i);
-            ArrayList<PokemonDescData> arrPd = pokemonDesc.get(i);
-            PokemonDescData pd = arrPd.get(i);
-            Log.d(TAG, "getData: " + pd.toString());
-            Log.d(TAG, "onResponse: " + p.getNumber() + " " + p.getName());
+//    private void getData(){
+//        for(int i = 0; i < pokedex.size(); i++){
+//            PokedexData p = pokedex.get(i);
+//            ArrayList<PokemonDescData> arrPd = pokemonDesc.get(i);
+//            PokemonDescData pd = arrPd.get(i);
+//            Log.d(TAG, "getData: " + pd.toString());
+//            Log.d(TAG, "onResponse: " + p.getNumber() + " " + p.getName());
+//            Pokemon pkm = new Pokemon(AllItems.getPokemonId(i), AllItems.getPokemonName(i), AllItems.getPokemonNameJap(i), AllItems.getResId(i),AllItems.getElement1(i), AllItems.getElement2(i));
+////            Pokemon pkm = new Pokemon(p.getNumber(), p.getName(), "", "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + p.getNumber() + ".png",AllItems.getElement1(i), AllItems.getElement2(i));
+//            allPokemon.add(pkm);
+//        }
+//    }
+
+    private ArrayList<Pokemon> getData(){
+        ArrayList<Pokemon> allPokemon = new ArrayList<>();
+        for(int i = 0; i < AllItems.getResIds().length; i++){
             Pokemon pkm = new Pokemon(AllItems.getPokemonId(i), AllItems.getPokemonName(i), AllItems.getPokemonNameJap(i), AllItems.getResId(i),AllItems.getElement1(i), AllItems.getElement2(i));
-//            Pokemon pkm = new Pokemon(p.getNumber(), p.getName(), "", "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + p.getNumber() + ".png",AllItems.getElement1(i), AllItems.getElement2(i));
             allPokemon.add(pkm);
         }
+        return allPokemon;
     }
 
     @Override
